@@ -1,0 +1,68 @@
+---
+title: "Penguin data wrangling & examples"
+author: "Allison Horst"
+date: "6/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(janitor)
+library(here)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Get the data
+
+```{r}
+penguins <- read_csv(here("data","penguins_lter.csv")) %>% 
+  clean_names()
+```
+### Create simplified subset 
+
+Wrangling to create the simplified data subset, **penguins_size.csv**.
+
+```{r}
+penguin_sub <- penguins %>% 
+  mutate(species_short = word(species, 1)) %>% 
+  select(species_short, 
+         island, 
+         culmen_length_mm, 
+         culmen_depth_mm, 
+         flipper_length_mm, 
+         body_mass_g, 
+         sex)
+
+write_csv(penguin_sub, here("data","penguins_size.csv"))
+```
+
+### Example graph
+
+#### Penguin mass vs. flipper length:
+
+```{r}
+mass_flipper <- ggplot(data = penguin_sub, 
+                       aes(x = flipper_length_mm,
+                           y = body_mass_g)) +
+  geom_point(aes(color = species_short, 
+                 shape = species_short),
+             size = 3,
+             alpha = 0.8) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Penguin size, Palmer Station LTER",
+       subtitle = "Flipper length and body mass for Adelie, Chinstrap and Gentoo Penguins",
+       x = "Flipper length (mm)",
+       y = "Body mass (g)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme(legend.position = c(0.2, 0.7),
+        legend.background = element_rect(fill = "white", color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+mass_flipper
+
+ggsave(here("figures","mass_flipper.png"), width = 8, height = 5)
+```
