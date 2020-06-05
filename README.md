@@ -4,6 +4,11 @@ Data are generously collected and shared by Kristen Gorman et al. from the Palme
 
 Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
 
+Here is an example graph using the data:
+
+<img src="figures/mass_flipper.png" width="600"/>
+
+
 **Links to original data:** 
 
 - Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
