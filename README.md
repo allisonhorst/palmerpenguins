@@ -8,7 +8,14 @@ Thank you Dr. Gorman, Palmer Station LTER and the LTER Network! See full citatio
 
 Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
 
-Here is an example graph using the data:
+#### Meet the penguins: 
+<img src="figures/lter_penguins.png" width="600"/>
+
+#### What is culmen length & depth? 
+<img src="figures/culmen.png" width="400"/>
+
+
+#### Example graph using the data:
 
 <img src="figures/mass_flipper.png" width="600"/>
 
