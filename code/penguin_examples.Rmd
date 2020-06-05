@@ -1,5 +1,5 @@
 ---
-title: "Penguin data wrangling & examples"
+title: "Examples with penguin_size data"
 author: "Allison Horst"
 date: "6/5/2020"
 output: html_document
@@ -7,33 +7,13 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(janitor)
-library(here)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Get the data
 
 ```{r}
-penguins <- read_csv(here("data","penguins_lter.csv")) %>% 
-  clean_names()
-```
-### Create simplified subset 
-
-Wrangling to create the simplified data subset, **penguins_size.csv**.
-
-```{r}
-penguin_sub <- penguins %>% 
-  mutate(species_short = word(species, 1)) %>% 
-  select(species_short, 
-         island, 
-         culmen_length_mm, 
-         culmen_depth_mm, 
-         flipper_length_mm, 
-         body_mass_g, 
-         sex)
-
-write_csv(penguin_sub, here("data","penguins_size.csv"))
+penguins <- read_csv(here("data","penguins_size.csv"))
 ```
 
 ### Example graphs
@@ -41,11 +21,11 @@ write_csv(penguin_sub, here("data","penguins_size.csv"))
 #### Penguin mass vs. flipper length:
 
 ```{r}
-mass_flipper <- ggplot(data = penguin_sub, 
+mass_flipper <- ggplot(data = penguins, 
                        aes(x = flipper_length_mm,
                            y = body_mass_g)) +
-  geom_point(aes(color = species_short, 
-                 shape = species_short),
+  geom_point(aes(color = species, 
+                 shape = species),
              size = 3,
              alpha = 0.8) +
   theme_minimal() +
@@ -70,11 +50,11 @@ ggsave(here("figures","mass_flipper.png"), width = 8, height = 5)
 #### Flipper length vs. culmen length
 
 ```{r}
-flipper_culmen <- ggplot(data = penguin_sub,
+flipper_culmen <- ggplot(data = penguins,
                          aes(x = flipper_length_mm,
                              y = culmen_length_mm)) +
-  geom_point(aes(color = species_short, 
-                 shape = species_short),
+  geom_point(aes(color = species, 
+                 shape = species),
              size = 3,
              alpha = 0.8) +
   theme_minimal() +
@@ -99,15 +79,15 @@ ggsave(here("figures","flipper_culmen.png"), width = 8, height = 5)
 #### Flipper length vs. culmen length
 
 ```{r}
-culmen_len_dep <- ggplot(data = penguin_sub,
+culmen_len_dep <- ggplot(data = penguins,
                          aes(x = culmen_length_mm,
                              y = culmen_depth_mm,
-                             group = species_short)) +
-  geom_point(aes(color = species_short, 
-                 shape = species_short),
+                             group = species)) +
+  geom_point(aes(color = species, 
+                 shape = species),
              size = 3,
              alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE, aes(color = species_short)) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
   theme_minimal() +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   labs(title = "Penguin culmen dimensions",
@@ -131,7 +111,7 @@ ggsave(here("figures","culmen_len_dep.png"), width = 8, height = 5)
 #### Simpson's paradox, omitting species in graph above:  
 
 ```{r}
-culmen_no_species <- ggplot(data = penguin_sub,
+culmen_no_species <- ggplot(data = penguins,
                          aes(x = culmen_length_mm,
                              y = culmen_depth_mm)) +
   geom_point() +
