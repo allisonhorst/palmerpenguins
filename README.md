@@ -2,13 +2,13 @@
 
 This data, generously collected and shared by Kristen Gorman et al. from the Palmer Station, Antarctica LTER (a member of the Long Term Ecological Research Network). 
 
+Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. 
+
 **Links to original data:** 
 
-Chinstrap: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
-Adelie: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
-Gentoo: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
-
-Data for 3 penguin species have been combined into a single CSV, **penguins_lter.csv**. 
+- Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
+- Adelie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
+- Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
 
 **Title:** Structural size measurements and isotopic signatures of foraging among adult male and female chinstrap, adelie and gentoo penguins nesting along the Palmer Archipelago near Palmer Station
                                         
