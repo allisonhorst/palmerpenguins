@@ -12,7 +12,7 @@ Here is an example graph using the data:
 
 <img src="figures/mass_flipper.png" width="600"/>
 
-# Citation: 
+# Data: 
 
 Data are from: 
 
