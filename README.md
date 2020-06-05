@@ -6,7 +6,7 @@ THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network!!! See complete d
 
 ## Summary:
 
-Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
+Data for 3 penguin species (Chinstrap, Adélie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
 
 Feel free to use the illustrations below for your teaching materials (Artwork: @allison_horst). 
 
