@@ -12,6 +12,10 @@ Data are from:
 
 See the full paper [HERE](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081). 
 
+From Gorman et al.: "Data reported here are publicly available within the PAL-LTER data system (datasets #219, 220, and 221): http:// oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets. These data are additionally archived within the United States (US) LTER Network’s Information System Data Portal: https://portal. lternet.edu/. Individuals interested in using these data are therefore expected to follow the US LTER Network’s Data Access Policy, Requirements and Use Agreement: http://www. lternet.edu/policies/data-access."
+
+Anyone interested in publishing the data should contact [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) about analysis and working together on any final products.
+
 ## Data use: 
 
 
@@ -26,11 +30,12 @@ Here is an example graph using the data:
 
 **Links to original data:** 
 
-Data accessed via the [Environmental Data Initiative](https://environmentaldatainitiative.org).
+Data accessed via the LTER Data Portal: 
 
 - Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
 - Adelie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
 - Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
+
 
 **Title:** Structural size measurements and isotopic signatures of foraging among adult male and female chinstrap, adelie and gentoo penguins nesting along the Palmer Archipelago near Palmer Station
                                         
