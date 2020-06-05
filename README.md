@@ -1,6 +1,6 @@
 # Palmer Station LTER Penguins
 
-Data are generously collected and made available by Kristen Gorman and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
+Data are generously collected and made available by Dr. Kristen Gorman and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
 ## Data use: 
 
