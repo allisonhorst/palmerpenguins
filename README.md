@@ -2,11 +2,13 @@
 
 Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
-Thank you Dr. Gorman, Palmer Station LTER and the LTER Network! See full citation and data information below. 
+Thank you Dr. Gorman, Palmer Station LTER and the LTER Network! 
 
 ## Summary:
 
 Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
+
+Feel free to use the illustrations below for your teaching materials (Artwork: @allison_horst). 
 
 #### Meet the penguins: 
 <img src="figures/lter_penguins.png" width="600"/>
@@ -14,12 +16,11 @@ Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into
 #### What is culmen length & depth? 
 <img src="figures/culmen.png" width="400"/>
 
-
 #### Example graph using the data:
 
 <img src="figures/mass_flipper.png" width="600"/>
 
-# Data: 
+## Data: 
 
 Data are from: 
 
@@ -41,7 +42,7 @@ Data accessed via the [LTER Data Portal](https://portal.lternet.edu/nis/home.jsp
 - Adelie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
 - Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
 
-**Data citations:** 
+**Full data citations:** 
 
 - Gorman K. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female chinstrap penguins (Pygoscelis antarctica) nesting along the Palmer Archipelago near Palmer Station, 2007-2009. Environmental Data Initiative. https://doi.org/10.6073/pasta/2b1cff60f81640f182433d23e68541ce. 
 
