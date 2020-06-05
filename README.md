@@ -1,8 +1,16 @@
-# Palmer Station LTER Penguin data
+# Palmer Station LTER Penguins
 
 Data are generously collected and shared by Kristen Gorman et al. from the Palmer Station, Antarctica LTER (a member of the Long Term Ecological Research Network). 
 
+## Data use: 
+
 See [data use policies](https://pal.lternet.edu/data/policies).
+
+"Data Use: The data available here are intended for scholarly use by the research community, with the express understanding that data users will properly acknowledge the originating investigator. Use or reproduction of any material herein for any commercial purpose is prohibited without prior written permission from the responsible party.
+
+Data Acknowledgment: Data from the Palmer LTER data repository were supported by Office of Polar Programs, NSF Grants OPP-9011927, OPP-9632763 and OPP-0217282."
+
+## Summary:
 
 Data for 3 penguin species (Chinstrap, Adelie, & Gentoo) have been combined into a single CSV, **penguins_lter.csv**. A simplified subset **penguins_size.csv** is also included, which contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species, along with island and sex. 
 
