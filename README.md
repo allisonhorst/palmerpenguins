@@ -16,9 +16,26 @@ Feel free to use the illustrations below for your teaching materials (Artwork: @
 #### What is culmen length & depth? 
 <img src="figures/culmen.png" width="400"/>
 
-#### Example graph using the data:
+### Example graphs using the data:
+
+#### Flipper length vs. body mass
 
 <img src="figures/mass_flipper.png" width="600"/>
+
+#### Flipper length vs. culmen length
+
+<img src="figures/flipper_culmen.png" width="600"/>
+
+#### Culmen dimensions Simpson's paradox example?
+
+Omitting species, culmen length vs. culmen depth: 
+
+<img src="figures/culmen_no_species.png" width="600"/>
+
+Including species, culmen length vs. culmen depth: 
+
+<img src="figures/culmen_len_dep.png" width="600"/>
+
 
 ## Data: 
 
