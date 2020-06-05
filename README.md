@@ -1,8 +1,6 @@
 # Palmer Station LTER Penguins
 
-Data are generously collected made available by Kristen Gorman from the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the Long Term Ecological Research Network. 
-
-See more information on the awesome LTER Network at [LTERnet.edu](https://lternet.edu/).
+Data are generously collected made available by Kristen Gorman and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
 ## Data use: 
 
@@ -22,6 +20,8 @@ Here is an example graph using the data:
 
 
 **Links to original data:** 
+
+Data accessed via the [Environmental Data Initiative](https://environmentaldatainitiative.org).
 
 - Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
 - Adelie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
