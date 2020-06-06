@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(here)
+library(gt)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -17,7 +19,6 @@ These examples use the simplified 'penguins_size.csv' availabe in the repo.
 ```{r}
 penguins <- read_csv(here("data","penguins_size.csv"))
 ```
-
 ## Example graphs
 
 #### Penguin mass vs. flipper length:
@@ -170,6 +171,24 @@ flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) 
 flipper_box
 ```
 
+Body mass histograms: 
 
+```{r}
+
+mass_hist <- ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram(aes(fill = species), 
+                 alpha = 0.5, 
+                 position = "identity") +
+  scale_fill_manual(values = c("darkorange","purple","cyan4")) +
+  theme_minimal() +
+  labs(x = "Body mass (g)",
+       y = "Frequency",
+       title = "Penguin body mass")
+
+mass_hist
+
+ggsave(here("figures","mass_hist.png"), width = 8, height = 6)
+
+```
 
 
