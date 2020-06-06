@@ -27,14 +27,6 @@ The data folder contains two CSV files. For intro courses/examples, you probably
 
 - **penguins_lter.csv**: original data (including isotope measurements from blood samples)
 
-Feel free to use the illustrations below for your teaching materials (Artwork: @allison_horst). 
-
-#### Meet the penguins: 
-<img src="figures/lter_penguins.png" width="600"/>
-
-#### What is culmen length & depth? 
-<img src="figures/culmen.png" width="400"/>
-
 ### Example graphs using the data:
 
 #### Flipper length vs. body mass
@@ -67,6 +59,15 @@ Body mass histograms:
 
 <img src="figures/mass_hist.png" width="600"/>
 
+## Supplemental artwork
+
+You are invited to use this accompanying artwork (Artwork: @allison_horst):
+
+#### Meet the penguins: 
+<img src="figures/lter_penguins.png" width="600"/>
+
+#### What is culmen length & depth? 
+<img src="figures/culmen.png" width="400"/>
 
 ## Data: 
 
