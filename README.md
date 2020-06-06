@@ -6,9 +6,9 @@ Data are generously collected and made available by [Dr. Kristen Gorman](https:/
 
 ## License & citation
 
-- Data are available by [TODO: INSERT LICENSE INFO HERE].
+- **Data are available by** [TODO: INSERT LICENSE INFO HERE].
 
-- Please cite this data using: **Gorman KB, Williams TD, Fraser WR** (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081
+- **Please cite this data using:** Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081
 
 
 ## Summary:
@@ -18,7 +18,7 @@ The data folder contains two CSV files. For intro courses/examples, you probably
 - **penguins_size.csv**: Simplified data from original penguin data sets. Contains variables:
 
     - `species`: penguin species (Chinstrap, Adélie, or Gentoo)
-    - `culmen_length_mm`: culmen length (mm)
+    - `culmen_length_mm`: culmen length (mm) 
     - `culmen_depth_mm`: culmen depth (mm) 
     - `flipper_length_mm`: flipper length (mm) 
     - `body_mass_g`: body mass (g) 
@@ -85,18 +85,10 @@ Anyone interested in publishing the data should contact [Dr. Kristen Gorman](htt
 
 ## Links to data:
 
-**Links to original data from LTER Network Data Portal:** 
+**Links to data from LTER Network Data Portal:** 
 
-Data accessed via the [LTER Data Portal](https://portal.lternet.edu/nis/home.jsp): 
+Original data accessed via the [LTER Data Portal](https://portal.lternet.edu/nis/home.jsp): 
 
 - Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
-- Adelie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
+- Adélie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
 - Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
-
-**Full data citations:** 
-
-- Gorman K. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female chinstrap penguins (Pygoscelis antarctica) nesting along the Palmer Archipelago near Palmer Station, 2007-2009. Environmental Data Initiative. https://doi.org/10.6073/pasta/2b1cff60f81640f182433d23e68541ce. 
-
-- Gorman K. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (Pygoscelis adeliae) nesting along the Palmer Archipelago near Palmer Station, 2007-2009. Environmental Data Initiative. https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86.
-
-- Gorman K. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female gentoo penguins (Pygoscelis papua) nesting along the Palmer Archipelago near Palmer Station, 2007-2009. Environmental Data Initiative. https://doi.org/10.6073/pasta/409c808f8fc9899d02401bdb04580af7.
