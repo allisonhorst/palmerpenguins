@@ -25,7 +25,7 @@ The data folder contains two CSV files. For intro courses/examples, you probably
     - `island`: island name (Dream, Torgerson, or Biscoe) in the Palmer Archipelago (Antarctica)
     - `sex`: penguin sex
 
-- **penguins_lter.csv**: original data (including isotope measurements from blood samples)
+- **penguins_lter.csv**: Original combined data 
 
 See below for links and citations to original data. 
 
