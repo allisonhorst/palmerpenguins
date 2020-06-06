@@ -68,7 +68,12 @@ You are invited to use this accompanying artwork (Artwork: @allison_horst):
 #### Meet the penguins: 
 <img src="figures/lter_penguins.png" width="600"/>
 
-#### What is culmen length & depth? 
+#### What are culmen length & depth? 
+
+The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languages). 
+
+For this penguin data, the culmen length and culmen depth are measured as shown below (thanks Kristen Gorman for clarifying!):
+
 <img src="figures/culmen.png" width="400"/>
 
 ## Data: 
