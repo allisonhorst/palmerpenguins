@@ -10,9 +10,17 @@ See complete data information & citations below.
 
 ## Summary:
 
-The data folder contains two CSV files: 
+The data folder contains two CSV files. For intro courses/examples, you probably want to use the first one (penguins_size.csv). 
 
-- **penguins_size.csv**: Simplified penguin data containing four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species (Chinstrap, Adélie, & Gentoo), along with island and sex. *This is probably the one you want to use for intro classes & examples, especially if you're using it instead of iris dataset.* 
+- **penguins_size.csv**: Simplified data from original penguin data sets. Contains variables:
+
+    - `species`: penguin species (Chinstrap, Adélie, or Gentoo)
+    - `culmen_length_mm`: culmen length (mm)
+    - `culmen_depth_mm`: culmen depth (mm) 
+    - `flipper_length_mm`: flipper length (mm) 
+    - `body_mass_g`: body mass (g) 
+    - `island`: island name (Dream, Torgerson, or Biscoe) in the Palmer Archipelago (Antarctica)
+    - `sex`: penguin sex
 
 - **penguins_lter.csv**: original data (including isotope measurements from blood samples)
 
