@@ -8,7 +8,7 @@ Data are generously collected and made available by [Dr. Kristen Gorman](https:/
 
 - Data are available by [TODO: INSERT LICENSE INFO HERE].
 
-- Please cite this data using: [TODO: GET DR. GORMAN & MARTY APPROVAL FOR CITATION THAT USERS CAN COPY & PASTE]
+- Please cite this data using: [TODO: INSERT APPROVED CITATION HERE]
 
 
 ## Summary:
@@ -83,11 +83,7 @@ From Gorman et al.: "Data reported here are publicly available within the PAL-LT
 
 Anyone interested in publishing the data should contact [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) about analysis and working together on any final products.
 
-## License: 
-
-[TODO: CONFIRM WITH MARTY]
-
-## Links:
+## Links to data:
 
 **Links to original data from LTER Network Data Portal:** 
 
