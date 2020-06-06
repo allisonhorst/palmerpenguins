@@ -1,8 +1,8 @@
 # Palmer Station LTER Penguins (in progress)
 
-Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (NCEAS) for help regarding license & use!
+Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use!
 
-Data are available by [TODO: INSERT LICENSE INFO HERE]. 
+**Data are available by [TODO: INSERT LICENSE INFO HERE].**
 
 See complete data information & citations below.
 
