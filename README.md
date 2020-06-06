@@ -40,6 +40,18 @@ Including species, culmen length vs. culmen depth:
 
 <img src="figures/culmen_len_dep.png" width="600"/>
 
+#### Opportunities for means comparisons
+
+There are a number of questions you could ask about means comparisons. Here are a couple histograms to consider.
+
+Flipper length histograms:
+
+<img src="figures/flipper_hist.png" width="600"/>
+
+Body mass histograms: 
+
+<img src="figures/mass_hist.png" width="600"/>
+
 
 ## Data: 
 
