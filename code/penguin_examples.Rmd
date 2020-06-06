@@ -190,5 +190,29 @@ mass_hist
 ggsave(here("figures","mass_hist.png"), width = 8, height = 6)
 
 ```
+#### Random viz
+
+Include penguin sex: 
+```{r}
+
+penguins %>% 
+  filter(sex %in% c("FEMALE", "MALE")) %>% 
+ggplot(., aes(x = flipper_length_mm,
+                            y = body_mass_g)) +
+  geom_point(aes(color = sex)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","cyan4")) +
+  labs(title = "Penguin flipper and body mass",
+       subtitle = "Dimensions for male and female Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Flipper length (mm)",
+       y = "Body mass (g)",
+       color = "Penguin sex") +
+  theme(legend.position = "bottom",
+        legend.background = element_rect(fill = "white", color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot") +
+  facet_wrap(~species)
+```
 
 
