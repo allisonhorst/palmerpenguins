@@ -40,9 +40,9 @@ Including species, culmen length vs. culmen depth:
 
 <img src="figures/culmen_len_dep.png" width="600"/>
 
-#### Opportunities for means comparisons
+#### Opportunities for comparisons between groups
 
-There are a number of questions you could ask about means comparisons. Here are a couple histograms to consider.
+There are a number of questions you could ask about means comparisons, spread, effect size, etc. Here are a couple histograms to consider.
 
 Flipper length histograms:
 
