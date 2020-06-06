@@ -1,5 +1,5 @@
 ---
-title: "Examples with penguin_size data"
+title: "Graph examples with penguin_size data"
 author: "Allison Horst"
 date: "6/5/2020"
 output: html_document
@@ -12,11 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Get the data
 
+These examples use the simplified 'penguins_size.csv' availabe in the repo. 
+
 ```{r}
 penguins <- read_csv(here("data","penguins_size.csv"))
 ```
 
-### Example graphs
+## Example graphs
 
 #### Penguin mass vs. flipper length:
 
@@ -131,4 +133,43 @@ culmen_no_species
 ggsave(here("figures", "culmen_no_species.png"), width = 8, height = 5)
 
 ```
+
+#### Some other graphs for brainstorming
+
+Flipper lengths histogram:  
+
+```{r}
+
+flipper_hist <- ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(aes(fill = species), 
+                 alpha = 0.5, 
+                 position = "identity") +
+  scale_fill_manual(values = c("darkorange","purple","cyan4")) +
+  theme_minimal() +
+  labs(x = "Flipper length (mm)",
+       y = "Frequency",
+       title = "Penguin flipper lengths")
+
+flipper_hist
+
+ggsave(here("figures","flipper_hist.png"), width = 8, height = 6)
+
+```
+
+Flipper lengths boxplots + jitter: 
+
+```{r}
+flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_boxplot(aes(color = species), width = 0.3, show.legend = FALSE) +
+  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  theme_minimal() +
+  labs(x = "Species",
+       y = "Flipper length (mm)")
+
+flipper_box
+```
+
+
+
 
