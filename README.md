@@ -1,14 +1,16 @@
-# Palmer Station LTER Penguins
+# Palmer Station LTER Penguins (in progress)
 
-Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
+Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (NCEAS) for help regarding license & use!
 
-THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (NCEAS) for help re: license & use. See complete data information & citations below.
+Data are available by [INSERT LICENSE INFO HERE]. 
+
+See complete data information & citations below.
 
 ## Summary:
 
-The /data folder contains two CSV files: 
+The data folder contains two CSV files: 
 
-- **penguins_size.csv**: simplified penguin data, contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species (Chinstrap, Adélie, & Gentoo), along with island and sex
+- **penguins_size.csv**: Simplified penguin data containing four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species (Chinstrap, Adélie, & Gentoo), along with island and sex. *This is probably the one you want to use for intro classes & examples, especially if you're using it instead of iris dataset.* 
 
 - **penguins_lter.csv**: original data (including isotope measurements from blood samples)
 
