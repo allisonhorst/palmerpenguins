@@ -74,6 +74,7 @@ The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languag
 
 For this penguin data, the culmen length and culmen depth are measured as shown below (thanks Kristen Gorman for clarifying!):
 
+
 ## Data: 
 
 These data are originally published in: 
