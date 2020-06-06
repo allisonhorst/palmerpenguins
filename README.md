@@ -1,14 +1,16 @@
-# Palmer Station LTER Penguins
+# Palmer Station LTER Penguins (in progress)
 
-Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
+Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use!
 
-THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network!!! See complete data information & citations below.
+**Data are available by [TODO: INSERT LICENSE INFO HERE].**
+
+See complete data information & citations below.
 
 ## Summary:
 
-The /data folder contains two CSV files: 
+The data folder contains two CSV files: 
 
-- **penguins_size.csv**: simplified penguin data, contains four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species (Chinstrap, Adélie, & Gentoo), along with island and sex
+- **penguins_size.csv**: Simplified penguin data containing four penguin size measurements (culmen length, culmen depth, flipper length, and body mass) for the 3 species (Chinstrap, Adélie, & Gentoo), along with island and sex. *This is probably the one you want to use for intro classes & examples, especially if you're using it instead of iris dataset.* 
 
 - **penguins_lter.csv**: original data (including isotope measurements from blood samples)
 
@@ -40,9 +42,9 @@ Including species, culmen length vs. culmen depth:
 
 <img src="figures/culmen_len_dep.png" width="600"/>
 
-#### Opportunities for means comparisons
+#### Opportunities for comparisons between groups
 
-There are a number of questions you could ask about means comparisons. Here are a couple histograms to consider.
+There are a number of questions you could ask about means comparisons, spread, effect size, etc. Here are a couple histograms to consider.
 
 Flipper length histograms:
 
@@ -66,6 +68,12 @@ See the full paper [HERE](https://journals.plos.org/plosone/article?id=10.1371/j
 From Gorman et al.: "Data reported here are publicly available within the PAL-LTER data system (datasets #219, 220, and 221): http://oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets. These data are additionally archived within the United States (US) LTER Network’s Information System Data Portal: https://portal.lternet.edu/. Individuals interested in using these data are therefore expected to follow the US LTER Network’s Data Access Policy, Requirements and Use Agreement: https://lternet.edu/data-access-policy/."
 
 Anyone interested in publishing the data should contact [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) about analysis and working together on any final products.
+
+## License: 
+
+[TODO: CONFIRM WITH MARTY]
+
+## Links:
 
 **Links to original data from LTER Network Data Portal:** 
 
