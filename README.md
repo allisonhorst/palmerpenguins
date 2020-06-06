@@ -2,7 +2,7 @@
 
 Data are generously collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
-THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network!!! See complete data information & citations below.
+THANK YOU Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (NCEAS) for help re: license & use. See complete data information & citations below.
 
 ## Summary:
 
