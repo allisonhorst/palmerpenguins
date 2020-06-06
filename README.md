@@ -8,7 +8,7 @@ Data are generously collected and made available by [Dr. Kristen Gorman](https:/
 
 - **Data are available by** [TODO: INSERT LICENSE INFO HERE].
 
-- **Please cite this data using:** Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081
+- **Please cite this data using:** Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081 [TODO: CHECK WITH KRISTEN & MARTY ON THIS]
 
 
 ## Summary:
