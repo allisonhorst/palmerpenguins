@@ -96,6 +96,6 @@ From the LTER data access policy: "The consumer of these data (“Data User” h
 
 Original data accessed via the [LTER Data Portal](https://portal.lternet.edu/nis/home.jsp): 
 
-- Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
+- Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
 - Adélie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
-- Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
+- Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
