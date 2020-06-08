@@ -88,12 +88,12 @@ From Gorman et al. (2014): "Data reported here are publicly available within the
 
 From the LTER data access policy: "The consumer of these data (“Data User” herein) has an ethical obligation to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or coauthorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available “as is.” The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you."
 
-## Links to data:
+## Links to original data:
 
-**Links to data from LTER Network Data Portal:** 
+Original data accessed via the [Environmental Data Initiative](https://environmentaldatainitiative.org/): 
 
-Original data accessed via the [LTER Data Portal](https://portal.lternet.edu/nis/home.jsp): 
+Adélie penguins: Palmer Station Antarctica LTER and K. Gorman. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (Pygoscelis adeliae) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
 
-- Gentoo penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.220.3
-- Adélie penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.219.3
-- Chinstrap penguins: https://portal.lternet.edu/nis/mapbrowse?packageid=knb-lter-pal.221.2
+Gentoo penguins: Palmer Station Antarctica LTER and K. Gorman. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female gentoo penguins (Pygoscelis papua) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/2b1cff60f81640f182433d23e68541ce
+
+Chinstrap penguins: Palmer Station Antarctica LTER and K. Gorman. 2017. Structural size measurements and isotopic signatures of foraging among adult male and female chinstrap penguins (Pygoscelis antarctica) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 2. Environmental Data Initiative. https://doi.org/10.6073/pasta/409c808f8fc9899d02401bdb04580af7
