@@ -22,7 +22,7 @@ The data folder contains two CSV files. For intro courses/examples, you probably
     - `culmen_depth_mm`: culmen depth (mm) 
     - `flipper_length_mm`: flipper length (mm) 
     - `body_mass_g`: body mass (g) 
-    - `island`: island name (Dream, Torgerson, or Biscoe) in the Palmer Archipelago (Antarctica)
+    - `island`: island name (Dream, Torgersen, or Biscoe) in the Palmer Archipelago (Antarctica)
     - `sex`: penguin sex
 
 - **penguins_lter.csv**: Original combined data for 3 penguin species (aggregated from individual links below) 
