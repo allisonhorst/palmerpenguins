@@ -21,7 +21,7 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 
 ## Get the data:
 
-### CSVs: 
+### Option 1: CSVs: 
 
 The data folder contains two CSV files. For intro courses/examples, you probably want to use the first one (penguins_size.csv). 
 
@@ -37,9 +37,9 @@ The data folder contains two CSV files. For intro courses/examples, you probably
 
 - **penguins_lter.csv**: Original combined data for 3 penguin species (aggregated from individual links below) 
 
-### Import & download directly from the Environmental Data Initiative: 
+### Option 2: Get it directly from the Environmental Data Initiative: 
 
-Thank you to Julien Brun (NCEAS) for the reminder and for code below -- you can also pull the data directly from EDI to get and combine the raw data for the 3 species (same as penguins_lter.csv above)!  
+Get the data directly from EDI using the code below. Thanks to Julien Brun for the reminder and code below to access & combine them (this will get you the same data as in penguins_lter.csv):  
 
 ```
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
