@@ -1,15 +1,18 @@
 Package: penguins
-Title: What the Package Does (One Line, Title Case)
+Title: Palmer Station LTER Penguins Data 
 Version: 0.0.0.9000
 Authors@R: c(
     person(given = "Allison",
            family = "Horst",
            role = c("aut", "cre"),
-           email = "ahorst@ucsb.edu")
+           email = "ahorst@ucsb.edu"),
+    person(given = "Alison",
+           family = "Hill",
+           rol = c("aut", "cre"),
+           email = "alison@rstudio.com")
            )
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (https://pal.lternet.edu/). 
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
