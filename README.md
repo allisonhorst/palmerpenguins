@@ -19,7 +19,9 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
     - **Originally published in:** [**Gorman KB, Williams TD, Fraser WR** (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
 
-## Summary:
+## Get the data:
+
+### CSVs: 
 
 The data folder contains two CSV files. For intro courses/examples, you probably want to use the first one (penguins_size.csv). 
 
@@ -35,7 +37,29 @@ The data folder contains two CSV files. For intro courses/examples, you probably
 
 - **penguins_lter.csv**: Original combined data for 3 penguin species (aggregated from individual links below) 
 
-See below for links and citations to original data and metadata. 
+### Import & download directly from the Environmental Data Initiative: 
+
+Thank you to Julien Brun (NCEAS) for the reminder and for code below -- you can also pull the data directly from EDI to get and combine the raw data for the 3 species (same as penguins_lter.csv above)!  
+
+```
+# Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
+
+uri_adelie <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff"
+
+# Gentoo penguin data from: https://doi.org/10.6073/pasta/2b1cff60f81640f182433d23e68541ce
+
+uri_gentoo <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.220.3&entityid=e03b43c924f226486f2f0ab6709d2381"
+
+# Chinstrap penguin data from: https://doi.org/10.6073/pasta/409c808f8fc9899d02401bdb04580af7
+uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.221.2&entityid=fe853aa8f7a59aa84cdd3197619ef462"
+
+# Combining the URIs
+uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
+
+# Downloading and importing data
+penguins_lter <- map_dfr(uris, read_csv)
+```
+
 
 ## Example graphs using the data:
 
