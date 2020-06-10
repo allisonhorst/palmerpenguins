@@ -1,24 +1,31 @@
 ---
-title: "Graph examples with penguin_size data"
-author: "Allison Horst"
-date: "6/5/2020"
-output: html_document
+title: "examples"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(penguins)
+```
+
+```{r pkgs, include=FALSE}
 library(tidyverse)
 library(here)
 library(gt)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Get the data
 
-These examples use the simplified 'penguins_size.csv' availabe in the repo. 
-
-```{r}
-penguins <- read_csv(here("data","penguins_size.csv"))
-```
 ## Example graphs
 
 #### Penguin mass vs. flipper length:
@@ -214,5 +221,6 @@ ggplot(., aes(x = flipper_length_mm,
         plot.caption.position = "plot") +
   facet_wrap(~species)
 ```
+
 
 

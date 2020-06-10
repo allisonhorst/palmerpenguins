@@ -1,0 +1,31 @@
+Package: penguins
+Title: Palmer Station LTER Penguins Data 
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Allison",
+           family = "Horst",
+           role = c("aut", "cre"),
+           email = "ahorst@ucsb.edu"),
+    person(given = "Alison",
+           family = "Hill",
+           role = c("aut"),
+           email = "alison@rstudio.com"),
+    person(given = "Kristen",
+           family = "Gorman",
+           role = c("aut"),
+           email = "kbgorman@alaska.edu")
+           )
+Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (https://pal.lternet.edu/). 
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    tibble
