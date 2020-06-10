@@ -6,13 +6,13 @@
 \title{Simplified dataset with observations for 3 penguin species (Adélie, Chinstrap and Gentoo) in Palmer Archipelago, Antarctica}
 \format{A tibble with 344 rows and 7 variables:
 \describe{
-\item{species}{Penguin species (Adélie, Chinstrap and Gentoo)}
-\item{island}{Island in Palmer Archipelago, Antarctica (Biscoe, Dream or Torgersen)}
-\item{culmen_length_mm}{Culmen length (millimeters)}
-\item{culmen_depth_mm}{Culmen depth (millimeters)}
-\item{flipper_length_mm}{Flipper length (millimeters)}
-\item{body_mass_g}{Body mass (grams)}
-\item{sex}{Penguin sex}
+\item{species}{a character string denoting penguin species (Adélie, Chinstrap and Gentoo)}
+\item{island}{a character string denoting island in Palmer Archipelago, Antarctica (Biscoe, Dream or Torgersen)}
+\item{culmen_length_mm}{a number denoting culmen length (millimeters)}
+\item{culmen_depth_mm}{a number denoting culmen depth (millimeters)}
+\item{flipper_length_mm}{an integer denoting flipper length (millimeters)}
+\item{body_mass_g}{an integer denoting body mass (grams)}
+\item{sex}{a character string denoting penguin sex}
 }}
 \source{
 \url{https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f}
