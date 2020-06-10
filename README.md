@@ -39,6 +39,8 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
 
 ```
+library(tidyverse)
+
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
 
 uri_adelie <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff"
