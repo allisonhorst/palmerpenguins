@@ -5,7 +5,7 @@
 #' @format A tibble with 344 rows and 17 variables:
 #' \describe{
 #'   \item{studyName}{Sampling expedition from which data were collected, generated, etc.}
-#'   \item{`Sample Number`}{an integer denoting the continuous numbering sequence for each sample}
+#'   \item{Sample Number}{an integer denoting the continuous numbering sequence for each sample}
 #'   \item{Species}{a character string denoting the penguin species}
 #'   \item{Region}{a character string denoting the region of Palmer LTER sampling grid}
 #'   \item{Island}{a character string denoting the island near Palmer Station where samples were collected}
