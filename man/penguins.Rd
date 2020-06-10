@@ -27,6 +27,6 @@
 penguins
 }
 \description{
-Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, culmen dimensions), and sex.
+Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, culmen dimensions), and sex. This is a subset of penguins_raw.
 }
 \keyword{datasets}

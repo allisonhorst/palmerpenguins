@@ -3,7 +3,7 @@
 \docType{data}
 \name{penguins_raw}
 \alias{penguins_raw}
-\title{Data for penguins in Palmer Archipelago, Antarctica from Gorman et al. (2014).}
+\title{Penguin size, clutch and blood isotope data for foraging adults near Palmer Station, Antarctica}
 \format{A tibble with 344 rows and 17 variables:
 \describe{
 \item{studyName}{Sampling expedition from which data were collected, generated, etc.}

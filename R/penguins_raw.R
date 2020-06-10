@@ -1,4 +1,4 @@
-#' Data for penguins in Palmer Archipelago, Antarctica from Gorman et al. (2014).
+#' Penguin size, clutch and blood isotope data for foraging adults near Palmer Station, Antarctica
 #'
 #' Includes nesting observations, penguin size data, and isotope measurements from blood samples for adult Adélie, Chinstrap, and Gentoo penguins.
 #'
