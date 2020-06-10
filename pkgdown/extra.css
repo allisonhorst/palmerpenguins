@@ -64,7 +64,7 @@ a:hover {
 
 .navbar-nav li a {
   /* text-transform: uppercase;*/
-  letter-spacing: 1.1pt;
+  letter-spacing: 1pt;
   font-size: 1em;
 }
 
@@ -79,6 +79,10 @@ a:hover {
   background-color: #c5e6e8;
 }
 
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+	color: #474747;
+}
 
 /* White Space */
 
@@ -107,12 +111,12 @@ a:hover {
 }
 
 #pkgdown-sidebar h2 {
-  font-size: 0.9em;
+  font-size: 1em;
   margin-bottom: 0.85em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  font-weight: 700;
   color: #0A537D;
-  font-weight: bold;
-  letter-spacing: 2pt;
+  letter-spacing: 1.5pt;
   padding-left: 10px;
 }
 
@@ -138,7 +142,7 @@ a:hover {
 }
 
 #pkgdown-sidebar a {
-  color: #172a3a99;
+  color: #474747;
 }
 
 #pkgdown-sidebar a:hover {
@@ -205,13 +209,13 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
 /*----Copy Buttons ----*/
 
 .btn-primary {
-  background-color: #ca235ee0;
+  background-color: #b6dfe2;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active:hover {
-  background-color: #0A537D;
+  background-color: #457b9d;
 }
 
 /*----- COLORED LIST BULLET----*/

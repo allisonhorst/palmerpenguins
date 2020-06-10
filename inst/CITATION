@@ -1,0 +1,16 @@
+citHeader("To cite penguins in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)",
+  author   = "Gorman KB, Williams TD, Fraser WR",
+  journal  = "PLoS ONE",
+  year     = 2014,
+  volume   = "9(3)",
+  number   = "e90081",
+  pages    = 1-14,
+  url      = "https://doi.org/10.1371/journal.pone.0090081",
+  textVersion = paste(
+"Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. https://doi.org/10.1371/journal.pone.0090081"
+  )
+)
