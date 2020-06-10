@@ -1,10 +1,23 @@
-# Palmer Archipelago (Antarctica) penguin data
+# Palmer Archipelago (Antarctica) Penguins data package (`penguins`)
+
+## Installation 
+
+Or install the development version from GitHub with:
+
+```
+# install.packages("devtools")
+devtools::install_github("allisonhorst/penguins")
+```
+
+See `?penguins` for information on the simplified subset, and `?penguins_raw` for information on the raw data. 
+
+## About the data
 
 Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
 **Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use.
 
-## License & citation
+### License & citation
 
 - **Data are available by** [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/) license in accordance with the [Palmer Station LTER Data Policy](http://pal.lternet.edu/data/policies) and the [LTER Data Access Policy for Type I data](https://lternet.edu/data-access-policy/).
 
@@ -19,27 +32,9 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
     - **Originally published in:** [**Gorman KB, Williams TD, Fraser WR** (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)
 
 
-## Get the data:
+### Get data directly from the Environmental Data Initiative: 
 
-### Option 1: CSVs: 
-
-The data folder contains two CSV files. For intro courses/examples, you probably want to use the first one (penguins_size.csv). 
-
-- **penguins_size.csv**: Simplified data from original penguin data sets. Contains variables:
-
-    - `species`: penguin species (Chinstrap, Adélie, or Gentoo)
-    - `culmen_length_mm`: culmen length (mm) 
-    - `culmen_depth_mm`: culmen depth (mm) 
-    - `flipper_length_mm`: flipper length (mm) 
-    - `body_mass_g`: body mass (g) 
-    - `island`: island name (Dream, Torgersen, or Biscoe) in the Palmer Archipelago (Antarctica)
-    - `sex`: penguin sex
-
-- **penguins_lter.csv**: Original combined data for 3 penguin species (aggregated from individual links below) 
-
-### Option 2: Get it directly from the Environmental Data Initiative: 
-
-Get the data directly from EDI using the code below. Thanks to Julien Brun for the reminder and code below to access & combine them (this will get you the same data as in penguins_lter.csv):  
+Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (this will get you the same data as in penguins_lter.csv):  
 
 ```
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
