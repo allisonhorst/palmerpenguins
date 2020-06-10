@@ -17,10 +17,10 @@ knitr::opts_chunk$set(
 You are invited to use this accompanying artwork (Artwork: @allison_horst).
 
 ```{r setup}
-library(penguins)
+library(palmerpenguins)
 ```
 
-## Meet the penguins
+## Meet the Palmer penguins
 
 <p align="center"><img src="../man/figures/lter_penguins.png" width="600px"></p>
 

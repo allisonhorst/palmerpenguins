@@ -14,19 +14,19 @@ knitr::opts_chunk$set(
 library(tidyverse)
 ```
 
-# penguins <img src='man/figures/logo.png' align="right" height="138.5" />
+# palmerpenguins <a href='https://allisonhorst.github.com/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of penguins is to provide a great dataset for data exploration & visualization, as an alternative to `iris`. 
+The goal of palmerpenguins is to provide a great dataset for data exploration & visualization, as an alternative to `iris`. 
 
 ## Installation
 
-<!--You can install the released version of penguins from [CRAN](https://CRAN.R-project.org) with:
+<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("penguins")
+install.packages("palmerpenguins")
 ```
 -->
 
@@ -34,7 +34,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("allisonhorst/penguins")
+remotes::install_github("allisonhorst/palmerpenguins")
 ```
 
 ## About the data
@@ -52,7 +52,7 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 To cite the data used in this package, please use:
 
 ```{r}
-citation("penguins")
+citation("palmerpenguins")
 ```
 
 ## Example
@@ -60,7 +60,7 @@ citation("penguins")
 There are two datasets. One is called `penguins`, and is a simplified version of the raw data. All column names are in snake case to make them easier to work with, see `?penguins` for more info: 
 
 ```{r example}
-library(penguins)
+library(palmerpenguins)
 glimpse(penguins)
 penguins %>% 
   count(species)
@@ -96,13 +96,12 @@ mass_flipper <- ggplot(data = penguins,
 mass_flipper
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
 
 ## Supplemental artwork
 
 You are invited to use this accompanying artwork (Artwork: @allison_horst).
 
-### Meet the penguins
+### Meet the Palmer penguins
 
 <p align="center"><img src="man/figures/lter_penguins.png" width="600px"></p>
 

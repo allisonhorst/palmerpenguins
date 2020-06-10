@@ -1,21 +1,21 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# penguins <img src='man/figures/logo.png' align="right" height="138.5" />
+# palmerpenguins <a href='https://allisonhorst.github.com/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of penguins is to provide a great dataset for data exploration
-& visualization, as an alternative to `iris`.
+The goal of palmerpenguins is to provide a great dataset for data
+exploration & visualization, as an alternative to `iris`.
 
 ## Installation
 
-<!--You can install the released version of penguins from [CRAN](https://CRAN.R-project.org) with:
+<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("penguins")
+install.packages("palmerpenguins")
 ```
 -->
 
@@ -24,7 +24,7 @@ You can install the development version from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("allisonhorst/penguins")
+remotes::install_github("allisonhorst/palmerpenguins")
 ```
 
 ## About the data
@@ -52,9 +52,9 @@ Policy for Type I data](https://lternet.edu/data-access-policy/).
 To cite the data used in this package, please use:
 
 ``` r
-citation("penguins")
+citation("palmerpenguins")
 #> 
-#> To cite penguins in publications use:
+#> To cite palmerpenguins in publications use:
 #> 
 #>   Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism
 #>   and Environmental Variability within a Community of Antarctic
@@ -82,7 +82,7 @@ version of the raw data. All column names are in snake case to make them
 easier to work with, see `?penguins` for more info:
 
 ``` r
-library(penguins)
+library(palmerpenguins)
 glimpse(penguins)
 #> Rows: 344
 #> Columns: 7
@@ -112,15 +112,12 @@ Penguins are fun to visualize\! For example:
 
 <img src="man/figures/README-mass-flipper-1.png" width="75%" />
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
-
 ## Supplemental artwork
 
 You are invited to use this accompanying artwork (Artwork:
 @allison\_horst).
 
-### Meet the penguins
+### Meet the Palmer penguins
 
 <p align="center">
 

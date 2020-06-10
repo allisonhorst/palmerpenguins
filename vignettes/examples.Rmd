@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 
 ```{r setup, warning=FALSE, message=FALSE}
-library(penguins)
+library(palmerpenguins)
 library(tidyverse)
 library(here)
 library(gt)

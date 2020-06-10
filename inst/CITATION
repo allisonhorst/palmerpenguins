@@ -1,4 +1,4 @@
-citHeader("To cite penguins in publications use:")
+citHeader("To cite palmerpenguins in publications use:")
 
 citEntry(
   entry    = "Article",
