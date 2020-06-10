@@ -163,5 +163,3 @@ variance of these four size variables.
 
 * PC2 is mainly determined by variation in the two beak variables: culmen length and depth. Chinstrap are lower than the other two species on culmen length and depth, but culmen length further distinguishes the Gentoos. A penguin biologist could almost certainly provide an explanation, but I'll call this **beak shape**.
 
-
-
