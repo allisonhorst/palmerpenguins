@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/index.html</loc>
+  </url>
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/reference/penguins.html</loc>
+  </url>
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/reference/penguins_raw.html</loc>
+  </url>
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/articles/art.html</loc>
+  </url>
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/articles/download.html</loc>
+  </url>
+  <url>
+    <loc>https://allisonhorst.github.com/palmerpenguins/articles/examples.html</loc>
+  </url>
+</urlset>

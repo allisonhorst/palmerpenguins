@@ -1,0 +1,69 @@
+---
+title: "Get data directly from the Environmental Data Initiative"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get data directly from the Environmental Data Initiative}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, warning=FALSE, message=FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+## Download data from a URL
+
+You can also get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
+
+```{r results='hide'}
+# Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
+
+uri_adelie <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff"
+
+# Gentoo penguin data from: https://doi.org/10.6073/pasta/2b1cff60f81640f182433d23e68541ce
+
+uri_gentoo <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.220.3&entityid=e03b43c924f226486f2f0ab6709d2381"
+
+# Chinstrap penguin data from: https://doi.org/10.6073/pasta/409c808f8fc9899d02401bdb04580af7
+uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.221.2&entityid=fe853aa8f7a59aa84cdd3197619ef462"
+
+# Combining the URIs
+uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
+
+# Downloading and importing data
+penguins_lter <- map_dfr(uris, read_csv)
+```
+
+```{r}
+glimpse(penguins_lter)
+```
+
+## Compare to package data
+
+Compared to `?penguins_raw`:
+
+```{r}
+glimpse(penguins_raw)
+```
+
+Are they identical?
+
+```{r}
+identical(penguins_lter, penguins_raw)
+```
+
+But if that looks too messy for you, `?penguins` is simpler and tidier:
+
+```{r}
+glimpse(penguins)
+```
+
+
