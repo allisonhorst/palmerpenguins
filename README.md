@@ -11,7 +11,7 @@ Install the development version from GitHub with:
 remotes::install_github("allisonhorst/penguins")
 ```
 
-See `?penguins` for information on the simplified subset, and `?penguins_raw` for information on the raw data (details below, and in documentation). 
+Data exist in the package as objects **penguins** (simplified data) and **penguins_raw** (raw data). See package documentation (`?penguins` and `?penguins_raw`) and below for more information. 
 
 ## About the data
 
