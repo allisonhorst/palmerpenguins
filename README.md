@@ -5,11 +5,11 @@
 Install the development version from GitHub with:
 
 ```
-# install.packages("devtools")
-devtools::install_github("allisonhorst/penguins")
+# install.packages("remotes")
+remotes::install_github("allisonhorst/penguins")
 ```
 
-Data are stored as objects **penguins** (simplified) and **penguins_raw** (raw data) in the package. See documentation and information below for details. 
+Data exist in the package as objects **penguins** (simplified data) and **penguins_raw** (raw data). See package documentation (`?penguins` and `?penguins_raw`) and below for more information. 
 
 ## About the data
 
@@ -34,9 +34,11 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 
 ### Get data directly from the Environmental Data Initiative: 
 
-Alternatively, you can get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
+Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
 
 ```
+library(tidyverse)
+
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
 
 uri_adelie <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.219.3&entityid=002f3893385f710df69eeebe893144ff"
@@ -52,7 +54,7 @@ uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-
 uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
 
 # Downloading and importing data
-penguins_raw <- map_dfr(uris, read_csv)
+penguins_lter <- map_dfr(uris, read_csv)
 ```
 
 ## Supplemental artwork
@@ -75,4 +77,3 @@ For this penguin data, the culmen length and culmen depth are measured as shown 
 Anyone interested in publishing the data should contact [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) about analysis and working together on any final products.
 
 From Gorman et al. (2014): "Data reported here are publicly available within the PAL-LTER data system (datasets #219, 220, and 221): http://oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets. Individuals interested in using these data are therefore expected to follow the US LTER Network’s Data Access Policy, Requirements and Use Agreement: https://lternet.edu/data-access-policy/."
-
