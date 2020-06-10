@@ -1,4 +1,6 @@
-# Palmer Archipelago (Antarctica) Penguins data package (`penguins`)
+# Palmer Archipelago (Antarctica) Penguins data package 
+
+<img src="figures/penguins_logo.png" width="200"/>
 
 ## Installation 
 
@@ -9,7 +11,7 @@ Install the development version from GitHub with:
 devtools::install_github("allisonhorst/penguins")
 ```
 
-See `?penguins` for information on the simplified subset, and `?penguins_raw` for information on the raw data. 
+See `?penguins` for information on the simplified subset, and `?penguins_raw` for information on the raw data (details below, and in documentation). 
 
 ## About the data
 
@@ -34,7 +36,7 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 
 ### Get data directly from the Environmental Data Initiative: 
 
-Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (this will get you the same data as in penguins_lter.csv):  
+Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
 
 ```
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
