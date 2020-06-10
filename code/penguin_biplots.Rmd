@@ -1,0 +1,106 @@
+---
+title: 'Penguin data: PCA & Biplots'
+author: "Michael Friendly"
+date: "6/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(readr)
+library(here)
+library(car)
+library(heplots)
+library(candisc)
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      error = FALSE)
+```
+
+Penguins are **multivariate** creatures! Give them their due.
+Here we examine a basic set of multivariate views of these pengiuns.
+
+* An informative scatterplot matrix (`car::scatterplotMatrix`)
+* A principal components analysis (`princomp()`) followed by 
+* a biplot (`ggbiplot`), showing the observations in the space of the first two principal components (PC1, PC2) and variable vectors showing the correlations of the penguin quantitative variables with PC1 & PC2.
+
+This analysis gives a new perspective on this data set, ...
+
+
+## Load the `penguins` data and do some clean up
+
+These examples use the simplified 'penguins_size.csv' availabe in the repo. 
+
+```{r}
+penguins <- read_csv(here("data","penguins_size.csv"))
+```
+
+For this example: 
+
+* shorten variable names (remove units) 
+* create factors (needed for MANOVA) and 
+* remove NA observations (causes problems with PCA)
+
+```{r}
+peng <- penguins %>%
+	rename(
+         culmen_length = culmen_length_mm, 
+         culmen_depth = culmen_depth_mm, 
+         flipper_length = flipper_length_mm, 
+         body_mass = body_mass_g
+         ) %>%
+  mutate(species = as.factor(species),
+         island = as.factor(island),
+         sex = as.factor(sex)) %>%
+  filter(!is.na(culmen_depth))
+```
+
+Take a peek at the tibble:
+
+```{r peng}
+peng
+```
+
+## Load our packages
+
+```{r load-pkgs}
+# library(car)
+library(ggbiplot)
+# library(GGally)
+# library(heplots)
+# library(candisc)
+```
+
+
+
+## Scatterplot matrix
+
+
+## PCA
+
+Run the PCA with `princomp()`. Because the variable scales are not all commensurable, it is important to scale them to equal variance.
+
+```{r peng-pca}
+peng.pca <- prcomp (~ culmen_length + culmen_depth + flipper_length + body_mass,
+                    data=peng,
+                    na.action=na.omit,  # not actually necessary: we removed NA
+                    scale. = TRUE)
+
+peng.pca
+
+```
+
+View this as a biplot:
+
+```{r}
+ggbiplot(peng.pca, obs.scale = 1, var.scale = 1,
+         groups = peng$species, 
+         ellipse = TRUE, circle = TRUE) +
+  scale_color_discrete(name = 'Penguin Species') +
+  theme(legend.direction = 'horizontal', legend.position = 'top') +
+  theme_minimal()
+
+
+```
+
+
