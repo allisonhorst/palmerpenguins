@@ -54,6 +54,7 @@ uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-
 uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
 
 # Downloading and importing data
+# Warning: if using this method to combine tables, it is the user's responsibility to verify units are matching among the different tables
 penguins_lter <- map_dfr(uris, read_csv)
 ```
 
