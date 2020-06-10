@@ -11,7 +11,7 @@ Install the development version from GitHub with:
 devtools::install_github("allisonhorst/penguins")
 ```
 
-See `?penguins` for information on the simplified subset, and `?penguins_raw` for information on the raw data (details below, and in documentation). 
+Data are stored as objects **penguins** (simplified) and **penguins_raw** (raw data) in the package. See documentation and information below for details. 
 
 ## About the data
 
@@ -36,7 +36,7 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.e
 
 ### Get data directly from the Environmental Data Initiative: 
 
-Get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
+Alternatively, you can get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
 
 ```
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86
@@ -54,11 +54,11 @@ uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-
 uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
 
 # Downloading and importing data
-penguins_lter <- map_dfr(uris, read_csv)
+penguins_raw <- map_dfr(uris, read_csv)
 ```
 
 
-## Example graphs using the data:
+## Example graphs using the `penguins` data:
 
 #### Flipper length vs. body mass
 
@@ -109,6 +109,5 @@ For this penguin data, the culmen length and culmen depth are measured as shown 
 
 Anyone interested in publishing the data should contact [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) about analysis and working together on any final products.
 
-From Gorman et al. (2014): "Data reported here are publicly available within the PAL-LTER data system (datasets #219, 220, and 221): http://oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets. These data are additionally archived within the United States (US) LTER Network’s Information System Data Portal: https://portal.lternet.edu/. Individuals interested in using these data are therefore expected to follow the US LTER Network’s Data Access Policy, Requirements and Use Agreement: https://lternet.edu/data-access-policy/."
+From Gorman et al. (2014): "Data reported here are publicly available within the PAL-LTER data system (datasets #219, 220, and 221): http://oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets. Individuals interested in using these data are therefore expected to follow the US LTER Network’s Data Access Policy, Requirements and Use Agreement: https://lternet.edu/data-access-policy/."
 
-From the LTER data access policy: "The consumer of these data (“Data User” herein) has an ethical obligation to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or coauthorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available “as is.” The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you."
