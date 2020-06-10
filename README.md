@@ -1,6 +1,4 @@
-# Palmer Archipelago (Antarctica) Penguins data package 
-
-<img src="figures/penguins_logo.png" width="200"/>
+# penguins <img src='man/figures/logo.png' align="right" height="138.5" />
 
 ## Installation 
 
@@ -56,39 +54,6 @@ uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
 # Downloading and importing data
 penguins_raw <- map_dfr(uris, read_csv)
 ```
-
-
-## Example graphs using the `penguins` data:
-
-#### Flipper length vs. body mass
-
-<img src="figures/mass_flipper.png" width="600"/>
-
-#### Flipper length vs. culmen length
-
-<img src="figures/flipper_culmen.png" width="600"/>
-
-#### Simpson's paradox example
-
-Culmen length vs. culmen depth, omitting species: 
-
-<img src="figures/culmen_no_species.png" width="600"/>
-
-Culmen length vs. culmen depth, including species: 
-
-<img src="figures/culmen_len_dep.png" width="600"/>
-
-#### Opportunities for comparisons between groups
-
-There are a number of questions you could ask about differences between groups. Here are a couple histograms to consider.
-
-Flipper length histograms:
-
-<img src="figures/flipper_hist.png" width="600"/>
-
-Body mass histograms: 
-
-<img src="figures/mass_hist.png" width="600"/>
 
 ## Supplemental artwork
 

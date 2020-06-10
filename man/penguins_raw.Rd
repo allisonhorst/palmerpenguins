@@ -7,21 +7,21 @@
 \format{A tibble with 344 rows and 17 variables:
 \describe{
 \item{studyName}{Sampling expedition from which data were collected, generated, etc.}
-\item{\code{Sample Number}}{Continuous numberng sequence for each sample}
+\item{\verb{Sample Number}}{Continuous numberng sequence for each sample}
 \item{Species}{A string representing the species of an organism}
 \item{Region}{Nominal region of Palmer LTER sampling grid}
 \item{Island}{Island near Palmer Station where samples were collected}
 \item{Stage}{Reproductive stage at sampling}
-\item{\code{Individual ID}}{A unique ID for each individual in dataset}
-\item{\code{Clutch Completion}}{Was the study nest observed with a full clutch, i.e., 2 eggs}
-\item{\code{Date Egg}}{Date study nest observed with 1 egg (sampled)}
-\item{\code{Culmen Length}}{Length of the dorsal ridge of a bird's bill (millimeters)}
-\item{\code{Culmen Depth}}{Depth of the dorsal ridge of a bird's bill (millimeters)}
-\item{\code{Flipper Length}}{Length of flipper (millimeters)}
-\item{\code{Body Mass}}{Mass of body (grams)}
+\item{\verb{Individual ID}}{A unique ID for each individual in dataset}
+\item{\verb{Clutch Completion}}{Was the study nest observed with a full clutch, i.e., 2 eggs}
+\item{\verb{Date Egg}}{Date study nest observed with 1 egg (sampled)}
+\item{\verb{Culmen Length}}{Length of the dorsal ridge of a bird's bill (millimeters)}
+\item{\verb{Culmen Depth}}{Depth of the dorsal ridge of a bird's bill (millimeters)}
+\item{\verb{Flipper Length}}{Length of flipper (millimeters)}
+\item{\verb{Body Mass}}{Mass of body (grams)}
 \item{Sex}{Code for the sex of an animal}
-\item{\code{Delta 15 N}}{A measure of the ratio of stable isotopes 15N:14N}
-\item{\code{Delta 13 C}}{A measure of the ratio of stable isotopes 13C:12C}
+\item{\verb{Delta 15 N}}{A measure of the ratio of stable isotopes 15N:14N}
+\item{\verb{Delta 13 C}}{A measure of the ratio of stable isotopes 13C:12C}
 \item{Comments}{Text field to provide additional relevant information for data}
 }}
 \source{
