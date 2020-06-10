@@ -2,7 +2,7 @@
 
 ## Installation 
 
-Or install the development version from GitHub with:
+Install the development version from GitHub with:
 
 ```
 # install.packages("devtools")
