@@ -105,7 +105,6 @@ If you use this artwork, please cite with: "Artwork by @allison_horst".
 
 <p align="center"><img src="man/figures/lter_penguins.png" width="600px"></p>
 
-
 ### What are culmen length & depth? 
 
 The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languages). 
