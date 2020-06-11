@@ -31,5 +31,5 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     tibble
-URL: https://github.com/allisonhorst/palmerpenguins
+URL: https://allisonhorst.github.io/palmerpenguins/, https://github.com/allisonhorst/palmerpenguins
 BugReports: https://github.com/allisonhorst/palmerpenguins/issues

@@ -96,7 +96,7 @@
 
       
 
-      </header><script src="download_files/header-attrs-2.2/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Get data directly from the Environmental Data Initiative</h1>
@@ -243,18 +243,17 @@
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins</span>)
 <span class="co">#&gt; Rows: 344</span>
 <span class="co">#&gt; Columns: 7</span>
-<span class="co">#&gt; $ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "…</span>
-<span class="co">#&gt; $ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen",…</span>
+<span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…</span>
+<span class="co">#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…</span>
 <span class="co">#&gt; $ culmen_length_mm  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…</span>
 <span class="co">#&gt; $ culmen_depth_mm   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…</span>
-<span class="co">#&gt; $ flipper_length_mm &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
-<span class="co">#&gt; $ body_mass_g       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
-<span class="co">#&gt; $ sex               &lt;chr&gt; "MALE", "FEMALE", "FEMALE", NA, "FEMALE", "MALE", "…</span></pre></body></html></div>
+<span class="co">#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
+<span class="co">#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
+<span class="co">#&gt; $ sex               &lt;fct&gt; MALE, FEMALE, FEMALE, NA, FEMALE, MALE, FEMALE, MAL…</span></pre></body></html></div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
         <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
     </nav>
 </div>
@@ -268,7 +267,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
