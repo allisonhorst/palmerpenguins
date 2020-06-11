@@ -163,18 +163,18 @@ install.packages("palmerpenguins")
 <span class="fu">glimpse</span>(<span class="no">penguins</span>)
 <span class="co">#&gt; Rows: 344</span>
 <span class="co">#&gt; Columns: 7</span>
-<span class="co">#&gt; $ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "…</span>
-<span class="co">#&gt; $ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen",…</span>
+<span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…</span>
+<span class="co">#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…</span>
 <span class="co">#&gt; $ culmen_length_mm  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…</span>
 <span class="co">#&gt; $ culmen_depth_mm   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…</span>
-<span class="co">#&gt; $ flipper_length_mm &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
-<span class="co">#&gt; $ body_mass_g       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
-<span class="co">#&gt; $ sex               &lt;chr&gt; "MALE", "FEMALE", "FEMALE", NA, "FEMALE", "MALE", "…</span>
+<span class="co">#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
+<span class="co">#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
+<span class="co">#&gt; $ sex               &lt;fct&gt; MALE, FEMALE, FEMALE, NA, FEMALE, MALE, FEMALE, MAL…</span>
 <span class="no">penguins</span> <span class="kw">%&gt;%</span>
   <span class="fu">count</span>(<span class="no">species</span>)
 <span class="co">#&gt; # A tibble: 3 x 2</span>
 <span class="co">#&gt;   species       n</span>
-<span class="co">#&gt; * &lt;chr&gt;     &lt;int&gt;</span>
+<span class="co">#&gt; * &lt;fct&gt;     &lt;int&gt;</span>
 <span class="co">#&gt; 1 Adelie      152</span>
 <span class="co">#&gt; 2 Chinstrap    68</span>
 <span class="co">#&gt; 3 Gentoo      124</span></pre></div>
@@ -186,7 +186,7 @@ install.packages("palmerpenguins")
 <div id="supplemental-artwork" class="section level2">
 <h2 class="hasAnchor">
 <a href="#supplemental-artwork" class="anchor"></a>Supplemental artwork</h2>
-<p>You are invited to use this accompanying artwork (Artwork: @allison_horst).</p>
+<p>If you use this artwork, please cite with: “Artwork by @allison_horst”.</p>
 <div id="meet-the-palmer-penguins" class="section level3">
 <h3 class="hasAnchor">
 <a href="#meet-the-palmer-penguins" class="anchor"></a>Meet the Palmer penguins</h3>
