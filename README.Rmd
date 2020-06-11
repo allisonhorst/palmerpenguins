@@ -99,7 +99,7 @@ mass_flipper
 
 ## Supplemental artwork
 
-You are invited to use this accompanying artwork (Artwork: @allison_horst).
+If you use this artwork, please cite with: "Artwork by @allison_horst".
 
 ### Meet the Palmer penguins
 
