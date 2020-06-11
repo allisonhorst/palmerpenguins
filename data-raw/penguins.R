@@ -4,7 +4,8 @@ library(tidyverse)
 library(here)
 library(janitor)
 
-penguins <- read_csv(here("data-raw","penguins_raw.csv")) %>%
+penguins <- read_csv(here("data-raw","penguins_raw.csv"),
+                     na = c("", "NA", ".")) %>%
   clean_names() %>%
   mutate(species_short = word(species, 1)) %>%
   select(species_short,

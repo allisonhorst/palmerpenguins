@@ -1,5 +1,9 @@
 url: https://allisonhorst.github.io/palmerpenguins
 
+template:
+  params:
+    ganalytics: UA-169202294-1
+
 authors:
   Allison Horst:
     href: https://www.allisonhorst.com/
