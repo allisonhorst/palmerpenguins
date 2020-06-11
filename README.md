@@ -97,7 +97,7 @@ penguins %>%
   count(species)
 #> # A tibble: 3 x 2
 #>   species       n
-#> * <fct>     <int>
+#>   <fct>     <int>
 #> 1 Adelie      152
 #> 2 Chinstrap    68
 #> 3 Gentoo      124
