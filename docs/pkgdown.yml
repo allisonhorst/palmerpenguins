@@ -5,11 +5,7 @@ articles:
   art: art.html
   download: download.html
   examples: examples.html
-<<<<<<< HEAD
-last_built: 2020-06-11T16:34Z
-=======
-last_built: 2020-06-11T16:50Z
->>>>>>> doc_branch
+last_built: 2020-06-11T19:18Z
 urls:
   reference: https://allisonhorst.github.io/palmerpenguins/reference
   article: https://allisonhorst.github.io/palmerpenguins/articles

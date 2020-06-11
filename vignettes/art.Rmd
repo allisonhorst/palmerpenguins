@@ -43,3 +43,13 @@ link
 ```
 
 <p align="center"><img src="../man/figures/culmen_depth.png" width="400px"></p>
+
+## palmerpenguins hex sticker
+
+```{r echo=FALSE}
+logo <- file.path(here::here("man", "figures", "palmerpenguins.png"))
+link <- xfun::embed_file(logo, "palmerpenguins.jpg", "Download palmerpenguins hex")
+link
+```
+
+<p align="center"><img src="../man/figures/palmerpenguins.png" width="400px"></p>
