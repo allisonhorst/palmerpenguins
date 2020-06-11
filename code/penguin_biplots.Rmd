@@ -1,5 +1,5 @@
 ---
-title: 'Penguin data: PCA & Biplots'
+title: 'Penguin data: Multivariate EDA'
 author: "Michael Friendly"
 date: "6/10/2020"
 output: html_document
@@ -18,19 +18,23 @@ knitr::opts_chunk$set(echo = TRUE,
                       error = FALSE)
 ```
 
-Penguins are **multivariate** creatures! Give them their due.
+Penguins are **multivariate** creatures! 
+What can we learn from this dataset without specialized biological knowledge?
+<!-- Their flippers and beaks probably evolved -->
+<!-- in different ways across time and space.  -->
+
 Here we examine a basic set of multivariate views of these pengiuns.
 
-* An informative scatterplot matrix (`car::scatterplotMatrix`)
+* An informative scatterplot matrix (`car::scatterplotMatrix`, `GGally::ggpairs`)
 * A principal components analysis (`princomp()`) followed by 
 * a biplot (`ggbiplot`), showing the observations in the space of the first two principal components (PC1, PC2) and variable vectors showing the correlations of the penguin quantitative variables with PC1 & PC2.
 
-This analysis gives a new perspective on this data set.  We will see that there is a simple multivariate explanation to the variation of pengiuns, both between species and within a given species.
+This analysis gives a new perspective on this data set.  We will see that there are simple multivariate explanations to the variation of pengiuns, both between species and within a given species. You can learn a lot about penguins from the comfort of your PC with a few simple techniques.
 
 
 ## Load the `penguins` data and do some clean up
 
-These examples use the simplified `penguins` dataset. 
+These examples use the basic `penguins` dataset. 
 
 ```{r}
 data(penguins, package="penguins")
@@ -52,7 +56,7 @@ peng <- penguins %>%
          ) %>%
   mutate(species = as.factor(species),
          island = as.factor(island),
-         sex = as.factor(sex)) %>%
+         sex = as.factor(substr(sex,1,1))) %>%
   filter(!is.na(culmen_depth))
 ```
 
@@ -67,7 +71,7 @@ peng
 ```{r load-pkgs}
 library(car)
 library(ggbiplot)
-# library(GGally)
+library(GGally)
 ```
 
 
@@ -78,28 +82,67 @@ For multivariate data, rather than making separate bivariate scatterplots
 a more more comprehensive view is given by a scatterplot matrix -- all
 pairwise plots of a set of quantitative varibles.
 
-In base R, this would be easily done with the `pairs()` function. ...
+In base R, this would be easily done with the `pairs()` function.
 
 But there are better alternatives:
 
 * `car::scatterplotMatrix()` provides many options for enhancing the basic `pairs()` plot. 
 
-* in particular, in the model formula, `x1 + x2 + ... | group`, the different
-groups (`species`) are annotated and colored separately.
+  * in particular, in the model formula, `x1 + x2 + ... | group`, the different
+  groups (`species`) are annotated and colored separately.
+  
+  * the diagonal panels show the univariate distributions for each group. This shows a smoothed density estimate for each group, and you can easily see the difference
+  among species in terms of means, variablilty and shape.
+  
+  * each pairwise panel shows a data ellipse covering ~ 68% of the observations in each group. 
 
-* the diagonal panels show the univariate distributions for each group. This shows a smoothed density estimate for each group, and you can easily see the difference
-among species in terms of means, variablilty and shape.
-
-* each pairwise panel shows a data ellipse 
-
+* `GGally::ggpairs` extends the idea of pairs plots to include categorical variables along with quantitative ones. 
 
 
 ```{r spm, fig.height=7, fig.width=7}
 scatterplotMatrix(~ culmen_length + culmen_depth + flipper_length + body_mass | species,
                   data=peng,
-                  ellipse=list(levels=0.68))
+                  ellipse=list(levels=0.68),
+                  col = scales::hue_pal()(3),
+                  legend=list(coords="bottomright"))
 
 ```
+
+From this, we can see some interesting penguin features:
+
+* Most of the distributions are approximately unimodal and symmetric within
+species.  One exception is `culmen_length` for Chinstrap pengiuns.
+
+* withi species, all pairs of variables are positively correlated, and the slopes
+of regression lines are approximately the same within each off-diagonal panel.
+
+### ggpairs
+
+`GGally::ggpairs` is designed to display mixtures of numeric and discrete
+variables with flexible choices of how variables are displayed.
+See the vignette [https://ggobi.github.io/ggally/articles/ggpairs.html] for some examples.
+
+Briefly, by default, `ggpairs` :
+
+* displays pairs of quantitative variables in the lower triangle as scatterplots, and the same pairs in the upper triangle with correlation coefficients, both overall and within group.
+
+* a pair of one quantitative and one discrete variable are shown either as color-coded histograms (lower triangle) or boxplots (upper triangle).
+
+* pairs of two discrete variables are shown with stacked bar charts.
+
+```{r}
+ggpairs(peng, mapping = aes(color = species), 
+        columns = c("culmen_length", "culmen_depth", 
+                    "flipper_length", "body_mass",
+                    "island", "sex"))
+
+```
+
+This plot is somewhat messy, and could be tweaked further. I'll just mention one other feature revealed here:
+
+The upper triangle for the quantitative variable shows the overall
+correlations (ignoring species), and the within-group correlation for each species. There are three cases that illustrate Simpson's Paradox: where
+the overall correlation has a different sign from the within-group correlations.
 
 
 
