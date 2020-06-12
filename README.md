@@ -82,6 +82,7 @@ version of the raw data. All column names are in snake case to make them
 easier to work with, see `?penguins` for more info:
 
 ``` r
+library(tidyverse)
 library(palmerpenguins)
 glimpse(penguins)
 #> Rows: 344
