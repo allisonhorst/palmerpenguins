@@ -97,7 +97,7 @@ penguins %>%
   count(species)
 #> # A tibble: 3 x 2
 #>   species       n
-#>   <fct>     <int>
+#> * <fct>     <int>
 #> 1 Adelie      152
 #> 2 Chinstrap    68
 #> 3 Gentoo      124
@@ -184,3 +184,10 @@ From Gorman et al. (2014):
     Environmental Data Initiative.
     <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e>
     (Accessed 2020-06-08).
+
+## Contributor Code of Conduct
+
+Please note that the ‘palmerpenguins’ project is released with a
+[Contributor Code of
+Conduct](/Users/ahorst/github/palmerpenguins/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
