@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/allisonhorst/palmerpenguins/workflows/R-CMD-check/badge.svg)](https://github.com/allisonhorst/palmerpenguins/actions)
 <!-- badges: end -->
 
 The goal of palmerpenguins is to provide a great dataset for data
@@ -97,7 +99,7 @@ penguins %>%
   count(species)
 #> # A tibble: 3 x 2
 #>   species       n
-#> * <fct>     <int>
+#>   <fct>     <int>
 #> 1 Adelie      152
 #> 2 Chinstrap    68
 #> 3 Gentoo      124
