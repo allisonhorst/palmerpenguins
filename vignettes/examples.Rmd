@@ -150,7 +150,7 @@ Flipper lengths boxplots + jitter:
 ```{r}
 flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   geom_boxplot(aes(color = species), width = 0.3, show.legend = FALSE) +
-  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE) +
+  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE, seed = 0) +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   theme_minimal() +
   labs(x = "Species",

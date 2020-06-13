@@ -247,11 +247,12 @@
 <p>Flipper lengths boxplots + jitter:</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">flipper_box</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">species</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>)) +
   <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.3</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
-  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
+  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">0</span>) +
   <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
   <span class="fu">theme_minimal</span>() +
   <span class="fu">labs</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Species"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>)
+<span class="co">#&gt; Warning: Ignoring unknown parameters: seed</span>
 
 <span class="no">flipper_box</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span>
