@@ -97,7 +97,7 @@ penguins %>%
   count(species)
 #> # A tibble: 3 x 2
 #>   species       n
-#> * <fct>     <int>
+#>   <fct>     <int>
 #> 1 Adelie      152
 #> 2 Chinstrap    68
 #> 3 Gentoo      124
@@ -118,11 +118,7 @@ If you use this artwork, please cite with: “Artwork by @allison\_horst”.
 
 ### Meet the Palmer penguins
 
-<p align="center">
-
-<img src="man/figures/lter_penguins.png" width="600px">
-
-</p>
+<img src="vignettes/articles/img/lter_penguins.png" width="100%" style="display: block; margin: auto;" />
 
 ### What are culmen length & depth?
 
@@ -132,11 +128,7 @@ Languages).
 For this penguin data, the culmen length and culmen depth are measured
 as shown below (thanks Kristen Gorman for clarifying\!):
 
-<p align="center">
-
-<img src="man/figures/culmen_depth.png" width="400px">
-
-</p>
+<img src="vignettes/articles/img/culmen_depth.png" width="100%" style="display: block; margin: auto;" />
 
 ## Additional data use information
 

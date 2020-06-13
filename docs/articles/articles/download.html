@@ -5,20 +5,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get data directly from the Environmental Data Initiative • palmerpenguins</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<title>Download the palmerpenguin data from LTER • palmerpenguins</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../../bootstrap-toc.css">
+<script src="../../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Get data directly from the Environmental Data Initiative">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../../pkgdown.css" rel="stylesheet">
+<script src="../../pkgdown.js"></script><link href="../../extra.css" rel="stylesheet">
+<meta property="og:title" content="Download the palmerpenguin data from LTER">
 <meta property="og:description" content="palmerpenguins">
 <meta property="og:image" content="https://allisonhorst.github.io/palmerpenguins/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -44,7 +44,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">palmerpenguins</a>
+        <a class="navbar-link" href="../../index.html">palmerpenguins</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
@@ -52,13 +52,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
+  <a href="../../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -68,13 +68,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/art.html">Additional artwork</a>
+      <a href="../../articles/articles/art.html">Art for teaching with palmerpenguins</a>
     </li>
     <li>
-      <a href="../articles/download.html">Get data directly from the Environmental Data Initiative</a>
+      <a href="../../articles/articles/download.html">Download the palmerpenguin data from LTER</a>
     </li>
     <li>
-      <a href="../articles/examples.html">Example graphs using the penguins data</a>
+      <a href="../../articles/articles/examples.html">Example graphs using the penguins data</a>
     </li>
   </ul>
 </li>
@@ -96,13 +96,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="download_files/header-attrs-2.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Get data directly from the Environmental Data Initiative</h1>
+      <h1 data-toc-skip>Download the palmerpenguin data from LTER</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/allisonhorst/palmerpenguins/blob/master/vignettes/download.Rmd"><code>vignettes/download.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/allisonhorst/palmerpenguins/blob/master/vignettes/articles/download.Rmd"><code>vignettes/articles/download.Rmd</code></a></small>
       <div class="hidden name"><code>download.Rmd</code></div>
 
     </div>
@@ -215,7 +215,7 @@
 <div id="compare-to-package-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-to-package-data" class="anchor"></a>Compare to package data</h2>
-<p>Compared to <code><a href="../reference/penguins_raw.html">?penguins_raw</a></code>:</p>
+<p>Compared to <code><a href="../../reference/penguins_raw.html">?penguins_raw</a></code>:</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins_raw</span>)
 <span class="co">#&gt; Rows: 344</span>
 <span class="co">#&gt; Columns: 17</span>
@@ -239,7 +239,7 @@
 <p>Are they identical?</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span>(<span class="no">penguins_lter</span>, <span class="no">penguins_raw</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
-<p>But if that looks too messy for you, <code><a href="../reference/penguins.html">?penguins</a></code> is simpler and tidier:</p>
+<p>But if that looks too messy for you, <code><a href="../../reference/penguins.html">?penguins</a></code> is simpler and tidier:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins</span>)
 <span class="co">#&gt; Rows: 344</span>
 <span class="co">#&gt; Columns: 7</span>
@@ -254,6 +254,7 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
         <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
     </nav>
 </div>
