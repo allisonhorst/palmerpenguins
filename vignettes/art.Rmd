@@ -1,0 +1,55 @@
+---
+title: "Additional artwork"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Additional artwork}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+You are invited to use this accompanying artwork (Artwork: @allison_horst).
+
+```{r setup}
+library(palmerpenguins)
+```
+
+## Meet the Palmer penguins
+
+```{r echo=FALSE}
+logo <- file.path(here::here("man", "figures", "lter_penguins.png"))
+link <- xfun::embed_file(logo, "penguins.jpg", "Download 'meet the penguins' art")
+link
+```
+
+<p align="center"><img src="../man/figures/lter_penguins.png" width="600px"></p>
+
+## Culmen depth
+
+What are culmen length & depth? The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languages). 
+
+For this penguin data, the culmen length and culmen depth are measured as shown below (thanks Kristen Gorman for clarifying!):
+
+```{r echo=FALSE}
+logo <- file.path(here::here("man", "figures", "culmen_depth.png"))
+link <- xfun::embed_file(logo, "culmen_depth.jpg", "Download 'culmen depth' art")
+link
+```
+
+<p align="center"><img src="../man/figures/culmen_depth.png" width="400px"></p>
+
+## palmerpenguins hex sticker
+
+```{r echo=FALSE}
+logo <- file.path(here::here("man", "figures", "palmerpenguins.png"))
+link <- xfun::embed_file(logo, "palmerpenguins.jpg", "Download palmerpenguins hex")
+link
+```
+
+<p align="center"><img src="../man/figures/palmerpenguins.png" width="400px"></p>

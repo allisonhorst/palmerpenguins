@@ -1,6 +1,7 @@
-Package: penguins
+Package: palmerpenguins
 Title: Palmer Station LTER Penguins Data 
 Version: 0.0.0.9000
+Date: 2020-06-09
 Authors@R: c(
     person(given = "Allison",
            family = "Horst",
@@ -9,7 +10,8 @@ Authors@R: c(
     person(given = "Alison",
            family = "Hill",
            role = c("aut"),
-           email = "alison@rstudio.com"),
+           email = "apresstats@gmail.com",
+           comment = c(ORCID = "https://orcid.org/0000-0002-8082-1890")),
     person(given = "Kristen",
            family = "Gorman",
            role = c("aut"),
@@ -29,3 +31,5 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     tibble
+URL: https://allisonhorst.github.io/palmerpenguins/, https://github.com/allisonhorst/palmerpenguins
+BugReports: https://github.com/allisonhorst/palmerpenguins/issues

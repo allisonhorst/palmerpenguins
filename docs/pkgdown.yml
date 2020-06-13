@@ -1,0 +1,12 @@
+pandoc: 2.7.3
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  art: art.html
+  download: download.html
+  examples: examples.html
+last_built: 2020-06-12T16:54Z
+urls:
+  reference: https://allisonhorst.github.io/palmerpenguins/reference
+  article: https://allisonhorst.github.io/palmerpenguins/articles
+

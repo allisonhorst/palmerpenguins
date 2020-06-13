@@ -1,8 +1,8 @@
 ---
-title: "examples"
+title: "Example graphs using the penguins data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{examples}
+  %\VignetteIndexEntry{Example graphs using the penguins data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,21 +14,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(penguins)
-```
 
-```{r pkgs, include=FALSE}
+```{r setup, warning=FALSE, message=FALSE}
+library(palmerpenguins)
 library(tidyverse)
 library(here)
 library(gt)
-knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-## Example graphs
-
-#### Penguin mass vs. flipper length:
+## Penguin mass vs. flipper length
 
 ```{r}
 mass_flipper <- ggplot(data = penguins, 
@@ -53,11 +47,9 @@ mass_flipper <- ggplot(data = penguins,
         plot.caption.position = "plot")
 
 mass_flipper
-
-ggsave(here("figures","mass_flipper.png"), width = 8, height = 5)
 ```
 
-#### Flipper length vs. culmen length
+## Flipper length vs. culmen length
 
 ```{r}
 flipper_culmen <- ggplot(data = penguins,
@@ -82,11 +74,9 @@ flipper_culmen <- ggplot(data = penguins,
         plot.caption.position = "plot")
 
 flipper_culmen
-
-ggsave(here("figures","flipper_culmen.png"), width = 8, height = 5)
-
 ```
-#### Flipper length vs. culmen length
+
+## Flipper length vs. culmen length
 
 ```{r}
 culmen_len_dep <- ggplot(data = penguins,
@@ -113,12 +103,9 @@ culmen_len_dep <- ggplot(data = penguins,
         plot.caption.position = "plot")
 
 culmen_len_dep
-
-ggsave(here("figures","culmen_len_dep.png"), width = 8, height = 5)
-
 ```
 
-#### Simpson's paradox, omitting species in graph above:  
+## Simpson's paradox, omitting species in graph above:  
 
 ```{r}
 culmen_no_species <- ggplot(data = penguins,
@@ -137,14 +124,11 @@ culmen_no_species <- ggplot(data = penguins,
   geom_smooth(method = "lm", se = FALSE, color = "gray50")
 
 culmen_no_species
-
-ggsave(here("figures", "culmen_no_species.png"), width = 8, height = 5)
-
 ```
 
-#### Some other graphs for brainstorming
+## Some other graphs for brainstorming
 
-Flipper lengths histogram:  
+There are a number of questions you could ask about differences between groups. Here are a couple histograms to consider.
 
 ```{r}
 
@@ -159,9 +143,6 @@ flipper_hist <- ggplot(data = penguins, aes(x = flipper_length_mm)) +
        title = "Penguin flipper lengths")
 
 flipper_hist
-
-ggsave(here("figures","flipper_hist.png"), width = 8, height = 6)
-
 ```
 
 Flipper lengths boxplots + jitter: 
@@ -169,7 +150,7 @@ Flipper lengths boxplots + jitter:
 ```{r}
 flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   geom_boxplot(aes(color = species), width = 0.3, show.legend = FALSE) +
-  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE) +
+  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE, seed = 0) +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   theme_minimal() +
   labs(x = "Species",
@@ -193,11 +174,9 @@ mass_hist <- ggplot(data = penguins, aes(x = body_mass_g)) +
        title = "Penguin body mass")
 
 mass_hist
-
-ggsave(here("figures","mass_hist.png"), width = 8, height = 6)
-
 ```
-#### Random viz
+
+## Random viz
 
 Include penguin sex: 
 ```{r}
