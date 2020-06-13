@@ -1,19 +1,18 @@
 ---
 title: 'Penguin data: Multivariate EDA'
 author: "Michael Friendly"
-date: "6/10/2020"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Example graphs using the penguins data}
+  %\VignetteIndexEntry{Penguin data: Multivariate EDA}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 
 ```{r setup, include=FALSE}
+library(palmerpenguins)
 library(dplyr)
-#library(readr)
-library(here)
+#library(here)
 # library(car)
 # library(heplots)
 # library(candisc)
