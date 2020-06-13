@@ -6,7 +6,7 @@
 \alias{palmerpenguins-package}
 \title{palmerpenguins: Palmer Station LTER Penguins Data}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: align='right'}}
 
 Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (https://pal.lternet.edu/).
 }
@@ -24,7 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Alison Hill \email{apresstats@gmail.com} (\href{https://orcid.org/https://orcid.org/0000-0002-8082-1890}{ORCID})
+  \item Alison Hill \email{apresstats@gmail.com} (https://orcid.org/0000-0002-8082-1890)
   \item Kristen Gorman \email{kbgorman@alaska.edu}
 }
 
