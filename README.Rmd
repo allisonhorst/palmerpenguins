@@ -103,7 +103,9 @@ If you use this artwork, please cite with: "Artwork by @allison_horst".
 
 ### Meet the Palmer penguins
 
-<p align="center"><img src="man/figures/lter_penguins.png" width="600px"></p>
+```{r, echo = FALSE, fig.align='center'}
+knitr::include_graphics("vignettes/articles/img/lter_penguins.png", dpi = 300)
+```
 
 ### What are culmen length & depth? 
 
@@ -111,7 +113,9 @@ The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languag
 
 For this penguin data, the culmen length and culmen depth are measured as shown below (thanks Kristen Gorman for clarifying!):
 
-<p align="center"><img src="man/figures/culmen_depth.png" width="400px"></p>
+```{r, echo = FALSE, fig.align='center'}
+knitr::include_graphics("vignettes/articles/img/culmen_depth.png", dpi = 300)
+```
 
 ## Additional data use information
 
