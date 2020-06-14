@@ -1,0 +1,20 @@
+---
+title: "User-contributed examples"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Links to user-contributed examples, posts and vignettes: 
+
+* [Penguins data: Multivariate EDA](https://rpubs.com/friendly/penguin-biplots)
+    + Author: Michael Friendly
+    + Description: These examples show the use of multivariate exploratory visualization methods -- principal component analysis and biplots -- to understand the relations among variables in the penguins data set. 

@@ -41,7 +41,7 @@ This analysis gives a new perspective on this data set.  We will see that there 
 These examples use the basic `penguins` dataset. 
 
 ```{r}
-data(penguins)
+data(penguins, package="palmerpenguins")
 ```
 
 For this example: 
@@ -134,7 +134,7 @@ Briefly, by default, `ggpairs` :
 
 * pairs of two discrete variables are shown with stacked bar charts.
 
-```{r}
+```{r ggpairs, fig.height=7, fig.width=7}
 ggpairs(peng, mapping = aes(color = species), 
         columns = c("culmen_length", "culmen_depth", 
                     "flipper_length", "body_mass",
@@ -170,7 +170,7 @@ How many dimensions are useful and necessary to portray the variation among
 penquins on these variables?  It looks like two are sufficient.
 (The usual simple criterion is to look for the "elbow" in a screeplot.)
 
-```{r screeplot}
+```{r screeplot, fig.height=5, fig.width=7}
 screeplot(peng.pca, type = "line", lwd=3, cex=3, 
 		main="Variances of PCA Components")
 ```
@@ -188,7 +188,7 @@ In the call to `ggbiplot`,
 * `ellipse = TRUE` causes a data ellipse to be drawn for each species.  This shows the within-species correlations of the observation scores on PC1 & PC2.
 * `circle = TRUE` draws a correlation circle, reflecting the fact that for all species combined, PC1 & PC2 are uncorrelated.
 
-```{r}
+```{r ggbiplot, fig.height=7, fig.width=7}
 ggbiplot(peng.pca, obs.scale = 1, var.scale = 1,
          groups = peng$species, 
          ellipse = TRUE, circle = TRUE) +
