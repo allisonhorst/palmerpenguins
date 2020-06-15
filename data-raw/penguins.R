@@ -8,8 +8,8 @@ penguins <- read_csv(here("data-raw","penguins_raw.csv"),
                      na = c("", "NA", ".")) %>%
   clean_names() %>%
   mutate(species_short = word(species, 1)) %>%
+  mutate(sex = tolower(sex)) %>%
   mutate(across(is.character, as.factor)) %>%
-  mutate(sex = as.factor(tolower(sex))) %>%
   mutate(flipper_length_mm = as.integer(flipper_length_mm)) %>%
   mutate(body_mass_g = as.integer(body_mass_g)) %>%
   rename(bill_length_mm = culmen_length_mm,

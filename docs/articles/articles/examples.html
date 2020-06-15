@@ -143,22 +143,22 @@
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></pre></body></html></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 </div>
-<div id="flipper-length-vs--culmen-length" class="section level2">
+<div id="flipper-length-vs--bill-length" class="section level2">
 <h2 class="hasAnchor">
-<a href="#flipper-length-vs--culmen-length" class="anchor"></a>Flipper length vs. culmen length</h2>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">flipper_culmen</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+<a href="#flipper-length-vs--bill-length" class="anchor"></a>Flipper length vs. bill length</h2>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">flipper_bill</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
                          <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
-                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">culmen_length_mm</span>)) +
+                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>)) +
   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
                  <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
              <span class="kw">size</span> <span class="kw">=</span> <span class="fl">3</span>,
              <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.8</span>) +
   <span class="fu">theme_minimal</span>() +
   <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Flipper and culmen length"</span>,
+  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Flipper and bill length"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
-       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Culmen length (mm)"</span>,
+       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>,
        <span class="kw">shape</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>) +
   <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
@@ -167,16 +167,16 @@
         <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>)
 
-<span class="no">flipper_culmen</span>
+<span class="no">flipper_bill</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></pre></body></html></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
-<div id="flipper-length-vs--culmen-length-1" class="section level2">
+<div id="bill-length-vs--depth" class="section level2">
 <h2 class="hasAnchor">
-<a href="#flipper-length-vs--culmen-length-1" class="anchor"></a>Flipper length vs. culmen length</h2>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">culmen_len_dep</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">culmen_length_mm</span>,
-                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">culmen_depth_mm</span>,
+<a href="#bill-length-vs--depth" class="anchor"></a>Bill length vs. depth</h2>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">bill_len_dep</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
+                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_depth_mm</span>,
                              <span class="kw">group</span> <span class="kw">=</span> <span class="no">species</span>)) +
   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
                  <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
@@ -185,10 +185,10 @@
   <span class="fu">geom_smooth</span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>)) +
   <span class="fu">theme_minimal</span>() +
   <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin culmen dimensions"</span>,
-       <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Culmen length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
-       <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Culmen length (mm)"</span>,
-       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Culmen depth (mm)"</span>,
+  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions"</span>,
+       <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
+       <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
+       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill depth (mm)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>,
        <span class="kw">shape</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>) +
   <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
@@ -197,7 +197,7 @@
         <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>)
 
-<span class="no">culmen_len_dep</span>
+<span class="no">bill_len_dep</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></pre></body></html></div>
@@ -206,22 +206,22 @@
 <div id="simpsons-paradox-omitting-species-in-graph-above" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simpsons-paradox-omitting-species-in-graph-above" class="anchor"></a>Simpson’s paradox, omitting species in graph above:</h2>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">culmen_no_species</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">culmen_length_mm</span>,
-                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">culmen_depth_mm</span>)) +
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">bill_no_species</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
+                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_depth_mm</span>)) +
   <span class="fu">geom_point</span>() +
   <span class="fu">theme_minimal</span>() +
   <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin culmen dimensions (omit species)"</span>,
+  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Palmer Station LTER"</span>,
-       <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Culmen length (mm)"</span>,
-       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Culmen depth (mm)"</span>) +
+       <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
+       <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill depth (mm)"</span>) +
   <span class="fu">theme</span>(<span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
         <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>) +
   <span class="fu">geom_smooth</span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"gray50"</span>)
 
-<span class="no">culmen_no_species</span>
+<span class="no">bill_no_species</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></pre></body></html></div>
@@ -283,7 +283,7 @@
 <p>Include penguin sex:</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r">
 <span class="no">penguins</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">sex</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"FEMALE"</span>, <span class="st">"MALE"</span>)) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">sex</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"female"</span>, <span class="st">"male"</span>)) <span class="kw">%&gt;%</span>
 <span class="fu">ggplot</span>(<span class="no">.</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">body_mass_g</span>)) +
   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">sex</span>)) +
