@@ -27,11 +27,11 @@ link
 knitr::include_graphics("img/lter_penguins.png", dpi = 300)
 ```
 
-## Culmen depth
+## Culmen measurements
 
-What are culmen length & depth? The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languages). 
+What are culmen length & depth? The culmen is "the upper ridge of a bird's beak" (definition from Oxford Languages). In the simplified `penguins` subset, culmen length and depth have been updated to variables named `bill_length_mm` and `bill_depth_mm`. 
 
-For this penguin data, the culmen length and culmen depth are measured as shown below (thanks Kristen Gorman for clarifying!):
+For this penguin data, the bill/culmen length and depth are measured as shown below (thanks Kristen Gorman for clarifying!):
 
 ```{r echo=FALSE}
 logo <- file.path(here::here("vignettes", "articles", "img", "culmen_depth.png"))
