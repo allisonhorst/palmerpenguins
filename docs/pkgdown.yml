@@ -6,15 +6,7 @@ articles:
   download: articles/download.html
   examples: articles/examples.html
   user_contributions: articles/user_contributions.html
-<<<<<<< HEAD
-last_built: 2020-06-15T21:47Z
-=======
-<<<<<<< HEAD
-last_built: 2020-06-13T18:17Z
-=======
-last_built: 2020-06-13T17:59Z
->>>>>>> master
->>>>>>> master
+last_built: 2020-06-15T22:41Z
 urls:
   reference: https://allisonhorst.github.io/palmerpenguins/reference
   article: https://allisonhorst.github.io/palmerpenguins/articles
