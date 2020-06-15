@@ -122,10 +122,11 @@ If you use this artwork, please cite with: “Artwork by @allison\_horst”.
 
 ### What are culmen length & depth?
 
-The culmen is “the upper ridge of a bird’s beak” (definition from Oxford
-Languages).
+The culmen is the upper ridge of a bird’s bill. In the simplified
+`penguins` data, culmen length and depth are renamed as variables
+`bill_length_mm` and `bill_depth_mm` to be more intuitive.
 
-For this penguin data, the culmen length and culmen depth are measured
+For this penguin data, the culmen (bill) length and depth are measured
 as shown below (thanks Kristen Gorman for clarifying\!):
 
 <img src="vignettes/articles/img/culmen_depth.png" width="100%" style="display: block; margin: auto;" />
