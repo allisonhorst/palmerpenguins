@@ -18,10 +18,10 @@ uri_chinstrap <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-
 uris <- c(uri_adelie, uri_gentoo, uri_chinstrap)
 
 # Downloading and importing data
-penguins_lter <- map_dfr(uris, read_csv)
+penguins_lter <- as.data.frame(map_dfr(uris, read_csv))
 
 # Write new penguins_raw.csv (using direct import & download from EDI)
 write_csv(penguins_lter, here("data-raw", "penguins_raw.csv"))
 
 # penguins_raw <- read_csv(here("data-raw", "penguins_raw.csv"))
-usethis::use_data(penguins_raw, overwrite = TRUE)
+saveRDS(penguins_lter, here("data", "penguins_raw.rds"), compress = "xz", version = 2)
