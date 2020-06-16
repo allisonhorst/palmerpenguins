@@ -4,7 +4,8 @@
 \name{penguins_raw}
 \alias{penguins_raw}
 \title{Penguin size, clutch and blood isotope data for foraging adults near Palmer Station, Antarctica}
-\format{A tibble with 344 rows and 17 variables:
+\format{
+A tibble with 344 rows and 17 variables:
 \describe{
 \item{studyName}{Sampling expedition from which data were collected, generated, etc.}
 \item{Sample Number}{an integer denoting the continuous numbering sequence for each sample}
@@ -23,7 +24,8 @@
 \item{Delta 15 N}{a number denoting the measure of the ratio of stable isotopes 15N:14N}
 \item{Delta 13 C}{a number denoting the measure of the ratio of stable isotopes 13C:12C}
 \item{Comments}{a character string with text providing additional relevant information for data}
-}}
+}
+}
 \source{
 {Adélie penguins: Palmer Station Antarctica LTER and K. Gorman. 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (Pygoscelis adeliae) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative} \url{https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f}
 
