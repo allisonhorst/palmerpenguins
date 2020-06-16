@@ -1,15 +1,17 @@
-delayedAssign("penguins", {
+delayedAssign("penguins", local({
+  path <- system.file("data", "penguins.rds", package = "palmerpenguins")
   if (requireNamespace("tibble", quietly = TRUE)) {
-    tibble::as_tibble(readRDS("data/penguins.rds"))
+    tibble::as_tibble(readRDS(path))
   } else {
-    readRDS("data/penguins.rds")
+    readRDS(path)
   }
-})
+}))
 
-delayedAssign("penguins_raw", {
+delayedAssign("penguins_raw", local({
+  path <- system.file("data", "penguins_raw.rds", package = "palmerpenguins")
   if (requireNamespace("tibble", quietly = TRUE)) {
-    tibble::as_tibble(readRDS("data/penguins_raw.rds"))
+    tibble::as_tibble(readRDS(path))
   } else {
-    readRDS("data/penguins_raw.rds")
+    readRDS(path)
   }
-})
+}))
