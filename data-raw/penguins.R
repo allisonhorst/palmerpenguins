@@ -21,6 +21,7 @@ penguins <- read_csv(here("data-raw","penguins_raw.csv"),
          flipper_length_mm,
          body_mass_g,
          sex) %>%
-  rename(species = species_short)
+  rename(species = species_short) %>%
+  as.data.frame()
 
-usethis::use_data(penguins, overwrite = TRUE)
+saveRDS(penguins, here("data", "penguins.rds"), compress = "xz", version = 2)
