@@ -1,10 +1,5 @@
 ---
-title: "Get data directly from the Environmental Data Initiative"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Get data directly from the Environmental Data Initiative}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "Download the palmerpenguin data from LTER"
 ---
 
 ```{r, include = FALSE}
@@ -65,5 +60,3 @@ But if that looks too messy for you, `?penguins` is simpler and tidier:
 ```{r}
 glimpse(penguins)
 ```
-
-

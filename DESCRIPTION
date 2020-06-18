@@ -22,14 +22,13 @@ License: CC0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Depends: 
     R (>= 2.10)
 Suggests: 
     knitr,
-    rmarkdown
-VignetteBuilder: knitr
-Imports: 
+    rmarkdown,
     tibble
+VignetteBuilder: knitr
 URL: https://allisonhorst.github.io/palmerpenguins/, https://github.com/allisonhorst/palmerpenguins
 BugReports: https://github.com/allisonhorst/palmerpenguins/issues

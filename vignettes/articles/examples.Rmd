@@ -1,10 +1,5 @@
 ---
 title: "Example graphs using the penguins data"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Example graphs using the penguins data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
@@ -19,7 +14,6 @@ knitr::opts_chunk$set(
 library(palmerpenguins)
 library(tidyverse)
 library(here)
-library(gt)
 ```
 
 ## Penguin mass vs. flipper length
@@ -49,22 +43,22 @@ mass_flipper <- ggplot(data = penguins,
 mass_flipper
 ```
 
-## Flipper length vs. culmen length
+## Flipper length vs. bill length
 
 ```{r}
-flipper_culmen <- ggplot(data = penguins,
+flipper_bill <- ggplot(data = penguins,
                          aes(x = flipper_length_mm,
-                             y = culmen_length_mm)) +
+                             y = bill_length_mm)) +
   geom_point(aes(color = species, 
                  shape = species),
              size = 3,
              alpha = 0.8) +
   theme_minimal() +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
-  labs(title = "Flipper and culmen length",
+  labs(title = "Flipper and bill length",
        subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
        x = "Flipper length (mm)",
-       y = "Culmen length (mm)",
+       y = "Bill length (mm)",
        color = "Penguin species",
        shape = "Penguin species") +
   theme(legend.position = c(0.85, 0.15),
@@ -73,15 +67,15 @@ flipper_culmen <- ggplot(data = penguins,
         plot.caption = element_text(hjust = 0, face= "italic"),
         plot.caption.position = "plot")
 
-flipper_culmen
+flipper_bill
 ```
 
-## Flipper length vs. culmen length
+## Bill length vs. depth
 
 ```{r}
-culmen_len_dep <- ggplot(data = penguins,
-                         aes(x = culmen_length_mm,
-                             y = culmen_depth_mm,
+bill_len_dep <- ggplot(data = penguins,
+                         aes(x = bill_length_mm,
+                             y = bill_depth_mm,
                              group = species)) +
   geom_point(aes(color = species, 
                  shape = species),
@@ -90,10 +84,10 @@ culmen_len_dep <- ggplot(data = penguins,
   geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
   theme_minimal() +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
-  labs(title = "Penguin culmen dimensions",
-       subtitle = "Culmen length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
-       x = "Culmen length (mm)",
-       y = "Culmen depth (mm)",
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)",
        color = "Penguin species",
        shape = "Penguin species") +
   theme(legend.position = c(0.85, 0.15),
@@ -102,28 +96,28 @@ culmen_len_dep <- ggplot(data = penguins,
         plot.caption = element_text(hjust = 0, face= "italic"),
         plot.caption.position = "plot")
 
-culmen_len_dep
+bill_len_dep
 ```
 
 ## Simpson's paradox, omitting species in graph above:  
 
 ```{r}
-culmen_no_species <- ggplot(data = penguins,
-                         aes(x = culmen_length_mm,
-                             y = culmen_depth_mm)) +
+bill_no_species <- ggplot(data = penguins,
+                         aes(x = bill_length_mm,
+                             y = bill_depth_mm)) +
   geom_point() +
   theme_minimal() +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
-  labs(title = "Penguin culmen dimensions (omit species)",
+  labs(title = "Penguin bill dimensions (omit species)",
        subtitle = "Palmer Station LTER",
-       x = "Culmen length (mm)",
-       y = "Culmen depth (mm)") +
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)") +
   theme(plot.title.position = "plot",
         plot.caption = element_text(hjust = 0, face= "italic"),
         plot.caption.position = "plot") +
   geom_smooth(method = "lm", se = FALSE, color = "gray50")
 
-culmen_no_species
+bill_no_species
 ```
 
 ## Some other graphs for brainstorming
@@ -150,7 +144,7 @@ Flipper lengths boxplots + jitter:
 ```{r}
 flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   geom_boxplot(aes(color = species), width = 0.3, show.legend = FALSE) +
-  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE) +
+  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE, seed = 0) +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   theme_minimal() +
   labs(x = "Species",
@@ -182,7 +176,7 @@ Include penguin sex:
 ```{r}
 
 penguins %>% 
-  filter(sex %in% c("FEMALE", "MALE")) %>% 
+  filter(sex %in% c("female", "male")) %>% 
 ggplot(., aes(x = flipper_length_mm,
                             y = body_mass_g)) +
   geom_point(aes(color = sex)) +

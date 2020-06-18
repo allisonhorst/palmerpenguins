@@ -90,11 +90,11 @@ glimpse(penguins)
 #> Columns: 7
 #> $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
 #> $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
-#> $ culmen_length_mm  <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
-#> $ culmen_depth_mm   <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
+#> $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
+#> $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
 #> $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…
 #> $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…
-#> $ sex               <fct> MALE, FEMALE, FEMALE, NA, FEMALE, MALE, FEMALE, MAL…
+#> $ sex               <fct> male, female, female, NA, female, male, female, mal…
 penguins %>% 
   count(species)
 #> # A tibble: 3 x 2
@@ -120,25 +120,18 @@ If you use this artwork, please cite with: “Artwork by @allison\_horst”.
 
 ### Meet the Palmer penguins
 
-<p align="center">
-
-<img src="man/figures/lter_penguins.png" width="600px">
-
-</p>
+<img src="vignettes/articles/img/lter_penguins.png" width="100%" style="display: block; margin: auto;" />
 
 ### What are culmen length & depth?
 
-The culmen is “the upper ridge of a bird’s beak” (definition from Oxford
-Languages).
+The culmen is the upper ridge of a bird’s bill. In the simplified
+`penguins` data, culmen length and depth are renamed as variables
+`bill_length_mm` and `bill_depth_mm` to be more intuitive.
 
-For this penguin data, the culmen length and culmen depth are measured
+For this penguin data, the culmen (bill) length and depth are measured
 as shown below (thanks Kristen Gorman for clarifying\!):
 
-<p align="center">
-
-<img src="man/figures/culmen_depth.png" width="400px">
-
-</p>
+<img src="vignettes/articles/img/culmen_depth.png" width="100%" style="display: block; margin: auto;" />
 
 ## Additional data use information
 
@@ -186,3 +179,9 @@ From Gorman et al. (2014):
     Environmental Data Initiative.
     <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e>
     (Accessed 2020-06-08).
+
+## Contributor Code of Conduct
+
+Please note that the ‘palmerpenguins’ project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
+this project, you agree to abide by its terms.
