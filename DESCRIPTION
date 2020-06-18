@@ -1,6 +1,6 @@
 Package: palmerpenguins
 Title: Palmer Station LTER Penguins Data 
-Version: 0.0.0.9000
+Version: 0.1.0
 Date: 2020-06-09
 Authors@R: c(
     person(given = "Allison",
