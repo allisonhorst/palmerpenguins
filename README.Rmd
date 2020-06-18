@@ -17,7 +17,6 @@ library(tidyverse)
 # palmerpenguins <a href='https://allisonhorst.github.com/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
-[![R build status](https://github.com/allisonhorst/palmerpenguins/workflows/R-CMD-check/badge.svg)](https://github.com/allisonhorst/palmerpenguins/actions)
 <!-- badges: end -->
 
 The goal of palmerpenguins is to provide a great dataset for data exploration & visualization, as an alternative to `iris`. 

@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/allisonhorst/palmerpenguins/workflows/R-CMD-check/badge.svg)](https://github.com/allisonhorst/palmerpenguins/actions)
 <!-- badges: end -->
 
 The goal of palmerpenguins is to provide a great dataset for data
