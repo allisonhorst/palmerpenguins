@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# palmerpenguins <a href='https://allisonhorst.github.com/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+# palmerpenguins <a href='https://allisonhorst.github.io/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 
@@ -77,22 +77,56 @@ citation("palmerpenguins")
 
 ## Example
 
-There are two datasets. One is called `penguins`, and is a simplified
-version of the raw data. All column names are in snake case to make them
-easier to work with, see `?penguins` for more info:
+The palmerpenguins package contains two datasets.
 
 ``` r
 library(palmerpenguins)
-glimpse(penguins)
-#> Rows: 344
-#> Columns: 7
-#> $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
-#> $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
-#> $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
-#> $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
-#> $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…
-#> $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…
-#> $ sex               <fct> male, female, female, NA, female, male, female, mal…
+data(package = 'palmerpenguins')
+```
+
+One is called `penguins`, and is a simplified version of the raw data.
+All column names are in snake case to make them easier to work with, see
+`?penguins` for more info:
+
+``` r
+head(penguins)
+#> # A tibble: 6 x 7
+#>   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+#>   <fct>   <fct>           <dbl>         <dbl>            <int>       <int> <fct>
+#> 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+#> 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+#> 3 Adelie  Torge…           40.3          18                195        3250 fema…
+#> 4 Adelie  Torge…           NA            NA                 NA          NA <NA> 
+#> 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+#> 6 Adelie  Torge…           39.3          20.6              190        3650 male
+```
+
+The second dataset is `penguins_raw`, and contains all the variables and
+original names as downloaded. See `?penguins_raw` for more info.
+
+``` r
+head(penguins_raw)
+#> # A tibble: 6 x 17
+#>   studyName `Sample Number` Species Region Island Stage `Individual ID`
+#>   <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
+#> 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           
+#> 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           
+#> 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           
+#> 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           
+#> 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           
+#> 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           
+#> # … with 10 more variables: `Clutch Completion` <chr>, `Date Egg` <date>,
+#> #   `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>, `Flipper Length
+#> #   (mm)` <dbl>, `Body Mass (g)` <dbl>, Sex <chr>, `Delta 15 N (o/oo)` <dbl>,
+#> #   `Delta 13 C (o/oo)` <dbl>, Comments <chr>
+```
+
+Both datasets contain data for 344 penguins. There are 3 different
+species of penguins in this dataset, collected from 3 islands in the
+Palmer Archipelago, Antarctica.
+
+``` r
+library(tidyverse)
 penguins %>% 
   count(species)
 #> # A tibble: 3 x 2
@@ -101,20 +135,38 @@ penguins %>%
 #> 1 Adelie      152
 #> 2 Chinstrap    68
 #> 3 Gentoo      124
+penguins %>% 
+  count(island)
+#> # A tibble: 3 x 2
+#>   island        n
+#>   <fct>     <int>
+#> 1 Biscoe      168
+#> 2 Dream       124
+#> 3 Torgersen    52
+penguins %>% 
+  count(island, species)
+#> # A tibble: 5 x 3
+#>   island    species       n
+#>   <fct>     <fct>     <int>
+#> 1 Biscoe    Adelie       44
+#> 2 Biscoe    Gentoo      124
+#> 3 Dream     Adelie       56
+#> 4 Dream     Chinstrap    68
+#> 5 Torgersen Adelie       52
 ```
-
-The second dataset is `penguins_raw`, and contains all the variables and
-original names as downloaded. See `?penguins_raw` for more info.
 
 Penguins are fun to visualize\! For example:
 
-    #> Warning: Removed 2 rows containing missing values (geom_point).
-
 <img src="man/figures/README-mass-flipper-1.png" width="75%" />
 
-## Supplemental artwork
+You can find more visualizations for exploring palmerpenguins in
+`vignette("examples")`.
 
-If you use this artwork, please cite with: “Artwork by @allison\_horst”.
+## Artwork
+
+You can download palmerpenguins art (useful for teaching with the data)
+in `vignette("art")`. If you use this artwork, please cite with:
+“Artwork by @allison\_horst”.
 
 ### Meet the Palmer penguins
 

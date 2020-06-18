@@ -57,21 +57,40 @@ citation("palmerpenguins")
 
 ## Example
 
-There are two datasets. One is called `penguins`, and is a simplified version of the raw data. All column names are in snake case to make them easier to work with, see `?penguins` for more info: 
+The palmerpenguins package contains two datasets. 
 
-```{r example}
+```{r showdata}
 library(palmerpenguins)
-glimpse(penguins)
-penguins %>% 
-  count(species)
+data(package = 'palmerpenguins')
+``` 
+
+One is called `penguins`, and is a simplified version of the raw data. All column names are in snake case to make them easier to work with, see `?penguins` for more info: 
+
+```{r example-penguins}
+head(penguins)
 ```
 
 The second dataset is `penguins_raw`, and contains all the variables and original names as downloaded. See `?penguins_raw` for more info.
 
+```{r example-penguins-raw}
+head(penguins_raw)
+```
+
+Both datasets contain data for `r nrow(penguins)` penguins. There are `r length(unique(penguins$species))` different species of penguins in this dataset, collected from `r length(unique(penguins$island))` islands in the Palmer Archipelago, Antarctica.
+
+```{r example}
+library(tidyverse)
+penguins %>% 
+  count(species)
+penguins %>% 
+  count(island)
+penguins %>% 
+  count(island, species)
+```
+
 Penguins are fun to visualize! For example:
 
-```{r mass-flipper, echo = FALSE, out.width='75%', fig.retina=2}
-library(tidyverse)
+```{r mass-flipper, warning = FALSE, message = FALSE, echo = FALSE, out.width='75%', fig.retina=2}
 mass_flipper <- ggplot(data = penguins, 
                        aes(x = flipper_length_mm,
                            y = body_mass_g)) +
@@ -82,7 +101,7 @@ mass_flipper <- ggplot(data = penguins,
   theme_minimal() +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   labs(title = "Penguin size, Palmer Station LTER",
-       subtitle = "Flipper length and body mass for Adelie, Chinstrap and Gentoo Penguins",
+       subtitle = "Flipper length and body mass for Adelie, Chinstrap, and Gentoo Penguins",
        x = "Flipper length (mm)",
        y = "Body mass (g)",
        color = "Penguin species",
@@ -96,10 +115,11 @@ mass_flipper <- ggplot(data = penguins,
 mass_flipper
 ```
 
+You can find more visualizations for exploring palmerpenguins in `vignette("examples")`.
 
-## Supplemental artwork
+## Artwork
 
-If you use this artwork, please cite with: "Artwork by @allison_horst".
+You can download palmerpenguins art (useful for teaching with the data) in `vignette("art")`. If you use this artwork, please cite with: "Artwork by @allison_horst".
 
 ### Meet the Palmer penguins
 
