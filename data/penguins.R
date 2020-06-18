@@ -1,5 +1,5 @@
 delayedAssign("penguins", local({
-  path <- system.file("data", "penguins.rds", package = "palmerpenguins")
+  path <- system.file("extdata", "penguins.rds", package = "palmerpenguins")
   if (requireNamespace("tibble", quietly = TRUE)) {
     tibble::as_tibble(readRDS(path))
   } else {
@@ -8,7 +8,7 @@ delayedAssign("penguins", local({
 }))
 
 delayedAssign("penguins_raw", local({
-  path <- system.file("data", "penguins_raw.rds", package = "palmerpenguins")
+  path <- system.file("extdata", "penguins_raw.rds", package = "palmerpenguins")
   if (requireNamespace("tibble", quietly = TRUE)) {
     tibble::as_tibble(readRDS(path))
   } else {
