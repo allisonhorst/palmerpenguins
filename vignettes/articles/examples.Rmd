@@ -12,8 +12,7 @@ knitr::opts_chunk$set(
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(palmerpenguins)
-library(tidyverse)
-library(here)
+library(ggplot2)
 ```
 
 ## Penguin mass vs. flipper length
@@ -175,13 +174,11 @@ mass_hist
 Include penguin sex: 
 ```{r}
 
-penguins %>% 
-  filter(sex %in% c("female", "male")) %>% 
-ggplot(., aes(x = flipper_length_mm,
+ggplot(penguins, aes(x = flipper_length_mm,
                             y = body_mass_g)) +
   geom_point(aes(color = sex)) +
   theme_minimal() +
-  scale_color_manual(values = c("darkorange","cyan4")) +
+  scale_color_manual(values = c("darkorange","cyan4"), na.translate = FALSE) +
   labs(title = "Penguin flipper and body mass",
        subtitle = "Dimensions for male and female Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
        x = "Flipper length (mm)",
