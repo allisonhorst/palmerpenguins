@@ -112,9 +112,7 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">purrr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">readr</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)</pre></body></html></div>
 <div id="download-data-from-a-url" class="section level2">
 <h2 class="hasAnchor">
 <a href="#download-data-from-a-url" class="anchor"></a>Download data from a URL</h2>
@@ -134,87 +132,15 @@
 <span class="no">uris</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">uri_adelie</span>, <span class="no">uri_gentoo</span>, <span class="no">uri_chinstrap</span>)
 
 <span class="co"># Downloading and importing data</span>
-<span class="no">penguins_lter</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span>(<span class="no">uris</span>, <span class="no">read_csv</span>)
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   studyName = col_character(),</span>
-<span class="co">#&gt;   `Sample Number` = col_double(),</span>
-<span class="co">#&gt;   Species = col_character(),</span>
-<span class="co">#&gt;   Region = col_character(),</span>
-<span class="co">#&gt;   Island = col_character(),</span>
-<span class="co">#&gt;   Stage = col_character(),</span>
-<span class="co">#&gt;   `Individual ID` = col_character(),</span>
-<span class="co">#&gt;   `Clutch Completion` = col_character(),</span>
-<span class="co">#&gt;   `Date Egg` = col_date(format = ""),</span>
-<span class="co">#&gt;   `Culmen Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Culmen Depth (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Flipper Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Body Mass (g)` = col_double(),</span>
-<span class="co">#&gt;   Sex = col_character(),</span>
-<span class="co">#&gt;   `Delta 15 N (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   `Delta 13 C (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   Comments = col_character()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   studyName = col_character(),</span>
-<span class="co">#&gt;   `Sample Number` = col_double(),</span>
-<span class="co">#&gt;   Species = col_character(),</span>
-<span class="co">#&gt;   Region = col_character(),</span>
-<span class="co">#&gt;   Island = col_character(),</span>
-<span class="co">#&gt;   Stage = col_character(),</span>
-<span class="co">#&gt;   `Individual ID` = col_character(),</span>
-<span class="co">#&gt;   `Clutch Completion` = col_character(),</span>
-<span class="co">#&gt;   `Date Egg` = col_date(format = ""),</span>
-<span class="co">#&gt;   `Culmen Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Culmen Depth (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Flipper Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Body Mass (g)` = col_double(),</span>
-<span class="co">#&gt;   Sex = col_character(),</span>
-<span class="co">#&gt;   `Delta 15 N (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   `Delta 13 C (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   Comments = col_character()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   studyName = col_character(),</span>
-<span class="co">#&gt;   `Sample Number` = col_double(),</span>
-<span class="co">#&gt;   Species = col_character(),</span>
-<span class="co">#&gt;   Region = col_character(),</span>
-<span class="co">#&gt;   Island = col_character(),</span>
-<span class="co">#&gt;   Stage = col_character(),</span>
-<span class="co">#&gt;   `Individual ID` = col_character(),</span>
-<span class="co">#&gt;   `Clutch Completion` = col_character(),</span>
-<span class="co">#&gt;   `Date Egg` = col_date(format = ""),</span>
-<span class="co">#&gt;   `Culmen Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Culmen Depth (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Flipper Length (mm)` = col_double(),</span>
-<span class="co">#&gt;   `Body Mass (g)` = col_double(),</span>
-<span class="co">#&gt;   Sex = col_character(),</span>
-<span class="co">#&gt;   `Delta 15 N (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   `Delta 13 C (o/oo)` = col_double(),</span>
-<span class="co">#&gt;   Comments = col_character()</span>
-<span class="co">#&gt; )</span></pre></body></html></div>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_lter</span>)
-<span class="co">#&gt; # A tibble: 6 x 17</span>
-<span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
-<span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
-<span class="co">#&gt; 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           </span>
-<span class="co">#&gt; 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           </span>
-<span class="co">#&gt; 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           </span>
-<span class="co">#&gt; 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           </span>
-<span class="co">#&gt; 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           </span>
-<span class="co">#&gt; 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           </span>
-<span class="co">#&gt; # … with 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,</span>
-<span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length</span>
-<span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">purrr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">readr</span>)
+<span class="no">penguins_lter</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span>(<span class="no">uris</span>, <span class="no">read_csv</span>)</pre></body></html></div>
 </div>
 <div id="compare-to-package-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-to-package-data" class="anchor"></a>Compare to package data</h2>
 <p>Compared to <code><a href="../../reference/penguins_raw.html">?penguins_raw</a></code>:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_raw</span>)
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_raw</span>)
 <span class="co">#&gt; # A tibble: 6 x 17</span>
 <span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
 <span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
@@ -228,11 +154,8 @@
 <span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length</span>
 <span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></pre></body></html></div>
-<p>Are they identical?</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span>(<span class="no">penguins_lter</span>, <span class="no">penguins_raw</span>)
-<span class="co">#&gt; [1] FALSE</span></pre></body></html></div>
 <p>But if that looks too messy for you, <code><a href="../../reference/penguins.html">?penguins</a></code> is simpler and tidier:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins</span>)
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins</span>)
 <span class="co">#&gt; # A tibble: 6 x 7</span>
 <span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span>
 <span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;</span>
