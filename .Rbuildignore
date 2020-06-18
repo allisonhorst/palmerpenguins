@@ -9,3 +9,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^vignettes/articles$
 ^palmerpenguins\.Rproj$
+^\.github$
