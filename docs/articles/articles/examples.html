@@ -99,7 +99,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="examples_files/header-attrs-2.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Example graphs using the penguins data</h1>
@@ -113,30 +113,29 @@
     
     
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">here</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)</pre></body></html></div>
 <div id="penguin-mass-vs--flipper-length" class="section level2">
 <h2 class="hasAnchor">
 <a href="#penguin-mass-vs--flipper-length" class="anchor"></a>Penguin mass vs. flipper length</h2>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">mass_flipper</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                       <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">mass_flipper</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
                            <span class="kw">y</span> <span class="kw">=</span> <span class="no">body_mass_g</span>)) +
-  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
                  <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
              <span class="kw">size</span> <span class="kw">=</span> <span class="fl">3</span>,
              <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.8</span>) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin size, Palmer Station LTER"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin size, Palmer Station LTER"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Flipper length and body mass for Adelie, Chinstrap and Gentoo Penguins"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Body mass (g)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>,
        <span class="kw">shape</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>) +
-  <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0.7</span>),
-        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu">element_rect</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0.7</span>),
+        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
         <span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
-        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
+        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>)
 
 <span class="no">mass_flipper</span>
@@ -146,25 +145,25 @@
 <div id="flipper-length-vs--bill-length" class="section level2">
 <h2 class="hasAnchor">
 <a href="#flipper-length-vs--bill-length" class="anchor"></a>Flipper length vs. bill length</h2>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">flipper_bill</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">flipper_bill</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
                              <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>)) +
-  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
                  <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
              <span class="kw">size</span> <span class="kw">=</span> <span class="fl">3</span>,
              <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.8</span>) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Flipper and bill length"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Flipper and bill length"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>,
        <span class="kw">shape</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>) +
-  <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
-        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu">element_rect</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
+        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
         <span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
-        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
+        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>)
 
 <span class="no">flipper_bill</span>
@@ -174,27 +173,27 @@
 <div id="bill-length-vs--depth" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bill-length-vs--depth" class="anchor"></a>Bill length vs. depth</h2>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">bill_len_dep</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">bill_len_dep</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
                              <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_depth_mm</span>,
                              <span class="kw">group</span> <span class="kw">=</span> <span class="no">species</span>)) +
-  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>,
                  <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
              <span class="kw">size</span> <span class="kw">=</span> <span class="fl">3</span>,
              <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.8</span>) +
-  <span class="fu">geom_smooth</span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>)) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill depth (mm)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>,
        <span class="kw">shape</span> <span class="kw">=</span> <span class="st">"Penguin species"</span>) +
-  <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
-        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu">element_rect</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.15</span>),
+        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
         <span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
-        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
+        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>)
 
 <span class="no">bill_len_dep</span>
@@ -206,20 +205,20 @@
 <div id="simpsons-paradox-omitting-species-in-graph-above" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simpsons-paradox-omitting-species-in-graph-above" class="anchor"></a>Simpson’s paradox, omitting species in graph above:</h2>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">bill_no_species</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
-                         <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">bill_no_species</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>,
+                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>,
                              <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_depth_mm</span>)) +
-  <span class="fu">geom_point</span>() +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Palmer Station LTER"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Bill length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Bill depth (mm)"</span>) +
-  <span class="fu">theme</span>(<span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
-        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
+        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>) +
-  <span class="fu">geom_smooth</span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"gray50"</span>)
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(<span class="kw">method</span> <span class="kw">=</span> <span class="st">"lm"</span>, <span class="kw">se</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">"gray50"</span>)
 
 <span class="no">bill_no_species</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
@@ -232,13 +231,13 @@
 <a href="#some-other-graphs-for-brainstorming" class="anchor"></a>Some other graphs for brainstorming</h2>
 <p>There are a number of questions you could ask about differences between groups. Here are a couple histograms to consider.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r">
-<span class="no">flipper_hist</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>)) +
-  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="no">species</span>),
+<span class="no">flipper_hist</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="no">species</span>),
                  <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
                  <span class="kw">position</span> <span class="kw">=</span> <span class="st">"identity"</span>) +
-  <span class="fu">scale_fill_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">labs</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Frequency"</span>,
        <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin flipper lengths"</span>)
 
@@ -247,12 +246,12 @@
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_bin).</span></pre></body></html></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 <p>Flipper lengths boxplots + jitter:</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">flipper_box</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">species</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>)) +
-  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.3</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
-  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">0</span>) +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">labs</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Species"</span>,
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">flipper_box</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">species</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.3</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>), <span class="kw">width</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">show.legend</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">seed</span> <span class="kw">=</span> <span class="fl">0</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Species"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>)
 <span class="co">#&gt; Warning: Ignoring unknown parameters: seed</span>
 
@@ -262,13 +261,13 @@
 <p><img src="examples_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 <p>Body mass histograms:</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r">
-<span class="no">mass_hist</span> <span class="kw">&lt;-</span> <span class="fu">ggplot</span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">body_mass_g</span>)) +
-  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="no">species</span>),
+<span class="no">mass_hist</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">body_mass_g</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="no">species</span>),
                  <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
                  <span class="kw">position</span> <span class="kw">=</span> <span class="st">"identity"</span>) +
-  <span class="fu">scale_fill_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">labs</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Body mass (g)"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="st">"Body mass (g)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Frequency"</span>,
        <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin body mass"</span>)
 
@@ -282,29 +281,29 @@
 <a href="#random-viz" class="anchor"></a>Random viz</h2>
 <p>Include penguin sex:</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r">
-<span class="no">penguins</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="no">sex</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"female"</span>, <span class="st">"male"</span>)) <span class="kw">%&gt;%</span>
-<span class="fu">ggplot</span>(<span class="no">.</span>, <span class="fu">aes</span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>,
                             <span class="kw">y</span> <span class="kw">=</span> <span class="no">body_mass_g</span>)) +
-  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">sex</span>)) +
-  <span class="fu">theme_minimal</span>() +
-  <span class="fu">scale_color_manual</span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"cyan4"</span>)) +
-  <span class="fu">labs</span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin flipper and body mass"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">sex</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"cyan4"</span>), <span class="kw">na.translate</span> <span class="kw">=</span> <span class="fl">FALSE</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Penguin flipper and body mass"</span>,
        <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">"Dimensions for male and female Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER"</span>,
        <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Flipper length (mm)"</span>,
        <span class="kw">y</span> <span class="kw">=</span> <span class="st">"Body mass (g)"</span>,
        <span class="kw">color</span> <span class="kw">=</span> <span class="st">"Penguin sex"</span>) +
-  <span class="fu">theme</span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>,
-        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu">element_rect</span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>,
+        <span class="kw">legend.background</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"white"</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fl">NA</span>),
         <span class="kw">plot.title.position</span> <span class="kw">=</span> <span class="st">"plot"</span>,
-        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu">element_text</span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
+        <span class="kw">plot.caption</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">face</span><span class="kw">=</span> <span class="st">"italic"</span>),
         <span class="kw">plot.caption.position</span> <span class="kw">=</span> <span class="st">"plot"</span>) +
-  <span class="fu">facet_wrap</span>(~<span class="no">species</span>)</pre></body></html></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(~<span class="no">species</span>)
+<span class="co">#&gt; Warning: Removed 11 rows containing missing values (geom_point).</span></pre></body></html></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
         <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
     </nav>
 </div>

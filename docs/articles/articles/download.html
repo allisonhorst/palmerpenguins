@@ -99,7 +99,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="download_files/header-attrs-2.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Download the palmerpenguin data from LTER</h1>
@@ -113,7 +113,8 @@
     
     
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">purrr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">readr</span>)</pre></body></html></div>
 <div id="download-data-from-a-url" class="section level2">
 <h2 class="hasAnchor">
 <a href="#download-data-from-a-url" class="anchor"></a>Download data from a URL</h2>
@@ -133,7 +134,7 @@
 <span class="no">uris</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">uri_adelie</span>, <span class="no">uri_gentoo</span>, <span class="no">uri_chinstrap</span>)
 
 <span class="co"># Downloading and importing data</span>
-<span class="no">penguins_lter</span> <span class="kw">&lt;-</span> <span class="fu">map_dfr</span>(<span class="no">uris</span>, <span class="no">read_csv</span>)
+<span class="no">penguins_lter</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span>(<span class="no">uris</span>, <span class="no">read_csv</span>)
 <span class="co">#&gt; Parsed with column specification:</span>
 <span class="co">#&gt; cols(</span>
 <span class="co">#&gt;   studyName = col_character(),</span>
@@ -194,69 +195,58 @@
 <span class="co">#&gt;   `Delta 13 C (o/oo)` = col_double(),</span>
 <span class="co">#&gt;   Comments = col_character()</span>
 <span class="co">#&gt; )</span></pre></body></html></div>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins_lter</span>)
-<span class="co">#&gt; Rows: 344</span>
-<span class="co">#&gt; Columns: 17</span>
-<span class="co">#&gt; $ studyName             &lt;chr&gt; "PAL0708", "PAL0708", "PAL0708", "PAL0708", "PA…</span>
-<span class="co">#&gt; $ `Sample Number`       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, …</span>
-<span class="co">#&gt; $ Species               &lt;chr&gt; "Adelie Penguin (Pygoscelis adeliae)", "Adelie …</span>
-<span class="co">#&gt; $ Region                &lt;chr&gt; "Anvers", "Anvers", "Anvers", "Anvers", "Anvers…</span>
-<span class="co">#&gt; $ Island                &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgers…</span>
-<span class="co">#&gt; $ Stage                 &lt;chr&gt; "Adult, 1 Egg Stage", "Adult, 1 Egg Stage", "Ad…</span>
-<span class="co">#&gt; $ `Individual ID`       &lt;chr&gt; "N1A1", "N1A2", "N2A1", "N2A2", "N3A1", "N3A2",…</span>
-<span class="co">#&gt; $ `Clutch Completion`   &lt;chr&gt; "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "No",…</span>
-<span class="co">#&gt; $ `Date Egg`            &lt;date&gt; 2007-11-11, 2007-11-11, 2007-11-16, 2007-11-16…</span>
-<span class="co">#&gt; $ `Culmen Length (mm)`  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 3…</span>
-<span class="co">#&gt; $ `Culmen Depth (mm)`   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 1…</span>
-<span class="co">#&gt; $ `Flipper Length (mm)` &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190…</span>
-<span class="co">#&gt; $ `Body Mass (g)`       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3…</span>
-<span class="co">#&gt; $ Sex                   &lt;chr&gt; "MALE", "FEMALE", "FEMALE", NA, "FEMALE", "MALE…</span>
-<span class="co">#&gt; $ `Delta 15 N (o/oo)`   &lt;dbl&gt; NA, 8.94956, 8.36821, NA, 8.76651, 8.66496, 9.1…</span>
-<span class="co">#&gt; $ `Delta 13 C (o/oo)`   &lt;dbl&gt; NA, -24.69454, -25.33302, NA, -25.32426, -25.29…</span>
-<span class="co">#&gt; $ Comments              &lt;chr&gt; "Not enough blood for isotopes.", NA, NA, "Adul…</span></pre></body></html></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_lter</span>)
+<span class="co">#&gt; # A tibble: 6 x 17</span>
+<span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
+<span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
+<span class="co">#&gt; 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           </span>
+<span class="co">#&gt; 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           </span>
+<span class="co">#&gt; 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           </span>
+<span class="co">#&gt; 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           </span>
+<span class="co">#&gt; 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           </span>
+<span class="co">#&gt; 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           </span>
+<span class="co">#&gt; # … with 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,</span>
+<span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length</span>
+<span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></pre></body></html></div>
 </div>
 <div id="compare-to-package-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compare-to-package-data" class="anchor"></a>Compare to package data</h2>
 <p>Compared to <code><a href="../../reference/penguins_raw.html">?penguins_raw</a></code>:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins_raw</span>)
-<span class="co">#&gt; Rows: 344</span>
-<span class="co">#&gt; Columns: 17</span>
-<span class="co">#&gt; $ studyName             &lt;chr&gt; "PAL0708", "PAL0708", "PAL0708", "PAL0708", "PA…</span>
-<span class="co">#&gt; $ `Sample Number`       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, …</span>
-<span class="co">#&gt; $ Species               &lt;chr&gt; "Adelie Penguin (Pygoscelis adeliae)", "Adelie …</span>
-<span class="co">#&gt; $ Region                &lt;chr&gt; "Anvers", "Anvers", "Anvers", "Anvers", "Anvers…</span>
-<span class="co">#&gt; $ Island                &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgers…</span>
-<span class="co">#&gt; $ Stage                 &lt;chr&gt; "Adult, 1 Egg Stage", "Adult, 1 Egg Stage", "Ad…</span>
-<span class="co">#&gt; $ `Individual ID`       &lt;chr&gt; "N1A1", "N1A2", "N2A1", "N2A2", "N3A1", "N3A2",…</span>
-<span class="co">#&gt; $ `Clutch Completion`   &lt;chr&gt; "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "No",…</span>
-<span class="co">#&gt; $ `Date Egg`            &lt;date&gt; 2007-11-11, 2007-11-11, 2007-11-16, 2007-11-16…</span>
-<span class="co">#&gt; $ `Culmen Length (mm)`  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 3…</span>
-<span class="co">#&gt; $ `Culmen Depth (mm)`   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 1…</span>
-<span class="co">#&gt; $ `Flipper Length (mm)` &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190…</span>
-<span class="co">#&gt; $ `Body Mass (g)`       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3…</span>
-<span class="co">#&gt; $ Sex                   &lt;chr&gt; "MALE", "FEMALE", "FEMALE", NA, "FEMALE", "MALE…</span>
-<span class="co">#&gt; $ `Delta 15 N (o/oo)`   &lt;dbl&gt; NA, 8.94956, 8.36821, NA, 8.76651, 8.66496, 9.1…</span>
-<span class="co">#&gt; $ `Delta 13 C (o/oo)`   &lt;dbl&gt; NA, -24.69454, -25.33302, NA, -25.32426, -25.29…</span>
-<span class="co">#&gt; $ Comments              &lt;chr&gt; "Not enough blood for isotopes.", NA, NA, "Adul…</span></pre></body></html></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_raw</span>)
+<span class="co">#&gt; # A tibble: 6 x 17</span>
+<span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
+<span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
+<span class="co">#&gt; 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           </span>
+<span class="co">#&gt; 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           </span>
+<span class="co">#&gt; 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           </span>
+<span class="co">#&gt; 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           </span>
+<span class="co">#&gt; 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           </span>
+<span class="co">#&gt; 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           </span>
+<span class="co">#&gt; # … with 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,</span>
+<span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length</span>
+<span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></pre></body></html></div>
 <p>Are they identical?</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span>(<span class="no">penguins_lter</span>, <span class="no">penguins_raw</span>)
-<span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
+<span class="co">#&gt; [1] FALSE</span></pre></body></html></div>
 <p>But if that looks too messy for you, <code><a href="../../reference/penguins.html">?penguins</a></code> is simpler and tidier:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu">glimpse</span>(<span class="no">penguins</span>)
-<span class="co">#&gt; Rows: 344</span>
-<span class="co">#&gt; Columns: 7</span>
-<span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…</span>
-<span class="co">#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…</span>
-<span class="co">#&gt; $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…</span>
-<span class="co">#&gt; $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…</span>
-<span class="co">#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
-<span class="co">#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
-<span class="co">#&gt; $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, mal…</span></pre></body></html></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins</span>)
+<span class="co">#&gt; # A tibble: 6 x 7</span>
+<span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torge…           39.1          18.7              181        3750 male </span>
+<span class="co">#&gt; 2 Adelie  Torge…           39.5          17.4              186        3800 fema…</span>
+<span class="co">#&gt; 3 Adelie  Torge…           40.3          18                195        3250 fema…</span>
+<span class="co">#&gt; 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; </span>
+<span class="co">#&gt; 5 Adelie  Torge…           36.7          19.3              193        3450 fema…</span>
+<span class="co">#&gt; 6 Adelie  Torge…           39.3          20.6              190        3650 male</span></pre></body></html></div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
         <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
     </nav>
 </div>
