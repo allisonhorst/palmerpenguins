@@ -25,7 +25,7 @@ Useful links:
 Authors:
 \itemize{
   \item Alison Hill \email{apresstats@gmail.com} (\href{https://orcid.org/0000-0002-8082-1890}{ORCID})
-  \item Kristen Gorman \email{kbgorman@alaska.edu}
+  \item Kristen Gorman \email{kbgorman@alaska.edu} (\href{https://orcid.org/0000-0002-0258-9264}{ORCID})
 }
 
 }

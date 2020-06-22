@@ -9,9 +9,14 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "75%",
+  warning = FALSE,
+  message = FALSE,
+  fig.retina = 2,
+  fig.align = 'center'
 )
 library(tidyverse)
+library(palmerpenguins)
 ```
 
 # palmerpenguins <a href='https://allisonhorst.github.io/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
@@ -20,6 +25,34 @@ library(tidyverse)
 <!-- badges: end -->
 
 The goal of palmerpenguins is to provide a great dataset for data exploration & visualization, as an alternative to `iris`. 
+
+```{r flipper-bill, echo=FALSE}
+flipper_bill <- ggplot(data = penguins,
+                         aes(x = flipper_length_mm,
+                             y = bill_length_mm)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Flipper and bill length",
+       subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Flipper length (mm)",
+       y = "Bill length (mm)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme(legend.position = c(0.85, 0.15),
+        legend.background = element_rect(fill = "white", color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+flipper_bill
+```
+
+
 
 ## Installation
 
@@ -41,22 +74,6 @@ remotes::install_github("allisonhorst/palmerpenguins")
 
 Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
-**Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use.
-
-## License
-
-**Data are available by** [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/) license in accordance with the [Palmer Station LTER Data Policy](http://pal.lternet.edu/data/policies) and the [LTER Data Access Policy for Type I data](https://lternet.edu/data-access-policy/).
-
-## Citation
-
-To cite the data used in this package, please use:
-
-```{r}
-citation("palmerpenguins")
-```
-
-## Example
-
 The palmerpenguins package contains two datasets. 
 
 ```{r showdata}
@@ -64,28 +81,42 @@ library(palmerpenguins)
 data(package = 'palmerpenguins')
 ``` 
 
-One is called `penguins`, and is a simplified version of the raw data. All column names are in snake case to make them easier to work with, see `?penguins` for more info: 
+One is called `penguins`, and is a simplified version of the raw data; see `?penguins` for more info: 
 
 ```{r example-penguins}
 head(penguins)
 ```
 
-The second dataset is `penguins_raw`, and contains all the variables and original names as downloaded. See `?penguins_raw` for more info.
+
+The second dataset is `penguins_raw`, and contains all the variables and original names as downloaded; see `?penguins_raw` for more info.
 
 ```{r example-penguins-raw}
 head(penguins_raw)
 ```
 
-Both datasets contain data for `r nrow(penguins)` penguins. There are `r length(unique(penguins$species))` different species of penguins in this dataset, collected from `r length(unique(penguins$island))` islands in the Palmer Archipelago, Antarctica.
+Both datasets contain data for `r nrow(penguins)` penguins. There are `r length(unique(penguins$species))` different species of penguins in this dataset, collected from `r length(unique(penguins$island))` islands in the Palmer Archipelago, Antarctica. 
 
-```{r example}
+```{r}
+str(penguins)
+```
+
+
+**Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license & use.
+
+
+## Examples
+
+You can find these and more code examples for exploring palmerpenguins in `vignette("examples")`.
+
+Penguins are fun to summarize! For example:
+
+```{r example, warning=FALSE, message=FALSE}
 library(tidyverse)
 penguins %>% 
   count(species)
 penguins %>% 
-  count(island)
-penguins %>% 
-  count(island, species)
+  group_by(species) %>% 
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
 ```
 
 Penguins are fun to visualize! For example:
@@ -115,7 +146,19 @@ mass_flipper <- ggplot(data = penguins,
 mass_flipper
 ```
 
-You can find more visualizations for exploring palmerpenguins in `vignette("examples")`.
+```{r flipper-hist, echo=FALSE}
+flipper_hist <- ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(aes(fill = species), 
+                 alpha = 0.5, 
+                 position = "identity") +
+  scale_fill_manual(values = c("darkorange","purple","cyan4")) +
+  theme_minimal() +
+  labs(x = "Flipper length (mm)",
+       y = "Frequency",
+       title = "Penguin flipper lengths")
+
+flipper_hist
+```
 
 ## Artwork
 
@@ -124,7 +167,7 @@ You can download palmerpenguins art (useful for teaching with the data) in `vign
 ### Meet the Palmer penguins
 
 ```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("vignettes/articles/img/lter_penguins.png", dpi = 300)
+knitr::include_graphics("man/figures/lter_penguins.png", dpi = 300)
 ```
 
 ### What are culmen length & depth? 
@@ -134,8 +177,21 @@ The culmen is the upper ridge of a bird's bill. In the simplified `penguins` dat
 For this penguin data, the culmen (bill) length and depth are measured as shown below (thanks Kristen Gorman for clarifying!):
 
 ```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("vignettes/articles/img/culmen_depth.png", dpi = 300)
+knitr::include_graphics("man/figures/culmen_depth.png", dpi = 300)
 ```
+
+## License
+
+Data are available by  [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/) license in accordance with the [Palmer Station LTER Data Policy](http://pal.lternet.edu/data/policies) and the [LTER Data Access Policy for Type I data](https://lternet.edu/data-access-policy/).
+
+## Citation
+
+To cite the data used in this package, please use:
+
+```{r}
+citation("palmerpenguins")
+```
+
 
 ## Additional data use information
 
