@@ -5,7 +5,9 @@ title: "Example graphs using the penguins data"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.retina = 2,
+  fig.align = 'center'
 )
 ```
 
@@ -17,7 +19,7 @@ library(ggplot2)
 
 ## Penguin mass vs. flipper length
 
-```{r}
+```{r mass-flipper}
 mass_flipper <- ggplot(data = penguins, 
                        aes(x = flipper_length_mm,
                            y = body_mass_g)) +
@@ -143,7 +145,7 @@ Flipper lengths boxplots + jitter:
 ```{r}
 flipper_box <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
   geom_boxplot(aes(color = species), width = 0.3, show.legend = FALSE) +
-  geom_jitter(aes(color = species), width = 0.2, alpha = 0.5, show.legend = FALSE, seed = 0) +
+  geom_jitter(aes(color = species), alpha = 0.5, show.legend = FALSE, position = position_jitter(width = 0.2, seed = 0)) +
   scale_color_manual(values = c("darkorange","purple","cyan4")) +
   theme_minimal() +
   labs(x = "Species",
