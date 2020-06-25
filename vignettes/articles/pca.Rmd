@@ -34,7 +34,7 @@ theme_set(theme_minimal())
 
 ## Correlation matrix
 
-The penguins data contains several size measurement variables that are correlated. Let's take a look at the correlation matrix with the [corrr package](https://corrr.tidymodels.org/) and the `corrr::correlate()` function:
+The `palmerpenguins::penguins` data contains several size measurement variables that are correlated. Let's take a look at the correlation matrix with the [corrr package](https://corrr.tidymodels.org/) and the `corrr::correlate()` function:
 
 ```{r corrr}
 library(corrr)
@@ -55,7 +55,7 @@ penguins_corr
 ```
 
 
-Body mass and flipper length appear highly correlated, but neither of the bill variables appears to be very correlated with any other variables.
+Body mass and flipper length appear highly correlated, but neither of the bill variables appears to be as highly correlated with any other variables.
 
 ## Pairwise plot matrix
 
@@ -252,6 +252,21 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, colour = species)) +
   geom_point() +
   scale_colour_manual(values = c("darkorange","purple","cyan4")) 
 ```
+
+
+This is actually a pretty neat scatterplot---it highlights a perfect example of why you'd need the combination of two variables to differentiate between these three species. Comparing distributions for any single variable only differentiates one species from the other two!
+
+```{r eval=TRUE, fig.show="hold", out.width="49%", echo=FALSE}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(aes(fill = species), alpha = 0.5, position = "identity") +
+  scale_fill_manual(values = c("darkorange","darkorchid","cyan4"))
+
+ggplot(data = penguins, aes(x = bill_depth_mm)) +
+  geom_histogram(aes(fill = species), alpha = 0.5, position = "identity") +
+  scale_fill_manual(values = c("darkorange","darkorchid","cyan4"))
+```
+
+## Summary
 
 So, Gentoos appear to just be giants, compared to the Adelie and Chinstrap penguins. While Adelie and Chinstraps are similar size-wise as measured by flipper length and body mass, Chinstraps seem to have longer bills and Adelie penguins have stubbier bills (a pug-gein, if you will?). And Gentoos, despite being large overall, have flatter bills than either of the other two species. Reminder:
 
