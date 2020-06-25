@@ -12,7 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   warning = FALSE,
-  message = FALSE
+  message = FALSE,
+  out.width = "100%"
 )
 ```
 
@@ -25,13 +26,13 @@ library(ggplot2)
 theme_set(theme_minimal())
 ```
 
-The well-known and widespread *iris* dataset, which contains sepal and petal dimensions for three *Iris* species measured by botanist Edgar Anderson in 1935, is ubiquitous in data science and statistics materials including in the R {datasets} package. The dataset's use in, and inextricable association with, eugenicist statistician Ronald A. Fisher's 1936 publication in *The Annals of Eugenics* has created momentum for educators to switch to alternate datasets.
+The `palmerpenguins` R package contains two datasets that we believe are a viable alternative to Anderson's **Iris** data (see `datasets::iris`). In this introductory vignette, we'll highlight some of the properties of these datasets that make them useful for statistics and data science education, as well as software documentation and testing.
 
-## Enter the Antarctic penguins
+<img src="../reference/figures/palmerpenguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
 
-From 2007 -- 2009, [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) with the [Palmer Station Antarctica Long Term Ecological Research (LTER) Program](https://pal.lternet.edu/) collected size measurements, clutch (nest) observations, and blood isotope concentrations for three species of adult nesting penguins (Adélie, Chinstrap and Gentoo) on three islands in the Palmer Archipelago, Antarctica. We believe the Palmer Archipelago penguins data is an exciting alternative to iris that offers similar teaching and learning opportunities for many use cases.
+## Meet the penguins
 
-Meet the penguins:
+The  `palmerpenguins` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica. 
 
 <figure>
   <img src="../reference/figures/lter_penguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
@@ -39,26 +40,32 @@ Meet the penguins:
 </figure>
 
 \
-
 **Aside:** That's right, developers -- [Gentoo Linux is named after penguins](https://wiki.gentoo.org/wiki/FAQ)!
+
+These data were collected from 2007 - 2009 by Dr. Kristen Gorman with the [Palmer Station Long Term Ecological Research Program](https://pal.lternet.edu/), part of the [US Long Term Ecological Research Network](https://lternet.edu/). The data were imported directly from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (EDI) Data Portal, and are available for use by CC0 license ("No Rights Reserved") in accordance with the [Palmer Station Data Policy](https://pal.lternet.edu/data/policies). 
+
+## Installation
+
+<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("palmerpenguins")
+```
+-->
+
+You can install the development version from
+[GitHub](https://github.com/) with:
+
+```{r eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("allisonhorst/palmerpenguins")
+```
 
 ## The **palmerpenguins** package
 
-Lucky for us, the data (originally described, analyzed & published in [Gorman et al. (2014)](https://doi.org/10.1371/journal.pone.0090081)) are generously available for use by CC0 license. This package contains two datasets.
-
-Here, we focus on a curated subset of the raw data in the package named `palmerpenguins::penguins`, which can serve as an out-of-the-box alternative to *iris*.
+This package contains two datasets. Here, we'll focus on a curated subset of the raw data in the package named `palmerpenguins::penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
 
 The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
-
-
-
-**Install and attach the palmerpenguins package (currently from GitHub):**
-
-```{r eval=FALSE}
-# Install palmerpenguins
-library(remotes)
-remotes::install_github(“allisonhorst/palmerpenguins”) 
-```
 
 The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
 
@@ -70,20 +77,6 @@ The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` varia
 -   `body_mass_g`: an integer denoting penguin body mass (grams)
 -   `sex`: a factor denoting penguin sex (male, female)
 
-## Highlights
-
-We don't want to ruin all the fun exploration, visualization and potential analyses, so below are just a few examples to get you quickly waddling along with *penguins*. You can check out more in `vignette("examples")`.
-
-```{r ref.label="setup", eval=FALSE}
-
-```
-
-
-
-### Check it out
-
-The data are already tidy and all column names are in [snake case](https://tazinho.github.io/snakecase/):
-
 ```{r}
 glimpse(penguins)
 ```
@@ -94,8 +87,19 @@ Be aware that there is a small number of `NA` values (n~missing~ = 19):
 visdat::vis_dat(penguins)
 ```
 
+The `palmerpenguins::penguins` data contains `r sum(complete.cases(penguins))` complete cases, with missing values (n~missing~ = `r sum(is.na(penguins))`, or `r round(100*sum(is.na(penguins))/(7*344),2)` % of all values) indicated by `NA` throughout. 
 
-### Get some counts
+## Highlights
+
+We don't want to ruin all the fun exploration, visualization, and potential analyses, so below are just a few examples to get you quickly waddling along with *penguins*. You can check out more in `vignette("examples")`.
+
+```{r ref.label="setup", eval=FALSE}
+
+```
+
+### Exploring factors
+
+The `penguins` data has 3 factor variables: `island`, `species`, and `sex`.
 
 ```{r}
 # Count penguins for each species / island
@@ -113,8 +117,24 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
+```{r}
+# Count penguins for each species / sex
+penguins %>%
+  count(species, sex, .drop = FALSE)
+```
 
-### Exploratory graphs
+```{r}
+ggplot(penguins, aes(x = sex, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"), 
+                    guide = FALSE) +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+```
+
+
+### Exploring scatterplots
 
 ```{r}
 # Scatterplot example 1: penguin flipper length versus body mass
@@ -130,7 +150,32 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
                  shape = species),
              size = 2)  +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"))
+```
 
+### Exploring correlations
+
+Also see `vignette("pca")` for an example using principal components analysis.
+
+```{r penguin-pairs, eval=FALSE}
+penguins %>%
+  select(species, where(is.numeric)) %>% 
+  GGally::ggpairs(aes(color = species)) +
+  scale_colour_manual(values = c("darkorange","purple","cyan4")) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"))
+```
+
+```{r include=FALSE, eval=FALSE}
+ggsave("vignettes/penguin-ggpairs.png", width = 8)
+```
+
+```{r eval=TRUE, echo=FALSE}
+knitr::include_graphics("penguin-ggpairs.png")
+```
+
+
+### Exploring distributions
+
+```{r}
 # Jitter plot example: bill length by species
 ggplot(data = penguins, aes(x = species, y = bill_length_mm)) +
   geom_jitter(aes(color = species),
@@ -146,11 +191,9 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
 ```
 
 
+### More
 
-
-### More examples
-
-See more examples in `vignette("user_contributions")`, or contribute your own!
+See more examples in  `vignette("examples")`, `vignette("pca")`, and `vignette("user_contributions")`, or contribute your own!
 
 ## Citation & data access
 
@@ -182,5 +225,5 @@ And the data can be accessed directly via the [Environmental Data Initiative](ht
 Have fun with the Palmer Archipelago penguins!
 
 
-<img src="../reference/figures/palmerpenguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
+
 
