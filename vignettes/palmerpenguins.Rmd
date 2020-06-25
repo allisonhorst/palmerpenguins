@@ -150,7 +150,7 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
 
 ### More examples
 
-See more examples in the [user-contributed examples](https://allisonhorst.github.io/palmerpenguins/articles/articles/user_contributions.html) section on the [palmerpenguins website](https://allisonhorst.github.io/palmerpenguins/index.html)!
+See more examples in `vignette("user_contributions")`, or contribute your own!
 
 ## Citation & data access
 

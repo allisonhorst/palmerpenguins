@@ -5,12 +5,16 @@ title: "PCA with penguins and tidymodels"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
 ```{r setup, message=FALSE, warning=FALSE}
 library(palmerpenguins)
+library(corrr)
+library(GGally)
 library(recipes)
 library(tidytext)
 library(tidyr)
@@ -18,6 +22,37 @@ library(ggplot2)
 theme_set(theme_minimal())
 ```
 
+## Correlation matrix
+
+The penguins data contains several size measurement variables that are correlated. Let's take a look at the correlation matrix with the [corrr package](https://corrr.tidymodels.org/) and the `corrr::correlate()` function:
+
+```{r}
+penguins_corr <- penguins %>%
+  select(where(is.numeric)) %>%
+  correlate() %>%
+  rearrange()
+penguins_corr
+```
+
+Body mass and flipper length appear highly correlated, but neither of the bill variables appears to be very correlated with any other variables.
+
+## Pairwise plot matrix
+
+We can visualize these correlations with the [GGally package](https://ggobi.github.io/ggally/). The function we'll use is called [`GGally::ggpairs()`](https://ggobi.github.io/ggally/articles/ggpairs.html).
+
+```{r out.width = "100%"}
+penguins %>%
+  select(species, where(is.numeric)) %>% 
+  ggpairs(aes(color = species),
+          columns = c("flipper_length_mm", "body_mass_g", 
+                      "bill_length_mm", "bill_depth_mm")) +
+  scale_colour_manual(values = c("darkorange","purple","cyan4")) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"))
+```
+
+## Principal component analysis (PCA)
+
+We'll use the [recipes](https://recipes.tidymodels.org) package from [tidymodels](https://www.tidymodels.org) to do a PCA. First, we'll also use a few recipe steps for preprocessing the data for PCA. To get started with the recipes package, try [this article](https://www.tidymodels.org/start/recipes/).
 
 ```{r}
 penguin_recipe <-
@@ -37,7 +72,21 @@ penguin_pca <-
 penguin_pca
 ```
 
-And the plot:
+The `value` column here is the loading. For each component, the `value` tells us the linear combination of weights for each variable that contributes to that component. 
+
+This output is a tidy version of this using `stats::princomp()`:
+
+```{r}
+penguins %>% 
+  select(where(is.numeric)) %>% 
+  drop_na() %>% 
+  princomp(cor = TRUE) %>%  # centers and scales
+  loadings()
+```
+
+## Plot PCA loadings
+
+We can plot these loadings by principal component too, following [Julia Silge's example](https://juliasilge.com/blog/cocktail-recipes-umap/):
 
 ```{r}
 penguin_pca %>%
@@ -55,11 +104,19 @@ penguin_pca %>%
   ) 
 ```
 
+## Plot PCA loadings + scores
+
+We have the PCA loadings in `penguin_pca`. But we need them in a wide format now for plotting.
+
 ```{r}
-# get pca rotation matrix into wider format
+# get pca loadings into wider format
 pca_wider <- penguin_pca %>% 
   pivot_wider(names_from = component, id_cols = terms)
+```
 
+We also need to go back to our prepped penguin recipe, `prepped_penguins`, and `recipes::juice()` it to get the PCA scores back.
+
+```{r}
 # define arrow style
 arrow_style <- arrow(length = unit(.05, "inches"),
                      type = "closed")
@@ -87,7 +144,30 @@ pca_plot +
             color = '#0A537D') 
 ```
 
-We can do the same thing for principal components 2 and 3.
+In the above plot, you can see a lot! 
+
+First, if you focus on the x-axis showing us the first principal component, you can see that flipper length and body mass are very important (confirming what we saw in the above bar chart). Along this dimension, Gentoo penguins stand out clearly from the other two species. We can confirm this looking at summary statistics:
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarize(across(c(flipper_length_mm, body_mass_g), 
+                   mean, 
+                   na.rm = TRUE)) 
+```
+
+We can see this with a simple scatterplot:
+
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  geom_point() +
+  scale_colour_manual(values = c("darkorange","purple","cyan4")) 
+```
+
+
+If you now focus more on the y-axis showing us the second principal component, you can see that our two bill size variables, `bill_length_mm` and `bill_depth_mm`, are very important (again, confirming what we saw in the above bar chart).
+
+Let's do the same thing for principal components 2 and 3. 
 
 ```{r}
 pca_plot %+% 
@@ -104,3 +184,30 @@ pca_plot %+%
             size = 5, 
             color = '#0A537D') 
 ```
+
+We see again that PC2 seems most associated with our bill size variables, `bill_length_mm` and `bill_depth_mm`. But now we can see more clearly that this dimension seems to separate Chinstrap penguins from the other two species. We can confirm this by glancing at summary statistics again by species:
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarize(across(c(bill_depth_mm, bill_length_mm), 
+                   mean, 
+                   na.rm = TRUE))
+```
+
+We can see this with a simple scatterplot too:
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, colour = species)) +
+  geom_point() +
+  scale_colour_manual(values = c("darkorange","purple","cyan4")) 
+```
+
+So, Gentoos appear to just be giants, compared to the Adelie and Chinstrap penguins. While Adelie and Chinstraps are similar size-wise as measured by flipper length and body mass, Chinstraps seem to have longer bills and Adelie penguins have stubbier bills (a pug-gein, if you will?). And Gentoos, despite being large overall, have flatter bills than either of the other two species. Reminder:
+
+<img src="../../reference/figures/culmen_depth.png" width=40%>
+
+## Other PCA resources
+
++ Michael Friendly's [multivariate palmerpenguins analysis](https://rpubs.com/friendly/penguin-biplots)
++ Julia Silge's [PCA and UMAP with tidymodels and #TidyTuesday cocktail recipes](https://juliasilge.com/blog/cocktail-recipes-umap/)
