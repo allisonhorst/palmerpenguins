@@ -37,6 +37,8 @@ jobs:
           remotes::install_dev("pkgdown")
           install.packages("ggplot2")
           install.packages("here")
+          install.packages("dplyr")
+          install.packages("tidyr")
         shell: Rscript {0}
 
       - name: Install package
