@@ -1,0 +1,186 @@
+---
+title: "palmerpenguins"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{palmerpenguins}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+
+```{r setup, include=FALSE}
+library(palmerpenguins)
+library(dplyr)
+library(visdat)
+library(ggplot2)
+theme_set(theme_minimal())
+```
+
+The well-known and widespread *iris* dataset, which contains sepal and petal dimensions for three *Iris* species measured by botanist Edgar Anderson in 1935, is ubiquitous in data science and statistics materials including in the R {datasets} package. The dataset's use in, and inextricable association with, eugenicist statistician Ronald A. Fisher's 1936 publication in *The Annals of Eugenics* has created momentum for educators to switch to alternate datasets.
+
+## Enter the Antarctic penguins
+
+From 2007 -- 2009, [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) with the [Palmer Station Antarctica Long Term Ecological Research (LTER) Program](https://pal.lternet.edu/) collected size measurements, clutch (nest) observations, and blood isotope concentrations for three species of adult nesting penguins (Adélie, Chinstrap and Gentoo) on three islands in the Palmer Archipelago, Antarctica. We believe the Palmer Archipelago penguins data is an exciting alternative to iris that offers similar teaching and learning opportunities for many use cases.
+
+Meet the penguins:
+
+<figure>
+  <img src="../reference/figures/lter_penguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
+  <figcaption>The Palmer Archipelago penguins. Artwork by @allison_horst.</figcaption>
+</figure>
+
+\
+
+**Aside:** That's right, developers -- [Gentoo Linux is named after penguins](https://wiki.gentoo.org/wiki/FAQ)!
+
+## The **palmerpenguins** package
+
+Lucky for us, the data (originally described, analyzed & published in [Gorman et al. (2014)](https://doi.org/10.1371/journal.pone.0090081)) are generously available for use by CC0 license. This package contains two datasets.
+
+Here, we focus on a curated subset of the raw data in the package named `palmerpenguins::penguins`, which can serve as an out-of-the-box alternative to *iris*.
+
+The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
+
+
+
+**Install and attach the palmerpenguins package (currently from GitHub):**
+
+```{r eval=FALSE}
+# Install palmerpenguins
+library(remotes)
+remotes::install_github(“allisonhorst/palmerpenguins”) 
+```
+
+The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
+
+-   `species`: a factor denoting the penguin species (Adelie, Chinstrap, or Gentoo)
+-   `island`: a factor denoting the island (in Palmer Archipelago, Antarctica) where observed (Biscoe, Dream, or Torgersen)
+-   `bill_length_mm`: a number denoting length of the dorsal ridge of penguin bill (millimeters)
+-   `bill_depth_mm`: a number denoting the depth of the penguin bill (millimeters)
+-   `flipper_length_mm`: an integer denoting penguin flipper length (millimeters)
+-   `body_mass_g`: an integer denoting penguin body mass (grams)
+-   `sex`: a factor denoting penguin sex (male, female)
+
+## Highlights
+
+We don't want to ruin all the fun exploration, visualization and potential analyses, so below are just a few examples to get you quickly waddling along with *penguins*. You can check out more in `vignette("examples")`.
+
+```{r ref.label="setup", eval=FALSE}
+
+```
+
+
+
+### Check it out
+
+The data are already tidy and all column names are in [snake case](https://tazinho.github.io/snakecase/):
+
+```{r}
+glimpse(penguins)
+```
+
+Be aware that there is a small number of `NA` values (n~missing~ = 19):
+
+```{r}
+visdat::vis_dat(penguins)
+```
+
+
+### Get some counts
+
+```{r}
+# Count penguins for each species / island
+penguins %>%
+  count(species, island, .drop = FALSE)
+```
+
+```{r}
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"), 
+                    guide = FALSE) +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+```
+
+
+### Exploratory graphs
+
+```{r}
+# Scatterplot example 1: penguin flipper length versus body mass
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 2) +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4")) 
+
+# Scatterplot example 2: penguin bill length versus bill depth
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 2)  +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"))
+
+# Jitter plot example: bill length by species
+ggplot(data = penguins, aes(x = species, y = bill_length_mm)) +
+  geom_jitter(aes(color = species),
+              width = 0.1, 
+              alpha = 0.7,
+              show.legend = FALSE) +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4"))
+
+# Histogram example: flipper length by species
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(aes(fill = species), alpha = 0.5, position = "identity") +
+  scale_fill_manual(values = c("darkorange","darkorchid","cyan4"))
+```
+
+
+
+
+### More examples
+
+See more examples in the [user-contributed examples](https://allisonhorst.github.io/palmerpenguins/articles/articles/user_contributions.html) section on the [palmerpenguins website](https://allisonhorst.github.io/palmerpenguins/index.html)!
+
+## Citation & data access
+
+Data are from:
+
+```{r}
+citation("palmerpenguins")
+```
+
+The original article can be accessed here:
+
+<https://doi.org/10.1371/journal.pone.0090081>
+
+
+And the data can be accessed directly via the [Environmental Data Initiative](https://environmentaldatainitiative.org/):
+
+**Adélie penguins:**
+
+-   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (*Pygoscelis adeliae*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative. <https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f> (Accessed 2020-06-08).
+
+**Gentoo penguins:**
+
+-   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Gentoo penguin (*Pygoscelis papua*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative. <https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689> (Accessed 2020-06-08).
+
+**Chinstrap penguins:**
+
+-   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Chinstrap penguin (*Pygoscelis antarcticus*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 6. Environmental Data Initiative. <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e> (Accessed 2020-06-08).
+
+Have fun with the Palmer Archipelago penguins!
+
+
+<img src="../reference/figures/palmerpenguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
+
