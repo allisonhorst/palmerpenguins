@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (https://pal.lternet.edu/).
+Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (<https://pal.lternet.edu/>).
 }
 \seealso{
 Useful links:
@@ -25,7 +25,7 @@ Useful links:
 Authors:
 \itemize{
   \item Alison Hill \email{apresstats@gmail.com} (\href{https://orcid.org/0000-0002-8082-1890}{ORCID})
-  \item Kristen Gorman \email{kbgorman@alaska.edu}
+  \item Kristen Gorman \email{kbgorman@alaska.edu} (\href{https://orcid.org/0000-0002-0258-9264}{ORCID})
 }
 
 }

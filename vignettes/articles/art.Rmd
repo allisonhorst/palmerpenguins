@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-You are invited to use this accompanying artwork. Please cite with "Artwork by @allison_horst".
+You are invited to use this accompanying artwork when you use or teach with palmerpenguins! Please cite with "Artwork by @allison_horst".
 
 ```{r setup}
 library(palmerpenguins)
@@ -18,14 +18,12 @@ library(palmerpenguins)
 ## Meet the Palmer penguins
 
 ```{r echo=FALSE}
-logo <- file.path("img/lter_penguins.png")
-link <- xfun::embed_file(logo, "penguins.png", "Download 'meet the penguins' art")
+species <- here::here("man", "figures", "lter_penguins.png")
+link <- xfun::embed_file(species, "penguins.png", "Download 'meet the penguins' art")
 link
 ```
 
-```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("img/lter_penguins.png", dpi = 300)
-```
+<img src="../../reference/figures/lter_penguins.png" width=50%>
 
 ## Culmen measurements
 
@@ -34,23 +32,19 @@ What are culmen length & depth? The culmen is "the upper ridge of a bird's beak"
 For this penguin data, the bill/culmen length and depth are measured as shown below (thanks Kristen Gorman for clarifying!):
 
 ```{r echo=FALSE}
-logo <- file.path("img/culmen_depth.png")
-link <- xfun::embed_file(logo, "culmen_depth.png", "Download 'culmen depth' art")
+bills <- here::here("man", "figures", "culmen_depth.png")
+link <- xfun::embed_file(bills, "culmen_depth.png", "Download 'culmen depth' art")
 link
 ```
 
-```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("img/culmen_depth.png", dpi = 300)
-```
+<img src="../../reference/figures/culmen_depth.png" width=50%>
 
 ## palmerpenguins hex sticker
 
 ```{r echo=FALSE}
-logo <- file.path("img/palmerpenguins.png")
-link <- xfun::embed_file(logo, "palmerpenguins.png", "Download palmerpenguins hex")
+hex <- here::here("man", "figures", "palmerpenguins.png")
+link <- xfun::embed_file(hex, "palmerpenguins.png", "Download palmerpenguins hex")
 link
 ```
 
-```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("img/palmerpenguins.png", dpi = 300)
-```
+<img src="../../reference/figures/palmerpenguins.png" width=50%>
