@@ -3,6 +3,13 @@ url: https://allisonhorst.github.io/palmerpenguins
 template:
   params:
     ganalytics: UA-169202294-1
+  opengraph:
+    image:
+      src: man/figures/palmerpenguins.png
+      alt: "palmerpenguins data package in R"
+    twitter:
+      creator: "@allison_horst"
+      card: summary
 
 authors:
   Allison Horst:
@@ -15,12 +22,3 @@ authors:
 home:
   title: R package containing the Palmer Archipelago (Antarctica) penguin dataset
   description: Size measurements for three penguin species, collected by Dr. Kristen Gorman with Palmer Station LTER. A useful dataset for data science teaching and learning, and a great replacement for the iris dataset.
-
-template:
-  opengraph:
-    image:
-      src: man/figures/palmerpenguins.png
-      alt: "palmerpenguins data package in R"
-    twitter:
-      creator: "@allison_horst"
-      card: summary
