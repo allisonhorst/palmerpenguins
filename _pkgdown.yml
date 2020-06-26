@@ -20,5 +20,6 @@ authors:
     href: https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php
 
 home:
-  title: R package containing the Palmer Archipelago (Antarctica) penguin dataset
-  description: Size measurements for three penguin species, collected by Dr. Kristen Gorman with Palmer Station LTER. A useful dataset for data science teaching and learning, and a great replacement for the iris dataset.
+  title: palmerpenguins R data package
+  description: Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER. A great intro dataset for data science teaching and learning, and a useful replacement for the iris dataset.
+
