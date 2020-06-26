@@ -27,14 +27,15 @@ theme_set(theme_minimal())
 
 The `palmerpenguins` R package contains two datasets that we believe are a viable alternative to Anderson's **Iris** data (see `datasets::iris`). In this introductory vignette, we'll highlight some of the properties of these datasets that make them useful for statistics and data science education, as well as software documentation and testing.
 
-<img src="../reference/figures/palmerpenguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
+
+<img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
 
 ## Meet the penguins
 
 The  `palmerpenguins` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica. 
 
 <figure>
-  <img src="../reference/figures/lter_penguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
+  <img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/palmerpenguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
   <figcaption>The Palmer Archipelago penguins. Artwork by @allison_horst.</figcaption>
 </figure>
 
