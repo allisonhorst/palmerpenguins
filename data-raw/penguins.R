@@ -43,3 +43,4 @@ penguins_df <- penguins_raw_df %>%
   as.data.frame()
 
 usethis::use_data(penguins_df, penguins_raw_df, internal = TRUE, overwrite = TRUE)
+write_csv(penguins_df, here::here("data-raw", "penguins.csv"))

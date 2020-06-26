@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# palmerpenguins <a href='https://allisonhorst.github.com/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
+# palmerpenguins <a href='https://allisonhorst.github.io/palmerpenguins'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 
@@ -9,6 +9,8 @@
 
 The goal of palmerpenguins is to provide a great dataset for data
 exploration & visualization, as an alternative to `iris`.
+
+<img src="man/figures/README-flipper-bill-1.png" width="75%" style="display: block; margin: auto;" />
 
 ## Installation
 
@@ -35,13 +37,127 @@ and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a
 member of the [Long Term Ecological Research
 Network](https://lternet.edu/).
 
+The palmerpenguins package contains two datasets.
+
+``` r
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+```
+
+One is called `penguins`, and is a simplified version of the raw data;
+see `?penguins` for more info:
+
+``` r
+head(penguins)
+#> # A tibble: 6 x 7
+#>   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
+#>   <fct>   <fct>           <dbl>         <dbl>            <int>       <int> <fct>
+#> 1 Adelie  Torge…           39.1          18.7              181        3750 male 
+#> 2 Adelie  Torge…           39.5          17.4              186        3800 fema…
+#> 3 Adelie  Torge…           40.3          18                195        3250 fema…
+#> 4 Adelie  Torge…           NA            NA                 NA          NA <NA> 
+#> 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
+#> 6 Adelie  Torge…           39.3          20.6              190        3650 male
+```
+
+The second dataset is `penguins_raw`, and contains all the variables and
+original names as downloaded; see `?penguins_raw` for more info.
+
+``` r
+head(penguins_raw)
+#> # A tibble: 6 x 17
+#>   studyName `Sample Number` Species Region Island Stage `Individual ID`
+#>   <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
+#> 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           
+#> 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           
+#> 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           
+#> 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           
+#> 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           
+#> 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           
+#> # … with 10 more variables: `Clutch Completion` <chr>, `Date Egg` <date>,
+#> #   `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>, `Flipper Length
+#> #   (mm)` <dbl>, `Body Mass (g)` <dbl>, Sex <chr>, `Delta 15 N (o/oo)` <dbl>,
+#> #   `Delta 13 C (o/oo)` <dbl>, Comments <chr>
+```
+
+Both datasets contain data for 344 penguins. There are 3 different
+species of penguins in this dataset, collected from 3 islands in the
+Palmer Archipelago, Antarctica.
+
+``` r
+str(penguins)
+#> tibble [344 × 7] (S3: tbl_df/tbl/data.frame)
+#>  $ species          : Factor w/ 3 levels "Adelie","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ island           : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...
+#>  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+#>  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+#>  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+#>  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+#>  $ sex              : Factor w/ 2 levels "female","male": 2 1 1 NA 1 2 1 2 NA NA ...
+```
+
 **Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network\!
 Special thanks to Marty Downs (Director, LTER Network Office) for help
 regarding the data license & use.
 
+## Examples
+
+You can find these and more code examples for exploring palmerpenguins
+in `vignette("examples")`.
+
+Penguins are fun to summarize\! For example:
+
+``` r
+library(tidyverse)
+penguins %>% 
+  count(species)
+#> # A tibble: 3 x 2
+#>   species       n
+#>   <fct>     <int>
+#> 1 Adelie      152
+#> 2 Chinstrap    68
+#> 3 Gentoo      124
+penguins %>% 
+  group_by(species) %>% 
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
+#> # A tibble: 3 x 5
+#>   species   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+#>   <fct>              <dbl>         <dbl>             <dbl>       <dbl>
+#> 1 Adelie              38.8          18.3              190.       3701.
+#> 2 Chinstrap           48.8          18.4              196.       3733.
+#> 3 Gentoo              47.5          15.0              217.       5076.
+```
+
+Penguins are fun to visualize\! For example:
+
+<img src="man/figures/README-mass-flipper-1.png" width="75%" style="display: block; margin: auto;" />
+
+<img src="man/figures/README-flipper-hist-1.png" width="75%" style="display: block; margin: auto;" />
+
+## Artwork
+
+You can download palmerpenguins art (useful for teaching with the data)
+in `vignette("art")`. If you use this artwork, please cite with:
+“Artwork by @allison\_horst”.
+
+### Meet the Palmer penguins
+
+<img src="man/figures/lter_penguins.png" width="75%" style="display: block; margin: auto;" />
+
+### What are culmen length & depth?
+
+The culmen is the upper ridge of a bird’s bill. In the simplified
+`penguins` data, culmen length and depth are renamed as variables
+`bill_length_mm` and `bill_depth_mm` to be more intuitive.
+
+For this penguin data, the culmen (bill) length and depth are measured
+as shown below (thanks Kristen Gorman for clarifying\!):
+
+<img src="man/figures/culmen_depth.png" width="75%" style="display: block; margin: auto;" />
+
 ## License
 
-**Data are available by**
+Data are available by
 [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/)
 license in accordance with the [Palmer Station LTER Data
 Policy](http://pal.lternet.edu/data/policies) and the [LTER Data Access
@@ -74,62 +190,6 @@ citation("palmerpenguins")
 #>     url = {https://doi.org/10.1371/journal.pone.0090081},
 #>   }
 ```
-
-## Example
-
-There are two datasets. One is called `penguins`, and is a simplified
-version of the raw data. All column names are in snake case to make them
-easier to work with, see `?penguins` for more info:
-
-``` r
-library(palmerpenguins)
-glimpse(penguins)
-#> Rows: 344
-#> Columns: 7
-#> $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
-#> $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
-#> $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
-#> $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
-#> $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…
-#> $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…
-#> $ sex               <fct> male, female, female, NA, female, male, female, mal…
-penguins %>% 
-  count(species)
-#> # A tibble: 3 x 2
-#>   species       n
-#>   <fct>     <int>
-#> 1 Adelie      152
-#> 2 Chinstrap    68
-#> 3 Gentoo      124
-```
-
-The second dataset is `penguins_raw`, and contains all the variables and
-original names as downloaded. See `?penguins_raw` for more info.
-
-Penguins are fun to visualize\! For example:
-
-    #> Warning: Removed 2 rows containing missing values (geom_point).
-
-<img src="man/figures/README-mass-flipper-1.png" width="75%" />
-
-## Supplemental artwork
-
-If you use this artwork, please cite with: “Artwork by @allison\_horst”.
-
-### Meet the Palmer penguins
-
-<img src="vignettes/articles/img/lter_penguins.png" width="100%" style="display: block; margin: auto;" />
-
-### What are culmen length & depth?
-
-The culmen is the upper ridge of a bird’s bill. In the simplified
-`penguins` data, culmen length and depth are renamed as variables
-`bill_length_mm` and `bill_depth_mm` to be more intuitive.
-
-For this penguin data, the culmen (bill) length and depth are measured
-as shown below (thanks Kristen Gorman for clarifying\!):
-
-<img src="vignettes/articles/img/culmen_depth.png" width="100%" style="display: block; margin: auto;" />
 
 ## Additional data use information
 
