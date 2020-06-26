@@ -32,7 +32,8 @@ Suggests:
     tibble,
     ggplot2,
     dplyr,
-    tidyr
+    tidyr,
+    recipes
 VignetteBuilder: knitr
 URL: https://allisonhorst.github.io/palmerpenguins/, https://github.com/allisonhorst/palmerpenguins
 BugReports: https://github.com/allisonhorst/palmerpenguins/issues
