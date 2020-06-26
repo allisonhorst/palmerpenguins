@@ -1,5 +1,5 @@
 ---
-title: "PCA with penguins and tidymodels"
+title: "PCA with penguins and recipes"
 ---
 
 ```{r, include = FALSE}
@@ -133,7 +133,7 @@ penguin_recipe %>%
   ggplot(aes(x = component, y = value)) + 
   geom_col(fill = "#b6dfe2") + 
   xlim(c(0, 5)) + 
-  ylab("% of Total Variation")
+  ylab("% of total variance”")
 ```
 
 
@@ -268,7 +268,7 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, colour = species)) +
 ```
 
 
-This is actually a pretty neat scatterplot---it highlights a perfect example of why you'd need the combination of two variables to differentiate between these three species. Comparing distributions for any single variable only differentiates one species from the other two!
+This is actually a pretty neat scatterplot---it highlights a perfect example of why you'd need the combination of two variables to differentiate between these three species. Comparing distributions for any single variable only differentiates one species from the other two!^[this is also a great example Simpson's paradox, see `vignette("examples")`]
 
 ```{r eval=TRUE, fig.show="hold", out.width="49%", echo=FALSE}
 ggplot(data = penguins, aes(x = bill_length_mm)) +

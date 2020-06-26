@@ -21,7 +21,6 @@ knitr::opts_chunk$set(
 ```{r setup, include=FALSE}
 library(palmerpenguins)
 library(dplyr)
-library(visdat)
 library(ggplot2)
 theme_set(theme_minimal())
 ```
@@ -81,13 +80,20 @@ The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` varia
 glimpse(penguins)
 ```
 
-Be aware that there is a small number of `NA` values (n~missing~ = 19):
+The `palmerpenguins::penguins` data contains `r sum(complete.cases(penguins))` complete cases, with `r sum(is.na(penguins))` missing values.
 
-```{r}
+```{r eval=FALSE}
 visdat::vis_dat(penguins)
 ```
 
-The `palmerpenguins::penguins` data contains `r sum(complete.cases(penguins))` complete cases, with missing values (n~missing~ = `r sum(is.na(penguins))`, or `r round(100*sum(is.na(penguins))/(7*344),2)` % of all values) indicated by `NA` throughout. 
+```{r include=FALSE, eval=FALSE}
+ggsave("vignettes/penguin-visdat.png", width = 8)
+```
+
+```{r eval=TRUE, echo=FALSE}
+knitr::include_graphics("penguin-visdat.png")
+```
+
 
 ## Highlights
 
@@ -99,7 +105,14 @@ We don't want to ruin all the fun exploration, visualization, and potential anal
 
 ### Exploring factors
 
-The `penguins` data has 3 factor variables: `island`, `species`, and `sex`.
+The `penguins` data has three factor variables:
+
+```{r}
+penguins %>%
+  dplyr::select(where(is.factor)) %>% 
+  glimpse()
+```
+
 
 ```{r}
 # Count penguins for each species / island
@@ -136,6 +149,15 @@ ggplot(penguins, aes(x = sex, fill = species)) +
 
 ### Exploring scatterplots
 
+The `penguins` data also has four continuous variables, making six unique scatterplots possible! 
+
+```{r}
+penguins %>%
+  dplyr::select(where(is.numeric)) %>% 
+  glimpse()
+```
+
+
 ```{r}
 # Scatterplot example 1: penguin flipper length versus body mass
 ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
@@ -152,9 +174,22 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   scale_color_manual(values = c("darkorange","darkorchid","cyan4"))
 ```
 
+
+You can add color and/or shape aesthetics in `ggplot2` to layer in factor levels like we did above. With three factor variables to work with, you can add another factor layer with facets, like the plot below.
+
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm,
+                     y = body_mass_g)) +
+  geom_point(aes(color = sex)) +
+  scale_color_manual(values = c("darkorange","cyan4"), 
+                     na.translate = FALSE) +
+  facet_wrap(~species)
+```
+
+
 ### Exploring correlations
 
-Also see `vignette("pca")` for an example using principal components analysis.
+Also see `vignette("pca")` for an example principal component analysis.
 
 ```{r penguin-pairs, eval=FALSE}
 penguins %>%
@@ -193,7 +228,13 @@ ggplot(data = penguins, aes(x = flipper_length_mm)) +
 
 ### More
 
-See more examples in  `vignette("examples")`, `vignette("pca")`, and `vignette("user_contributions")`, or contribute your own!
+See more examples in:
+
++ `vignette("examples")`, 
++ `vignette("pca")`, and 
++ `vignette("user_contributions")`
+
+Or contribute your own!
 
 ## Citation & data access
 

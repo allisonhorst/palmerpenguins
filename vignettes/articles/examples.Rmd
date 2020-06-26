@@ -171,7 +171,7 @@ mass_hist <- ggplot(data = penguins, aes(x = body_mass_g)) +
 mass_hist
 ```
 
-## Random viz
+## Facets
 
 Include penguin sex: 
 ```{r}
