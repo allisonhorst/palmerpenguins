@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">palmerpenguins</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -56,6 +56,9 @@
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="../../articles/palmerpenguins.html">Get started</a>
 </li>
 <li>
   <a href="../../reference/index.html">Reference</a>
@@ -75,6 +78,9 @@
     </li>
     <li>
       <a href="../../articles/articles/examples.html">Example graphs using the penguins data</a>
+    </li>
+    <li>
+      <a href="../../articles/articles/pca.html">PCA with penguins and recipes</a>
     </li>
     <li>
       <a href="../../articles/articles/user_contributions.html">User-contributed examples</a>
@@ -144,7 +150,7 @@
 <span class="kw">mass_flipper</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/mass-flipper-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="flipper-length-vs--bill-length" class="section level2">
 <h2 class="hasAnchor">
@@ -174,7 +180,7 @@
 <span class="kw">flipper_bill</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-2-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="bill-length-vs--depth" class="section level2">
 <h2 class="hasAnchor">
@@ -208,7 +214,7 @@
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-3-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="simpsons-paradox-omitting-species-in-graph-above" class="section level2">
 <h2 class="hasAnchor">
@@ -234,7 +240,7 @@
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_smooth).</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-4-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="some-other-graphs-for-brainstorming" class="section level2">
 <h2 class="hasAnchor">
@@ -256,23 +262,22 @@
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_bin).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-5-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>Flipper lengths boxplots + jitter:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
 <span class="kw">flipper_box</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data = <span class="kw">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">species</span>, y = <span class="kw">flipper_length_mm</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(color = <span class="kw">species</span>), width = <span class="fl">0.3</span>, show.legend = <span class="fl">FALSE</span>) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(color = <span class="kw">species</span>), width = <span class="fl">0.2</span>, alpha = <span class="fl">0.5</span>, show.legend = <span class="fl">FALSE</span>, seed = <span class="fl">0</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(color = <span class="kw">species</span>), alpha = <span class="fl">0.5</span>, show.legend = <span class="fl">FALSE</span>, position = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span>(width = <span class="fl">0.2</span>, seed = <span class="fl">0</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(x = <span class="st">"Species"</span>,
        y = <span class="st">"Flipper length (mm)"</span>)
-<span class="co">#&gt; Warning: Ignoring unknown parameters: seed</span>
 
 <span class="kw">flipper_box</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-6-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>Body mass histograms:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit">
 
@@ -290,11 +295,11 @@
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span>
 <span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_bin).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-7-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
-<div id="random-viz" class="section level2">
+<div id="facets" class="section level2">
 <h2 class="hasAnchor">
-<a href="#random-viz" class="anchor"></a>Random viz</h2>
+<a href="#facets" class="anchor"></a>Facets</h2>
 <p>Include penguin sex:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit">
 
@@ -316,7 +321,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw">species</span>)
 <span class="co">#&gt; Warning: Removed 11 rows containing missing values (geom_point).</span>
 </pre></div>
-<p><img src="examples_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<p><img src="examples_files/figure-html/unnamed-chunk-8-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
   </div>
 

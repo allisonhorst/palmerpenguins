@@ -19,7 +19,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Palmer Station LTER Penguins Data ">
-<meta property="og:description" content="Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (https://pal.lternet.edu/). ">
+<meta property="og:description" content="Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (&lt;https://pal.lternet.edu/&gt;). ">
 <meta property="og:image" content="https://allisonhorst.github.io/palmerpenguins/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">palmerpenguins</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -56,6 +56,9 @@
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="articles/palmerpenguins.html">Get started</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -75,6 +78,9 @@
     </li>
     <li>
       <a href="articles/articles/examples.html">Example graphs using the penguins data</a>
+    </li>
+    <li>
+      <a href="articles/articles/pca.html">PCA with penguins and recipes</a>
     </li>
     <li>
       <a href="articles/articles/user_contributions.html">User-contributed examples</a>
@@ -103,11 +109,12 @@
   <div class="contents col-md-9">
 <div id="palmerpenguins-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#palmerpenguins-" class="anchor"></a>palmerpenguins <a href="https://allisonhorst.github.com/palmerpenguins"><img src="reference/figures/logo.png" align="right" height="138.5"></a>
+<a href="#palmerpenguins-" class="anchor"></a>palmerpenguins <a href="https://allisonhorst.github.io/palmerpenguins"><img src="reference/figures/logo.png" align="right" height="138.5"></a>
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
 <p>The goal of palmerpenguins is to provide a great dataset for data exploration &amp; visualization, as an alternative to <code>iris</code>.</p>
+<p><img src="reference/figures/README-flipper-bill-1.png" width="75%" style="display: block; margin: auto;"></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -127,18 +134,111 @@ install.packages("palmerpenguins")
 <h2 class="hasAnchor">
 <a href="#about-the-data" class="anchor"></a>About the data</h2>
 <p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr. Kristen Gorman</a> and the <a href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/">Long Term Ecological Research Network</a>.</p>
+<p>The palmerpenguins package contains two datasets.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://allisonhorst.github.io/palmerpenguins">palmerpenguins</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(package = <span class="st">'palmerpenguins'</span>)
+</pre></div>
+<p>One is called <code>penguins</code>, and is a simplified version of the raw data; see <code><a href="reference/penguins.html">?penguins</a></code> for more info:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">penguins</span>)
+<span class="co">#&gt; # A tibble: 6 x 7</span>
+<span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span>
+<span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;</span>
+<span class="co">#&gt; 1 Adelie  Torge…           39.1          18.7              181        3750 male </span>
+<span class="co">#&gt; 2 Adelie  Torge…           39.5          17.4              186        3800 fema…</span>
+<span class="co">#&gt; 3 Adelie  Torge…           40.3          18                195        3250 fema…</span>
+<span class="co">#&gt; 4 Adelie  Torge…           NA            NA                 NA          NA &lt;NA&gt; </span>
+<span class="co">#&gt; 5 Adelie  Torge…           36.7          19.3              193        3450 fema…</span>
+<span class="co">#&gt; 6 Adelie  Torge…           39.3          20.6              190        3650 male</span>
+</pre></div>
+<p>The second dataset is <code>penguins_raw</code>, and contains all the variables and original names as downloaded; see <code><a href="reference/penguins_raw.html">?penguins_raw</a></code> for more info.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">penguins_raw</span>)
+<span class="co">#&gt; # A tibble: 6 x 17</span>
+<span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
+<span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
+<span class="co">#&gt; 1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           </span>
+<span class="co">#&gt; 2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           </span>
+<span class="co">#&gt; 3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           </span>
+<span class="co">#&gt; 4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           </span>
+<span class="co">#&gt; 5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           </span>
+<span class="co">#&gt; 6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           </span>
+<span class="co">#&gt; # … with 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,</span>
+<span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length</span>
+<span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span>
+</pre></div>
+<p>Both datasets contain data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="kw">penguins</span>)
+<span class="co">#&gt; tibble [344 × 7] (S3: tbl_df/tbl/data.frame)</span>
+<span class="co">#&gt;  $ species          : Factor w/ 3 levels "Adelie","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="co">#&gt;  $ island           : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...</span>
+<span class="co">#&gt;  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...</span>
+<span class="co">#&gt;  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...</span>
+<span class="co">#&gt;  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...</span>
+<span class="co">#&gt;  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...</span>
+<span class="co">#&gt;  $ sex              : Factor w/ 2 levels "female","male": 2 1 1 NA 1 2 1 2 NA NA ...</span>
+</pre></div>
 <p><strong>Thank you</strong> to Dr. Gorman, Palmer Station LTER and the LTER Network! Special thanks to Marty Downs (Director, LTER Network Office) for help regarding the data license &amp; use.</p>
+</div>
+<div id="examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>You can find these and more code examples for exploring palmerpenguins in <code>vignette("examples")</code>.</p>
+<p>Penguins are fun to summarize! For example:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">tidyverse</span>)
+<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu">count</span>(<span class="kw">species</span>)
+<span class="co">#&gt; # A tibble: 3 x 2</span>
+<span class="co">#&gt;   species       n</span>
+<span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;</span>
+<span class="co">#&gt; 1 Adelie      152</span>
+<span class="co">#&gt; 2 Chinstrap    68</span>
+<span class="co">#&gt; 3 Gentoo      124</span>
+<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span>(<span class="kw">species</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(<span class="kw">is.numeric</span>), <span class="kw">mean</span>, na.rm = <span class="fl">TRUE</span>))
+<span class="co">#&gt; # A tibble: 3 x 5</span>
+<span class="co">#&gt;   species   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g</span>
+<span class="co">#&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Adelie              38.8          18.3              190.       3701.</span>
+<span class="co">#&gt; 2 Chinstrap           48.8          18.4              196.       3733.</span>
+<span class="co">#&gt; 3 Gentoo              47.5          15.0              217.       5076.</span>
+</pre></div>
+<p>Penguins are fun to visualize! For example:</p>
+<p><img src="reference/figures/README-mass-flipper-1.png" width="75%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-flipper-hist-1.png" width="75%" style="display: block; margin: auto;"></p>
+</div>
+<div id="artwork" class="section level2">
+<h2 class="hasAnchor">
+<a href="#artwork" class="anchor"></a>Artwork</h2>
+<p>You can download palmerpenguins art (useful for teaching with the data) in <code>vignette("art")</code>. If you use this artwork, please cite with: “Artwork by @allison_horst”.</p>
+<div id="meet-the-palmer-penguins" class="section level3">
+<h3 class="hasAnchor">
+<a href="#meet-the-palmer-penguins" class="anchor"></a>Meet the Palmer penguins</h3>
+<p><img src="reference/figures/lter_penguins.png" width="75%" style="display: block; margin: auto;"></p>
+</div>
+<div id="what-are-culmen-length--depth" class="section level3">
+<h3 class="hasAnchor">
+<a href="#what-are-culmen-length--depth" class="anchor"></a>What are culmen length &amp; depth?</h3>
+<p>The culmen is the upper ridge of a bird’s bill. In the simplified <code>penguins</code> data, culmen length and depth are renamed as variables <code>bill_length_mm</code> and <code>bill_depth_mm</code> to be more intuitive.</p>
+<p>For this penguin data, the culmen (bill) length and depth are measured as shown below (thanks Kristen Gorman for clarifying!):</p>
+<p><img src="reference/figures/culmen_depth.png" width="75%" style="display: block; margin: auto;"></p>
+</div>
 </div>
 <div id="license" class="section level2">
 <h2 class="hasAnchor">
 <a href="#license" class="anchor"></a>License</h2>
-<p><strong>Data are available by</strong> <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC-0</a> license in accordance with the <a href="http://pal.lternet.edu/data/policies">Palmer Station LTER Data Policy</a> and the <a href="https://lternet.edu/data-access-policy/">LTER Data Access Policy for Type I data</a>.</p>
+<p>Data are available by <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC-0</a> license in accordance with the <a href="http://pal.lternet.edu/data/policies">Palmer Station LTER Data Policy</a> and the <a href="https://lternet.edu/data-access-policy/">LTER Data Access Policy for Type I data</a>.</p>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
 <p>To cite the data used in this package, please use:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
+<div class="sourceCode" id="cb7"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"palmerpenguins"</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite palmerpenguins in publications use:</span>
@@ -161,53 +261,6 @@ install.packages("palmerpenguins")
 <span class="co">#&gt;     url = {https://doi.org/10.1371/journal.pone.0090081},</span>
 <span class="co">#&gt;   }</span>
 </pre></div>
-</div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>There are two datasets. One is called <code>penguins</code>, and is a simplified version of the raw data. All column names are in snake case to make them easier to work with, see <code><a href="reference/penguins.html">?penguins</a></code> for more info:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://allisonhorst.github.io/palmerpenguins">palmerpenguins</a></span>)
-<span class="fu">glimpse</span>(<span class="kw">penguins</span>)
-<span class="co">#&gt; Rows: 344</span>
-<span class="co">#&gt; Columns: 7</span>
-<span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…</span>
-<span class="co">#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…</span>
-<span class="co">#&gt; $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…</span>
-<span class="co">#&gt; $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…</span>
-<span class="co">#&gt; $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…</span>
-<span class="co">#&gt; $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…</span>
-<span class="co">#&gt; $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, mal…</span>
-<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu">count</span>(<span class="kw">species</span>)
-<span class="co">#&gt; # A tibble: 3 x 2</span>
-<span class="co">#&gt;   species       n</span>
-<span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;</span>
-<span class="co">#&gt; 1 Adelie      152</span>
-<span class="co">#&gt; 2 Chinstrap    68</span>
-<span class="co">#&gt; 3 Gentoo      124</span>
-</pre></div>
-<p>The second dataset is <code>penguins_raw</code>, and contains all the variables and original names as downloaded. See <code><a href="reference/penguins_raw.html">?penguins_raw</a></code> for more info.</p>
-<p>Penguins are fun to visualize! For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></span></code></pre></div>
-<p><img src="reference/figures/README-mass-flipper-1.png" width="75%"></p>
-</div>
-<div id="supplemental-artwork" class="section level2">
-<h2 class="hasAnchor">
-<a href="#supplemental-artwork" class="anchor"></a>Supplemental artwork</h2>
-<p>If you use this artwork, please cite with: “Artwork by @allison_horst”.</p>
-<div id="meet-the-palmer-penguins" class="section level3">
-<h3 class="hasAnchor">
-<a href="#meet-the-palmer-penguins" class="anchor"></a>Meet the Palmer penguins</h3>
-<p><img src="articles/articles/img/lter_penguins.png" width="100%" style="display: block; margin: auto;"></p>
-</div>
-<div id="what-are-culmen-length--depth" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-are-culmen-length--depth" class="anchor"></a>What are culmen length &amp; depth?</h3>
-<p>The culmen is the upper ridge of a bird’s bill. In the simplified <code>penguins</code> data, culmen length and depth are renamed as variables <code>bill_length_mm</code> and <code>bill_depth_mm</code> to be more intuitive.</p>
-<p>For this penguin data, the culmen (bill) length and depth are measured as shown below (thanks Kristen Gorman for clarifying!):</p>
-<p><img src="articles/articles/img/culmen_depth.png" width="100%" style="display: block; margin: auto;"></p>
-</div>
 </div>
 <div id="additional-data-use-information" class="section level2">
 <h2 class="hasAnchor">
@@ -276,7 +329,7 @@ install.packages("palmerpenguins")
 <li>
 <a href="https://alison.rbind.io">Alison Hill</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/https://orcid.org/0000-0002-8082-1890" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>
-<a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Kristen Gorman</a> <br><small class="roles"> Author </small>  </li>
+<a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Kristen Gorman</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/https://orcid.org/0000-0002-0258-9264" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
