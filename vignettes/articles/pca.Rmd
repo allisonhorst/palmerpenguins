@@ -81,7 +81,15 @@ knitr::include_graphics("figs/penguin-pairs.png")
 
 ## Principal component analysis (PCA)
 
-We'll use the [recipes](https://recipes.tidymodels.org) package from [tidymodels](https://www.tidymodels.org) to do a PCA. First, we'll also use a few recipe steps for preprocessing the data for PCA. To get started with the recipes package, try [this article](https://www.tidymodels.org/start/recipes/).
+We'll use the [recipes](https://recipes.tidymodels.org) package from [tidymodels](https://www.tidymodels.org) to perform a [principal component analysis (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis). 
+
+First, we'll also use a few recipe steps to preprocess the data for PCA; namely, we need to:
+
++ remove any `NA` values,
++ center all predictors, and 
++ scale all predictors. 
+
+If you've never used the recipes package before, try [this article](https://www.tidymodels.org/start/recipes/) to get started.
 
 ```{r penguin-recipe, eval=TRUE}
 library(recipes)
@@ -100,19 +108,11 @@ penguin_pca <-
 penguin_pca
 ```
 
+
 The `value` column here is the loading. For each component, the `value` tells us the linear combination of weights for each variable that contributes to that component. 
 
-This output is a tidy version of this using `stats::princomp()`:
 
-```{r princomp, eval=TRUE}
-penguins %>% 
-  dplyr::select(where(is.numeric)) %>% 
-  tidyr::drop_na() %>% 
-  princomp(cor = TRUE) %>%  # centers and scales
-  loadings()
-```
-
-Or this code using `stats::prcomp()` instead:
+This output is a tidy version of this using `stats::prcomp()`:
 
 ```{r prcomp, eval=TRUE}
 penguins %>% 
@@ -122,6 +122,20 @@ penguins %>%
   prcomp() %>%  
   .$rotation
 ```
+
+
+We can also apply the `recipes::tidy()` method to the output from `recipes::step_pca()` to examine how much variance each component accounts for:
+
+```{r eval=TRUE}
+penguin_recipe %>% 
+  tidy(id = "pca", type = "variance") %>% 
+  dplyr::filter(terms == "percent variance") %>% 
+  ggplot(aes(x = component, y = value)) + 
+  geom_col(fill = "#b6dfe2") + 
+  xlim(c(0, 5)) + 
+  ylab("% of Total Variation")
+```
+
 
 ## Plot PCA loadings
 
@@ -217,7 +231,7 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, colour = species)) 
 
 If you now focus more on the y-axis showing us the second principal component, you can see that our two bill size variables, `bill_length_mm` and `bill_depth_mm`, are very important (again, confirming what we saw in the above bar chart).
 
-Let's do the same thing for principal components 2 and 3. 
+Let's do the same thing for principal component 2 and 3. 
 
 ```{r eval=TRUE}
 pca_plot %+% 
