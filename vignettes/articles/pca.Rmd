@@ -133,7 +133,7 @@ penguin_recipe %>%
   ggplot(aes(x = component, y = value)) + 
   geom_col(fill = "#b6dfe2") + 
   xlim(c(0, 5)) + 
-  ylab("% of total variance”")
+  ylab("% of total variance")
 ```
 
 
