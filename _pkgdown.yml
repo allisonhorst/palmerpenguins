@@ -28,6 +28,9 @@ navbar:
     left:  [home, intro, reference, articles]
     right: [github]
   components:
+    intro:
+      text: "Get started"
+      href: articles/intro.html
     articles:
       text: Articles
       menu:
