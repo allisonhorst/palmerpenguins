@@ -4,14 +4,14 @@
 \alias{path_to_file}
 \title{Get file path to \code{penguins.csv} and \code{penguins_raw.csv} files}
 \source{
-This function is adapted from \code{\link{readxl::readxl_example}}.
+This function is adapted from \code{readxl::readxl_example()}.
 }
 \usage{
 path_to_file(path = NULL)
 }
 \arguments{
 \item{path}{Name of file in quotes with extension;
-\code{"penguins.csv"} and \code{"penguins-raw.csv"} will work.
+\code{"penguins.csv"} and \code{"penguins_raw.csv"} will work.
 If \code{NULL}, the example files will be listed.}
 }
 \description{

@@ -17,7 +17,7 @@
 #' \dontrun{
 #' read.csv(path_to_file("penguins_raw.csv"))
 #' }
-#' @source This function is adapted from \code{\link{readxl::readxl_example}}.
+#' @source This function is adapted from `readxl::readxl_example()`.
 path_to_file <- function(path = NULL) {
   if (is.null(path)) {
     dir(system.file("extdata", package = "palmerpenguins"))
