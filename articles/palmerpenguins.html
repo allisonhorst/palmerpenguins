@@ -74,20 +74,23 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/articles/art.html">Art for teaching with palmerpenguins</a>
+<li class="dropdown-header">Use palmerpenguins</li>
+    <li>
+      <a href="../articles/examples.html">Examples using ggplot2</a>
     </li>
     <li>
-      <a href="../articles/articles/download.html">Download the palmerpenguin data from LTER</a>
+      <a href="../articles/pca.html">PCA example</a>
     </li>
     <li>
-      <a href="../articles/articles/examples.html">Example graphs using the penguins data</a>
+      <a href="../articles/user_contributions.html">Community examples</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Extras</li>
+    <li>
+      <a href="../articles/art.html">Art</a>
     </li>
     <li>
-      <a href="../articles/articles/pca.html">PCA with penguins and recipes</a>
-    </li>
-    <li>
-      <a href="../articles/articles/user_contributions.html">User-contributed examples</a>
+      <a href="../articles/download.html">Download the data directly</a>
     </li>
   </ul>
 </li>
@@ -123,12 +126,15 @@
     
     
 <p>The <code>palmerpenguins</code> R package contains two datasets that we believe are a viable alternative to Anderson’s <strong>Iris</strong> data (see <code><a href="https://rdrr.io/r/datasets/iris.html">datasets::iris</a></code>). In this introductory vignette, we’ll highlight some of the properties of these datasets that make them useful for statistics and data science education, as well as software documentation and testing.</p>
-<p><img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png" width="30%" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<p><img src="../man/figures/palmerpenguins.png" width="30%" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<blockquote>
+<p>You can download all the palmerpenguins art directly from <code><a href="../articles/art.html">vignette("art")</a></code></p>
+</blockquote>
 <div id="meet-the-penguins" class="section level2">
 <h2 class="hasAnchor">
 <a href="#meet-the-penguins" class="anchor"></a>Meet the penguins</h2>
 <p>The <code>palmerpenguins</code> data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica.</p>
-<figure><img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/palmerpenguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width="60%" style="display:block; margin-left: auto; margin-right: auto;"><figcaption>
+<figure><img src="../man/figures/lter_penguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width="60%" style="display:block; margin-left: auto; margin-right: auto;"><figcaption>
 The Palmer Archipelago penguins. Artwork by <span class="citation">@allison_horst</span>.
 </figcaption></figure><p><br><strong>Aside:</strong> That’s right, developers – <a href="https://wiki.gentoo.org/wiki/FAQ">Gentoo Linux is named after penguins</a>!</p>
 <p>These data were collected from 2007 - 2009 by Dr. Kristen Gorman with the <a href="https://pal.lternet.edu/">Palmer Station Long Term Ecological Research Program</a>, part of the <a href="https://lternet.edu/">US Long Term Ecological Research Network</a>. The data were imported directly from the <a href="https://environmentaldatainitiative.org/">Environmental Data Initiative</a> (EDI) Data Portal, and are available for use by CC0 license (“No Rights Reserved”) in accordance with the <a href="https://pal.lternet.edu/data/policies">Palmer Station Data Policy</a>.</p>
@@ -151,8 +157,11 @@ install.packages("palmerpenguins")
 <div id="the-palmerpenguins-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-palmerpenguins-package" class="anchor"></a>The <strong>palmerpenguins</strong> package</h2>
-<p>This package contains two datasets. Here, we’ll focus on a curated subset of the raw data in the package named <code><a href="../reference/penguins.html">palmerpenguins::penguins</a></code>, which can serve as an out-of-the-box alternative to <code><a href="https://rdrr.io/r/datasets/iris.html">datasets::iris</a></code>.</p>
-<p>The raw data, accessed from the <a href="https://environmentaldatainitiative.org/">Environmental Data Initiative</a> (see full data citations below), is also available as <code><a href="../reference/penguins_raw.html">palmerpenguins::penguins_raw</a></code>.</p>
+<p>This package contains two datasets:</p>
+<ol style="list-style-type: decimal">
+<li><p>Here, we’ll focus on a curated subset of the raw data in the package named <code><a href="../reference/penguins.html">palmerpenguins::penguins</a></code>, which can serve as an out-of-the-box alternative to <code><a href="https://rdrr.io/r/datasets/iris.html">datasets::iris</a></code>.</p></li>
+<li><p>The raw data, accessed from the <a href="https://environmentaldatainitiative.org/">Environmental Data Initiative</a> (see full data citations below), is also available as <code><a href="../reference/penguins_raw.html">palmerpenguins::penguins_raw</a></code>.</p></li>
+</ol>
 <p>The curated <code><a href="../reference/penguins.html">palmerpenguins::penguins</a></code> dataset contains 7 variables (n = 344 penguins):</p>
 <ul>
 <li>
@@ -171,7 +180,7 @@ install.packages("palmerpenguins")
 <code>sex</code>: a factor denoting penguin sex (male, female)</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span>(<span class="kw">penguins</span>)
+<span class="fu">glimpse</span>(<span class="kw">penguins</span>)
 <span class="co">#&gt; Rows: 344</span>
 <span class="co">#&gt; Columns: 7</span>
 <span class="co">#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…</span>
@@ -186,12 +195,12 @@ install.packages("palmerpenguins")
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="kw">visdat</span>::<span class="fu">vis_dat</span>(<span class="kw">penguins</span>)
 </pre></div>
-<p><img src="penguin-visdat.png" width="100%"></p>
+<p><img src="figs/penguin-visdat.png" width="100%"></p>
 </div>
 <div id="highlights" class="section level2">
 <h2 class="hasAnchor">
 <a href="#highlights" class="anchor"></a>Highlights</h2>
-<p>We don’t want to ruin all the fun exploration, visualization, and potential analyses, so below are just a few examples to get you quickly waddling along with <em>penguins</em>. You can check out more in <code>vignette("examples")</code>.</p>
+<p>We don’t want to ruin all the fun exploration, visualization, and potential analyses, so below are just a few examples to get you quickly waddling along with <em>penguins</em>. You can check out more in <code><a href="../articles/examples.html">vignette("examples")</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://allisonhorst.github.io/palmerpenguins">palmerpenguins</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
@@ -314,7 +323,7 @@ install.packages("palmerpenguins")
 <div id="exploring-correlations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#exploring-correlations" class="anchor"></a>Exploring correlations</h3>
-<p>Also see <code>vignette("pca")</code> for an example principal component analysis.</p>
+<p>Also see <code><a href="../articles/pca.html">vignette("pca")</a></code> for an example principal component analysis.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit">
 <span class="kw">penguins</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="kw">species</span>, <span class="fu">where</span>(<span class="kw">is.numeric</span>)) <span class="op">%&gt;%</span> 
@@ -322,7 +331,7 @@ install.packages("palmerpenguins")
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))
 </pre></div>
-<p><img src="penguin-ggpairs.png" width="100%"></p>
+<p><img src="figs/penguin-ggpairs.png" width="100%"></p>
 </div>
 <div id="exploring-distributions" class="section level3">
 <h3 class="hasAnchor">
@@ -352,10 +361,10 @@ install.packages("palmerpenguins")
 <p>See more examples in:</p>
 <ul>
 <li>
-<code>vignette("examples")</code>,</li>
+<code><a href="../articles/examples.html">vignette("examples")</a></code>,</li>
 <li>
-<code>vignette("pca")</code>, and</li>
-<li><code>vignette("user_contributions")</code></li>
+<code><a href="../articles/pca.html">vignette("pca")</a></code>, and</li>
+<li><code><a href="../articles/user_contributions.html">vignette("user_contributions")</a></code></li>
 </ul>
 <p>Or contribute your own!</p>
 </div>
