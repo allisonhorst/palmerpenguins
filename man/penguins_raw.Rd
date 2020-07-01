@@ -3,7 +3,7 @@
 \docType{data}
 \name{penguins_raw}
 \alias{penguins_raw}
-\title{Penguin size, clutch and blood isotope data for foraging adults near Palmer Station, Antarctica}
+\title{Penguin size, clutch, and blood isotope data for foraging adults near Palmer Station, Antarctica}
 \format{
 A tibble with 344 rows and 17 variables:
 \describe{

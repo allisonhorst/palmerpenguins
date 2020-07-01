@@ -1,10 +1,5 @@
 ---
-title: "palmerpenguins"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{palmerpenguins}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "Introduction to palmerpenguins"
 ---
 
 ```{r, include = FALSE}
@@ -67,7 +62,7 @@ remotes::install_github("allisonhorst/palmerpenguins")
 
 This package contains two datasets:
 
-1. Here, we'll focus on a curated subset of the raw data in the package named `palmerpenguins::penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
+1. Here, we'll focus on a curated subset of the raw data in the package named `penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
 
 1. The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
 
