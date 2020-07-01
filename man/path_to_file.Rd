@@ -26,4 +26,7 @@ but without the variable types.
 path_to_file()
 path_to_file("penguins.csv")
 path_to_file("penguins_raw.csv")
+\dontrun{
+read.csv(path_to_file("penguins_raw.csv"))
+}
 }

@@ -14,6 +14,9 @@
 #' path_to_file()
 #' path_to_file("penguins.csv")
 #' path_to_file("penguins_raw.csv")
+#' \dontrun{
+#' read.csv(path_to_file("penguins_raw.csv"))
+#' }
 #' @source This function is adapted from \code{\link{readxl::readxl_example}}.
 path_to_file <- function(path = NULL) {
   if (is.null(path)) {
