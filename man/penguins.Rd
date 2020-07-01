@@ -29,6 +29,8 @@ A tibble with 344 rows and 7 variables:
 penguins
 }
 \description{
-Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. This is a subset of penguins_raw.
+Includes measurements for penguin species, island in Palmer Archipelago,
+size (flipper length, body mass, bill dimensions), and sex.
+This is a subset of \code{\link{penguins_raw}}.
 }
 \keyword{datasets}
