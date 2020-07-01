@@ -7,7 +7,7 @@
 ^pkgdown$
 ^README\.Rmd$
 ^CODE_OF_CONDUCT\.md$
-^vignettes/articles$
+^vignettes
 ^palmerpenguins\.Rproj$
 ^\.github$
 ^cran-comments\.md$
