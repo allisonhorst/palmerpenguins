@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Penguin size, clutch, and blood isotope data for foraging adults near Palmer Station, Antarctica — penguins_raw • palmerpenguins</title>
+<title>Get file path to <code>penguins.csv</code> and <code>penguins_raw.csv</code> files — path_to_file • palmerpenguins</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Penguin size, clutch, and blood isotope data for foraging adults near Palmer Station, Antarctica — penguins_raw" />
-<meta property="og:description" content="Includes nesting observations, penguin size data, and isotope measurements from blood samples for adult Adélie, Chinstrap, and Gentoo penguins." />
+<meta property="og:title" content="Get file path to <code>penguins.csv</code> and <code>penguins_raw.csv</code> files — path_to_file" />
+<meta property="og:description" content="palmerpenguins comes bundled with two csv files in its inst/extdata
+directory. This function make them easy to access." />
 <meta property="og:image" content="https://allisonhorst.github.io/palmerpenguins/reference/figures/palmerpenguins.png" />
 <meta property="og:image:alt" content="palmerpenguins data package in R" />
 <meta name="twitter:card" content="summary" />
@@ -162,48 +163,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Penguin size, clutch, and blood isotope data for foraging adults near Palmer Station, Antarctica</h1>
-    <small class="dont-index">Source: <a href='https://github.com/allisonhorst/palmerpenguins/blob/master/R/penguins_raw.R'><code>R/penguins_raw.R</code></a></small>
-    <div class="hidden name"><code>penguins_raw.Rd</code></div>
+    <h1>Get file path to <code>penguins.csv</code> and <code>penguins_raw.csv</code> files</h1>
+    <small class="dont-index">Source: <a href='https://github.com/allisonhorst/palmerpenguins/blob/master/R/path-to-file.R'><code>R/path-to-file.R</code></a></small>
+    <div class="hidden name"><code>path_to_file.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Includes nesting observations, penguin size data, and isotope measurements from blood samples for adult Adélie, Chinstrap, and Gentoo penguins.</p>
+    <p>palmerpenguins comes bundled with two csv files in its <code>inst/extdata</code>
+directory. This function make them easy to access.</p>
     </div>
 
-    <pre class="usage"><span class='kw'>penguins_raw</span></pre>
+    <pre class="usage"><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(path = <span class='kw'>NULL</span>)</pre>
 
-
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A tibble with 344 rows and 17 variables:</p><dl>
-<dt>studyName</dt><dd><p>Sampling expedition from which data were collected, generated, etc.</p></dd>
-<dt>Sample Number</dt><dd><p>an integer denoting the continuous numbering sequence for each sample</p></dd>
-<dt>Species</dt><dd><p>a character string denoting the penguin species</p></dd>
-<dt>Region</dt><dd><p>a character string denoting the region of Palmer LTER sampling grid</p></dd>
-<dt>Island</dt><dd><p>a character string denoting the island near Palmer Station where samples were collected</p></dd>
-<dt>Stage</dt><dd><p>a character string denoting reproductive stage at sampling</p></dd>
-<dt>Individual ID</dt><dd><p>a character string denoting the unique ID for each individual in dataset</p></dd>
-<dt>Clutch Completion</dt><dd><p>a character string denoting if the study nest observed with a full clutch, i.e., 2 eggs</p></dd>
-<dt>Date Egg</dt><dd><p>a date denoting the date study nest observed with 1 egg (sampled)</p></dd>
-<dt>Culmen Length</dt><dd><p>a number denoting the length of the dorsal ridge of a bird's bill (millimeters)</p></dd>
-<dt>Culmen Depth</dt><dd><p>a number denoting the depth of the dorsal ridge of a bird's bill (millimeters)</p></dd>
-<dt>Flipper Length</dt><dd><p>an integer denoting the length penguin flipper (millimeters)</p></dd>
-<dt>Body Mass</dt><dd><p>an integer denoting the penguin body mass (grams)</p></dd>
-<dt>Sex</dt><dd><p>a character string denoting the sex of an animal</p></dd>
-<dt>Delta 15 N</dt><dd><p>a number denoting the measure of the ratio of stable isotopes 15N:14N</p></dd>
-<dt>Delta 13 C</dt><dd><p>a number denoting the measure of the ratio of stable isotopes 13C:12C</p></dd>
-<dt>Comments</dt><dd><p>a character string with text providing additional relevant information for data</p></dd>
-
-</dl>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>Name of file in quotes with extension;
+<code>"penguins.csv"</code> and <code>"penguins-raw.csv"</code> will work.
+If <code>NULL</code>, the example files will be listed.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>Adélie penguins: Palmer Station Antarctica LTER and K. Gorman. 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (Pygoscelis adeliae) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative <a href='https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f'>https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f</a></p>
-<p>Gentoo penguins: Palmer Station Antarctica LTER and K. Gorman. 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Gentoo penguin (Pygoscelis papua) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative <a href='https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689'>https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689</a></p>
-<p>Chinstrap penguins: Palmer Station Antarctica LTER and K. Gorman. 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Chinstrap penguin (Pygoscelis antarcticus) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 6. Environmental Data Initiative <a href='https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e'>https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e</a></p>
-<p>Originally published in: Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. doi:10.1371/journal.pone.0090081</p>
+    <p>This function is adapted from <code>readxl::readxl_example</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    <p>The data in each file is the same as <code><a href='https://allisonhorst.github.io/palmerpenguins/reference/penguins.html'>penguins</a></code> and <code><a href='https://allisonhorst.github.io/palmerpenguins/reference/penguins_raw.html'>penguins_raw</a></code>,
+but without the variable types.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>()</div><div class='output co'>#&gt; [1] "penguins_raw.csv" "penguins.csv"    </div><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins.csv"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.169.1/work/_temp/Library/palmerpenguins/extdata/penguins.csv"</div><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins_raw.csv"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.169.1/work/_temp/Library/palmerpenguins/extdata/penguins_raw.csv"</div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span>(<span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins_raw.csv"</span>))
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
