@@ -284,7 +284,7 @@ ggplot(data = penguins, aes(x = bill_depth_mm)) +
 
 So, Gentoos appear to just be giants, compared to the Adelie and Chinstrap penguins. While Adelie and Chinstraps are similar size-wise as measured by flipper length and body mass, Chinstraps seem to have longer bills and Adelie penguins have stubbier bills (a pug-gein, if you will?). And Gentoos, despite being large overall, have flatter bills than either of the other two species. Reminder:
 
-<img src="../../reference/figures/culmen_depth.png" width=40%>
+<img src="../reference/figures/culmen_depth.png" width=40%>
 
 ## Other PCA resources
 

@@ -23,7 +23,7 @@ link <- xfun::embed_file(species, "penguins.png", "Download 'meet the penguins' 
 link
 ```
 
-<img src="../../reference/figures/lter_penguins.png" width=50%>
+<img src="../reference/figures/lter_penguins.png" width=50%>
 
 ## Culmen measurements
 
@@ -37,7 +37,7 @@ link <- xfun::embed_file(bills, "culmen_depth.png", "Download 'culmen depth' art
 link
 ```
 
-<img src="../../reference/figures/culmen_depth.png" width=50%>
+<img src="../reference/figures/culmen_depth.png" width=50%>
 
 ## palmerpenguins hex sticker
 
@@ -47,4 +47,4 @@ link <- xfun::embed_file(hex, "palmerpenguins.png", "Download palmerpenguins hex
 link
 ```
 
-<img src="../../reference/figures/palmerpenguins.png" width=50%>
+<img src="../reference/figures/palmerpenguins.png" width=50%>
