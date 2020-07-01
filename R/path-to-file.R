@@ -7,7 +7,7 @@
 #' but without the variable types.
 #'
 #' @param path Name of file in quotes with extension;
-#' `"penguins.csv"` and `"penguins-raw.csv"` will work.
+#' `"penguins.csv"` and `"penguins_raw.csv"` will work.
 #' If `NULL`, the example files will be listed.
 #' @export
 #' @examples
