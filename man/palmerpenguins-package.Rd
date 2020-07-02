@@ -20,7 +20,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Allison Horst \email{ahorst@ucsb.edu}
+\strong{Maintainer}: Allison Horst \email{ahorst@ucsb.edu} (\href{https://orcid.org/0000-0002-6047-5564}{ORCID})
 
 Authors:
 \itemize{
