@@ -21,6 +21,8 @@ penguins_raw_df <- uris %>%
   map_dfr(read_csv, na = c("", "NA", "."), col_types = list()) %>%
   as.data.frame()
 
+write_csv(penguins_raw_df, here::here("inst", "extdata", "penguins_raw.csv"))
+
 # Clean data --------------------------------------------------------------
 
 penguins_df <- penguins_raw_df %>%
@@ -43,4 +45,4 @@ penguins_df <- penguins_raw_df %>%
   as.data.frame()
 
 usethis::use_data(penguins_df, penguins_raw_df, internal = TRUE, overwrite = TRUE)
-write_csv(penguins_df, here::here("data-raw", "penguins.csv"))
+write_csv(penguins_df, here::here("inst", "extdata", "penguins.csv"))

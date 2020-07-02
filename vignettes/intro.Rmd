@@ -1,10 +1,5 @@
 ---
-title: "palmerpenguins"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{palmerpenguins}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "Introduction to palmerpenguins"
 ---
 
 ```{r, include = FALSE}
@@ -28,14 +23,16 @@ theme_set(theme_minimal())
 The `palmerpenguins` R package contains two datasets that we believe are a viable alternative to Anderson's **Iris** data (see `datasets::iris`). In this introductory vignette, we'll highlight some of the properties of these datasets that make them useful for statistics and data science education, as well as software documentation and testing.
 
 
-<img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
+<img src="../man/figures/palmerpenguins.png" width=30% style="display:block; margin-left: auto; margin-right: auto;">
+
+> You can download all the palmerpenguins art directly from `vignette("art")`
 
 ## Meet the penguins
 
 The  `palmerpenguins` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica. 
 
 <figure>
-  <img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/palmerpenguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
+  <img src="../man/figures/lter_penguins.png" alt="The Palmer Archipelago penguins. Artwork by @allison_horst." width=60% style="display:block; margin-left: auto; margin-right: auto;">
   <figcaption>The Palmer Archipelago penguins. Artwork by @allison_horst.</figcaption>
 </figure>
 
@@ -63,9 +60,11 @@ remotes::install_github("allisonhorst/palmerpenguins")
 
 ## The **palmerpenguins** package
 
-This package contains two datasets. Here, we'll focus on a curated subset of the raw data in the package named `palmerpenguins::penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
+This package contains two datasets:
 
-The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
+1. Here, we'll focus on a curated subset of the raw data in the package named `penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
+
+1. The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
 
 The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
 
@@ -88,11 +87,11 @@ visdat::vis_dat(penguins)
 ```
 
 ```{r include=FALSE, eval=FALSE}
-ggsave("vignettes/penguin-visdat.png", width = 8)
+ggsave("vignettes/figs/penguin-visdat.png", width = 8)
 ```
 
 ```{r eval=TRUE, echo=FALSE}
-knitr::include_graphics("penguin-visdat.png")
+knitr::include_graphics("figs/penguin-visdat.png")
 ```
 
 
@@ -201,11 +200,11 @@ penguins %>%
 ```
 
 ```{r include=FALSE, eval=FALSE}
-ggsave("vignettes/penguin-ggpairs.png", width = 8)
+ggsave("vignettes/figs/penguin-ggpairs.png", width = 8)
 ```
 
 ```{r eval=TRUE, echo=FALSE}
-knitr::include_graphics("penguin-ggpairs.png")
+knitr::include_graphics("figs/penguin-ggpairs.png")
 ```
 
 
