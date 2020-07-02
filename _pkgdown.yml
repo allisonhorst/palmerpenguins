@@ -23,8 +23,6 @@ home:
   title: palmerpenguins R data package
   description: Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER. A great intro dataset for data science teaching and learning, and a useful replacement for the iris dataset.
 
-<<<<<<< HEAD
-=======
 navbar:
   structure:
     left:  [home, intro, reference, articles]
@@ -49,4 +47,4 @@ navbar:
         href: articles/art.html
       - text: Download the data directly
         href: articles/download.html
->>>>>>> master
+
