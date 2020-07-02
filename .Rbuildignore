@@ -6,7 +6,6 @@
 ^docs$
 ^pkgdown$
 ^README\.Rmd$
-^CODE_OF_CONDUCT\.md$
 ^vignettes
 ^palmerpenguins\.Rproj$
 ^\.github$
