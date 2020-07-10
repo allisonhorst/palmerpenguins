@@ -144,7 +144,7 @@ in `vignette("art")`. If you use this artwork, please cite with:
 
 <img src="man/figures/lter_penguins.png" width="75%" style="display: block; margin: auto;" />
 
-### What are culmen length & depth?
+### Bill dimensions
 
 The culmen is the upper ridge of a bird’s bill. In the simplified
 `penguins` data, culmen length and depth are renamed as variables

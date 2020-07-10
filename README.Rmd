@@ -170,7 +170,7 @@ You can download palmerpenguins art (useful for teaching with the data) in `vign
 knitr::include_graphics("man/figures/lter_penguins.png", dpi = 300)
 ```
 
-### What are culmen length & depth? 
+### Bill dimensions
 
 The culmen is the upper ridge of a bird's bill. In the simplified `penguins` data, culmen length and depth are renamed as variables `bill_length_mm` and `bill_depth_mm` to be more intuitive.  
 
