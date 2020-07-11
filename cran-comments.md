@@ -1,5 +1,5 @@
 ## Test environments
-* local R installation, R 3.6.1
+* local R installation, R 3.6.1 and 4.0.2
 * ubuntu 16.04 (on travis-ci), R 3.6.1
 * win-builder (devel)
 
