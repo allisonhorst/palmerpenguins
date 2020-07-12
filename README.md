@@ -237,9 +237,3 @@ From Gorman et al. (2014):
     Environmental Data Initiative.
     <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e>
     (Accessed 2020-06-08).
-
-## Contributor Code of Conduct
-
-Please note that the ‘palmerpenguins’ project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
-this project, you agree to abide by its terms.
