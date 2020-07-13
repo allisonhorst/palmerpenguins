@@ -19,7 +19,7 @@ Authors@R: c(
            email = "kbgorman@alaska.edu",
            comment = c(ORCID = "0000-0002-0258-9264"))
            )
-Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and \href{https://pal.lternet.edu/}{Palmer Station Long Term Ecological Research (LTER) Program}. 
+Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program. 
 License: CC0
 Encoding: UTF-8
 LazyData: true
