@@ -4,11 +4,11 @@
 \name{palmerpenguins-package}
 \alias{palmerpenguins}
 \alias{palmerpenguins-package}
-\title{palmerpenguins: Palmer Station LTER Penguins Data}
+\title{palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (<https://pal.lternet.edu/>).
+Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and \href{https://pal.lternet.edu/}{Palmer Station Long Term Ecological Research (LTER) Program}.
 }
 \seealso{
 Useful links:
