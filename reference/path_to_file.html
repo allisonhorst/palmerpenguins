@@ -195,9 +195,20 @@ If <code>NULL</code>, the example files will be listed.</p></td>
 but without the variable types.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>()</div><div class='output co'>#&gt; [1] "penguins_raw.csv" "penguins.csv"    </div><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins.csv"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/palmerpenguins/extdata/penguins.csv"</div><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins_raw.csv"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/palmerpenguins/extdata/penguins_raw.csv"</div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span>(<span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins_raw.csv"</span>))
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>()</div><div class='output co'>#&gt; [1] "penguins_raw.csv" "penguins.csv"    </div><div class='input'><span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins_raw.csv"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/palmerpenguins/extdata/penguins_raw.csv"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span>(<span class='fu'><a href='https://allisonhorst.github.io/palmerpenguins/reference/path_to_file.html'>path_to_file</a></span>(<span class='st'>"penguins.csv"</span>)))</div><div class='output co'>#&gt;   species    island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+#&gt; 1  Adelie Torgersen           39.1          18.7               181        3750
+#&gt; 2  Adelie Torgersen           39.5          17.4               186        3800
+#&gt; 3  Adelie Torgersen           40.3          18.0               195        3250
+#&gt; 4  Adelie Torgersen             NA            NA                NA          NA
+#&gt; 5  Adelie Torgersen           36.7          19.3               193        3450
+#&gt; 6  Adelie Torgersen           39.3          20.6               190        3650
+#&gt;      sex
+#&gt; 1   male
+#&gt; 2 female
+#&gt; 3 female
+#&gt; 4   &lt;NA&gt;
+#&gt; 5 female
+#&gt; 6   male</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
