@@ -165,29 +165,25 @@ Policy for Type I data](https://lternet.edu/data-access-policy/).
 
 ## Citation
 
-To cite the data used in this package, please use:
+To cite the palmerpenguins package, please use:
 
 ``` r
 citation("palmerpenguins")
 #> 
 #> To cite palmerpenguins in publications use:
 #> 
-#>   Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism
-#>   and Environmental Variability within a Community of Antarctic
-#>   Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081.
-#>   https://doi.org/10.1371/journal.pone.0090081
+#>   Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
+#>   Archipelago (Antarctica) penguin data. R package version 0.1.0.
+#>   https://allisonhorst.github.io/palmerpenguins/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
-#>   @Article{,
-#>     title = {Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)},
-#>     author = {Gorman KB and Williams TD and Fraser WR},
-#>     journal = {PLoS ONE},
-#>     year = {2014},
-#>     volume = {9(3)},
-#>     number = {e90081},
-#>     pages = {-13},
-#>     url = {https://doi.org/10.1371/journal.pone.0090081},
+#>   @Manual{,
+#>     title = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},
+#>     author = {Allison Marie Horst and Alison Presmanes Hill and Kristen B Gorman},
+#>     year = {2020},
+#>     note = {R package version 0.1.0},
+#>     url = {https://allisonhorst.github.io/palmerpenguins/},
 #>   }
 ```
 
@@ -196,15 +192,22 @@ citation("palmerpenguins")
 Anyone interested in publishing the data should contact [Dr. Kristen
 Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php)
 about analysis and working together on any final products. From Gorman
-et al. (2014):
+et al. (2014): “Individuals interested in using these data are expected
+to follow the US LTER Network’s Data Access Policy, Requirements and Use
+Agreement: <https://lternet.edu/data-access-policy/>.”
 
-> “Individuals interested in using these data are expected to follow the
-> US LTER Network’s Data Access Policy, Requirements and Use Agreement:
-> <https://lternet.edu/data-access-policy/>.”
+## References
 
-**Individual dataset citations:**
+**Data originally published in:**
 
-**Adélie penguins:**
+  - Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual
+    dimorphism and environmental variability within a community of
+    Antarctic penguins (genus *Pygoscelis*). PLoS ONE 9(3):e90081.
+    <https://doi.org/10.1371/journal.pone.0090081>
+
+**Data citations:**
+
+Adélie penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
@@ -214,7 +217,7 @@ et al. (2014):
     <https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f>
     (Accessed 2020-06-08).
 
-**Gentoo penguins:**
+Gentoo penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
@@ -224,7 +227,7 @@ et al. (2014):
     <https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689>
     (Accessed 2020-06-08).
 
-**Chinstrap penguins:**
+Chinstrap penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
