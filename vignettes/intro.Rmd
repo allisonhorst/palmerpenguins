@@ -66,15 +66,7 @@ This package contains two datasets:
 
 1. The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
 
-The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
-
--   `species`: a factor denoting the penguin species (Adelie, Chinstrap, or Gentoo)
--   `island`: a factor denoting the island (in Palmer Archipelago, Antarctica) where observed (Biscoe, Dream, or Torgersen)
--   `bill_length_mm`: a number denoting length of the dorsal ridge of penguin bill (millimeters)
--   `bill_depth_mm`: a number denoting the depth of the penguin bill (millimeters)
--   `flipper_length_mm`: an integer denoting penguin flipper length (millimeters)
--   `body_mass_g`: an integer denoting penguin body mass (grams)
--   `sex`: a factor denoting penguin sex (male, female)
+The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins). You can read more about the variables by typing `?penguins`.
 
 ```{r}
 glimpse(penguins)
@@ -153,7 +145,7 @@ The `penguins` data also has four continuous variables, making six unique scatte
 
 ```{r}
 penguins %>%
-  dplyr::select(where(is.numeric)) %>% 
+  dplyr::select(body_mass_g, ends_with("_mm")) %>% 
   glimpse()
 ```
 
@@ -193,7 +185,7 @@ Also see `vignette("pca")` for an example principal component analysis.
 
 ```{r penguin-pairs, eval=FALSE}
 penguins %>%
-  select(species, where(is.numeric)) %>% 
+  select(species, body_mass_g, ends_with("_mm")) %>% 
   GGally::ggpairs(aes(color = species)) +
   scale_colour_manual(values = c("darkorange","purple","cyan4")) +
   scale_fill_manual(values = c("darkorange","purple","cyan4"))
