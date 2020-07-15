@@ -1,6 +1,7 @@
 library(tidyverse)
 library(here)
 library(janitor)
+library(lubridate)
 
 # Download raw data -------------------------------------------------------
 
@@ -29,6 +30,7 @@ penguins_df <- penguins_raw_df %>%
   clean_names() %>%
   mutate(species_short = word(species, 1)) %>%
   mutate(sex = tolower(sex)) %>%
+  mutate(year = as.integer(lubridate::year(date_egg))) %>%
   mutate(across(where(is.character), as.factor)) %>%
   mutate(flipper_length_mm = as.integer(flipper_length_mm)) %>%
   mutate(body_mass_g = as.integer(body_mass_g)) %>%
@@ -40,7 +42,8 @@ penguins_df <- penguins_raw_df %>%
          bill_depth_mm,
          flipper_length_mm,
          body_mass_g,
-         sex) %>%
+         sex,
+         year) %>%
   rename(species = species_short) %>%
   as.data.frame()
 
