@@ -1,5 +1,5 @@
 ---
-title: "Download the palmerpenguin data from LTER"
+title: "Download palmerpenguins data from Environmental Data Initiative"
 ---
 
 ```{r, include = FALSE}
@@ -15,7 +15,7 @@ library(palmerpenguins)
 
 ## Download data from a URL
 
-You can also get the data directly from EDI using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/ ) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
+You can also get this penguin data directly from the Environmental Data Initiative (EDI) using the R code below. Thanks to [Julien Brun](http://brunj7.github.io/about/) for the reminder and code below to access & combine them (will get you same data as `penguins_raw`):  
 
 ```{r eval = FALSE}
 # Adelie penguin data from: https://doi.org/10.6073/pasta/abc50eed9138b75f54eaada0841b9b86

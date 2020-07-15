@@ -15,4 +15,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Links to user-contributed examples, posts and vignettes: 
 
+[**Multivariate EDA**](https://rpubs.com/friendly/penguin-biplots) by Michael Friendly
 
+Description: These examples show the use of multivariate exploratory visualization methods -- principal component analysis and biplots -- to understand the relations among variables in the penguins data set.
+
+[**MANOVA and HE plots**](https://rpubs.com/friendly/penguin-manova) by Michael Friendly
+
+Description: This vignette illustrates the use of MANOVA, HE plots and canonical discriminant analysis in the analysis of the Palmer penguins data.
+
+[**Basic data analysis with palmerpenguins**](https://www.r-bloggers.com/basic-data-analysis-with-palmerpenguins/) by jhk0530
+
+Description: Examples of EDA and statistical analysis with penguins
+
+### To add your examples: 
+
+Please submit a GitHub [issue](https://github.com/allisonhorst/palmerpenguins/issues) that includes a short title, link, author name(s), and brief (1 - 2 sentence) description.
