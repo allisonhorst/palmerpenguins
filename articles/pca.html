@@ -126,29 +126,25 @@
     
     
 <p>You’ll need these packages to follow along with the code in this article locally:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://allisonhorst.github.io/palmerpenguins">palmerpenguins</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">corrr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">GGally</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/tidymodels/recipes">recipes</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">tidytext</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://tidyr.tidyverse.org">tidyr</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>())
-</pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">corrr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">GGally</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">recipes</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidytext</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>())</pre></body></html></div>
 <div id="correlation-matrix" class="section level2">
 <h2 class="hasAnchor">
 <a href="#correlation-matrix" class="anchor"></a>Correlation matrix</h2>
 <p>The <code><a href="../reference/penguins.html">palmerpenguins::penguins</a></code> data contains several size measurement variables that are correlated. Let’s take a look at the correlation matrix with the <a href="https://corrr.tidymodels.org/">corrr package</a> and the <code>corrr::correlate()</code> function:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">corrr</span>)
-<span class="kw">penguins_corr</span> <span class="op">&lt;-</span> <span class="kw">penguins</span> <span class="op">%&gt;%</span>
-  <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="fu">where</span>(<span class="kw">is.numeric</span>)) <span class="op">%&gt;%</span>
-  <span class="fu">correlate</span>() <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">corrr</span>)
+<span class="no">penguins_corr</span> <span class="kw">&lt;-</span> <span class="no">penguins</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">body_mass_g</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">ends_with</a></span>(<span class="st">"_mm"</span>)) <span class="kw">%&gt;%</span>
+  <span class="fu">correlate</span>() <span class="kw">%&gt;%</span>
   <span class="fu">rearrange</span>()
-<span class="kw">penguins_corr</span>
-</pre></div>
+<span class="no">penguins_corr</span></pre></body></html></div>
 <pre><code>#&gt; # A tibble: 4 x 5
 #&gt;   rowname           flipper_length_mm body_mass_g bill_length_mm bill_depth_mm
 #&gt;   &lt;chr&gt;                         &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;         &lt;dbl&gt;
@@ -162,15 +158,13 @@
 <h2 class="hasAnchor">
 <a href="#pairwise-plot-matrix" class="anchor"></a>Pairwise plot matrix</h2>
 <p>We can visualize these correlations with the <a href="https://ggobi.github.io/ggally/">GGally package</a>. The function we’ll use is called <a href="https://ggobi.github.io/ggally/articles/ggpairs.html"><code>GGally::ggpairs()</code></a>.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw">penguins</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="kw">species</span>, <span class="fu">where</span>(<span class="kw">is.numeric</span>)) <span class="op">%&gt;%</span> 
-  <span class="kw">GGally</span>::<span class="fu">ggpairs</span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(color = <span class="kw">species</span>),
-          columns = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"flipper_length_mm"</span>, <span class="st">"body_mass_g"</span>, 
-                      <span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))
-</pre></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">penguins</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">species</span>, <span class="no">body_mass_g</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">ends_with</a></span>(<span class="st">"_mm"</span>)) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">GGally</span><span class="kw ns">::</span><span class="fu">ggpairs</span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>),
+          <span class="kw">columns</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"flipper_length_mm"</span>, <span class="st">"body_mass_g"</span>,
+                      <span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))</pre></body></html></div>
 <p><img src="figs/penguin-pairs.png" width="100%"></p>
 </div>
 <div id="principal-component-analysis-pca" class="section level2">
@@ -184,22 +178,20 @@
 <li>scale all predictors.</li>
 </ul>
 <p>If you’ve never used the recipes package before, try <a href="https://www.tidymodels.org/start/recipes/">this article</a> to get started.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/tidymodels/recipes">recipes</a></span>)
-<span class="kw">penguin_recipe</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html">recipe</a></span>(<span class="op">~</span><span class="kw">.</span>, data = <span class="kw">penguins</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/roles.html">update_role</a></span>(<span class="kw">species</span>, <span class="kw">island</span>, <span class="kw">sex</span>, new_role = <span class="st">"id"</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_naomit.html">step_naomit</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>()) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_normalize.html">step_normalize</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>()) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_pca.html">step_pca</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>(), id = <span class="st">"pca"</span>) <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">recipes</span>)
+<span class="no">penguin_recipe</span> <span class="kw">&lt;-</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/recipe.html">recipe</a></span>(~<span class="no">.</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">penguins</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/roles.html">update_role</a></span>(<span class="no">species</span>, <span class="no">island</span>, <span class="no">sex</span>, <span class="no">year</span>, <span class="kw">new_role</span> <span class="kw">=</span> <span class="st">"id"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_naomit.html">step_naomit</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>()) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_normalize.html">step_normalize</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>()) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/step_pca.html">step_pca</a></span>(<span class="fu"><a href="https://recipes.tidymodels.org/reference/has_role.html">all_predictors</a></span>(), <span class="kw">id</span> <span class="kw">=</span> <span class="st">"pca"</span>) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://recipes.tidymodels.org/reference/prep.html">prep</a></span>()
 
-<span class="kw">penguin_pca</span> <span class="op">&lt;-</span> 
-  <span class="kw">penguin_recipe</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span>(id = <span class="st">"pca"</span>) 
+<span class="no">penguin_pca</span> <span class="kw">&lt;-</span>
+  <span class="no">penguin_recipe</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/reexports.html">tidy</a></span>(<span class="kw">id</span> <span class="kw">=</span> <span class="st">"pca"</span>)
 
-<span class="kw">penguin_pca</span>
-</pre></div>
+<span class="no">penguin_pca</span></pre></body></html></div>
 <pre><code>#&gt; # A tibble: 16 x 4
 #&gt;    terms                value component id   
 #&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;
@@ -221,100 +213,88 @@
 #&gt; 16 body_mass_g        0.580   PC4       pca</code></pre>
 <p>The <code>value</code> column here is the loading. For each component, the <code>value</code> tells us the linear combination of weights for each variable that contributes to that component.</p>
 <p>This output is a tidy version of this using <code><a href="https://rdrr.io/r/stats/prcomp.html">stats::prcomp()</a></code>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="fu">where</span>(<span class="kw">is.numeric</span>)) <span class="op">%&gt;%</span> 
-  <span class="kw">tidyr</span>::<span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span>() <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span>() <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span>() <span class="op">%&gt;%</span>  
-  <span class="kw">.</span><span class="op">$</span><span class="kw">rotation</span>
-</pre></div>
-<pre><code>#&gt;                          PC1          PC2        PC3        PC4
-#&gt; bill_length_mm     0.4552503 -0.597031143 -0.6443012  0.1455231
-#&gt; bill_depth_mm     -0.4003347 -0.797766572  0.4184272 -0.1679860
-#&gt; flipper_length_mm  0.5760133 -0.002282201  0.2320840 -0.7837987
-#&gt; body_mass_g        0.5483502 -0.084362920  0.5966001  0.5798821</code></pre>
-<p>We can also apply the <code><a href="https://rdrr.io/pkg/generics/man/tidy.html">recipes::tidy()</a></code> method to the output from <code><a href="https://recipes.tidymodels.org/reference/step_pca.html">recipes::step_pca()</a></code> to examine how much variance each component accounts for:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="kw">penguin_recipe</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/generics/man/tidy.html">tidy</a></span>(id = <span class="st">"pca"</span>, type = <span class="st">"variance"</span>) <span class="op">%&gt;%</span> 
-  <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">terms</span> <span class="op">==</span> <span class="st">"percent variance"</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">component</span>, y = <span class="kw">value</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>(fill = <span class="st">"#b6dfe2"</span>) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">5</span>)) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"% of total variance"</span>)
-</pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">penguins</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">body_mass_g</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">ends_with</a></span>(<span class="st">"_mm"</span>)) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span>() <span class="kw">%&gt;%</span>
+  <span class="no">.</span>$<span class="no">rotation</span></pre></body></html></div>
+<pre><code>#&gt;                          PC1         PC2        PC3        PC4
+#&gt; body_mass_g        0.5483502 0.084362920 -0.5966001 -0.5798821
+#&gt; bill_length_mm     0.4552503 0.597031143  0.6443012 -0.1455231
+#&gt; bill_depth_mm     -0.4003347 0.797766572 -0.4184272  0.1679860
+#&gt; flipper_length_mm  0.5760133 0.002282201 -0.2320840  0.7837987</code></pre>
+<p>We can also apply the <code><a href="https://recipes.tidymodels.org/reference/reexports.html">recipes::tidy()</a></code> method to the output from <code><a href="https://recipes.tidymodels.org/reference/step_pca.html">recipes::step_pca()</a></code> to examine how much variance each component accounts for:</p>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">penguin_recipe</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/reexports.html">tidy</a></span>(<span class="kw">id</span> <span class="kw">=</span> <span class="st">"pca"</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"variance"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">terms</span> <span class="kw">==</span> <span class="st">"percent variance"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">component</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">value</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="st">"#b6dfe2"</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">5</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"% of total variance"</span>)</pre></body></html></div>
 <p><img src="pca_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 <div id="plot-pca-loadings" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plot-pca-loadings" class="anchor"></a>Plot PCA loadings</h2>
 <p>We can plot these loadings by principal component too, following <a href="https://juliasilge.com/blog/cocktail-recipes-umap/">Julia Silge’s example</a>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-<span class="kw">penguin_pca</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(terms = <span class="kw">tidytext</span>::<span class="fu">reorder_within</span>(<span class="kw">terms</span>, 
-                                          <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="kw">value</span>), 
-                                          <span class="kw">component</span>)) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="kw">value</span>), <span class="kw">terms</span>, fill = <span class="kw">value</span> <span class="op">&gt;</span> <span class="fl">0</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw">component</span>, scales = <span class="st">"free_y"</span>) <span class="op">+</span>
-  <span class="kw">tidytext</span>::<span class="fu">scale_y_reordered</span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#b6dfe2"</span>, <span class="st">"#0A537D"</span>)) <span class="op">+</span>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
+<span class="no">penguin_pca</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">terms</span> <span class="kw">=</span> <span class="kw pkg">tidytext</span><span class="kw ns">::</span><span class="fu">reorder_within</span>(<span class="no">terms</span>,
+                                          <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="no">value</span>),
+                                          <span class="no">component</span>)) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="no">value</span>), <span class="no">terms</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="no">value</span> <span class="kw">&gt;</span> <span class="fl">0</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(~<span class="no">component</span>, <span class="kw">scales</span> <span class="kw">=</span> <span class="st">"free_y"</span>) +
+  <span class="kw pkg">tidytext</span><span class="kw ns">::</span><span class="fu">scale_y_reordered</span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#b6dfe2"</span>, <span class="st">"#0A537D"</span>)) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(
-    x = <span class="st">"Absolute value of contribution"</span>,
-    y = <span class="kw">NULL</span>, fill = <span class="st">"Positive?"</span>
-  ) 
-</pre></div>
+    <span class="kw">x</span> <span class="kw">=</span> <span class="st">"Absolute value of contribution"</span>,
+    <span class="kw">y</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="st">"Positive?"</span>
+  )</pre></body></html></div>
 <p><img src="figs/pca-loadings-plot.png" width="100%"></p>
 </div>
 <div id="plot-pca-loadings-scores" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plot-pca-loadings-scores" class="anchor"></a>Plot PCA loadings + scores</h2>
 <p>We have the PCA loadings in <code>penguin_pca</code>. But we need them in a wide format now for plotting.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="co"># get pca loadings into wider format</span>
-<span class="kw">pca_wider</span> <span class="op">&lt;-</span> <span class="kw">penguin_pca</span> <span class="op">%&gt;%</span> 
-  <span class="kw">tidyr</span>::<span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span>(names_from = <span class="kw">component</span>, id_cols = <span class="kw">terms</span>)
-</pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># get pca loadings into wider format</span>
+<span class="no">pca_wider</span> <span class="kw">&lt;-</span> <span class="no">penguin_pca</span> <span class="kw">%&gt;%</span>
+  <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span>(<span class="kw">names_from</span> <span class="kw">=</span> <span class="no">component</span>, <span class="kw">id_cols</span> <span class="kw">=</span> <span class="no">terms</span>)</pre></body></html></div>
 <p>We also need to go back to our prepped penguin recipe, <code>prepped_penguins</code>, and <code><a href="https://recipes.tidymodels.org/reference/juice.html">recipes::juice()</a></code> it to get the PCA scores back.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="co"># define arrow style</span>
-<span class="kw">arrow_style</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grid/arrow.html">arrow</a></span>(length = <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fl">.05</span>, <span class="st">"inches"</span>),
-                     type = <span class="st">"closed"</span>)
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="co"># define arrow style</span>
+<span class="no">arrow_style</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">arrow</a></span>(<span class="kw">length</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">unit</a></span>(<span class="fl">.05</span>, <span class="st">"inches"</span>),
+                     <span class="kw">type</span> <span class="kw">=</span> <span class="st">"closed"</span>)
 
 
-<span class="kw">pca_plot</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://recipes.tidymodels.org/reference/juice.html">juice</a></span>(<span class="kw">penguin_recipe</span>) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">PC1</span>, <span class="kw">PC2</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(color = <span class="kw">species</span>, shape = <span class="kw">species</span>), 
-             alpha = <span class="fl">0.8</span>, 
-             size = <span class="fl">2</span>) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) 
+<span class="no">pca_plot</span> <span class="kw">&lt;-</span>
+  <span class="fu"><a href="https://recipes.tidymodels.org/reference/juice.html">juice</a></span>(<span class="no">penguin_recipe</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">PC1</span>, <span class="no">PC2</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">species</span>, <span class="kw">shape</span> <span class="kw">=</span> <span class="no">species</span>),
+             <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.8</span>,
+             <span class="kw">size</span> <span class="kw">=</span> <span class="fl">2</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))
 
-<span class="kw">pca_plot</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(data = <span class="kw">pca_wider</span>,
-               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(xend = <span class="kw">PC1</span>, yend = <span class="kw">PC2</span>), 
-               x = <span class="fl">0</span>, 
-               y = <span class="fl">0</span>, 
-               arrow = <span class="kw">arrow_style</span>) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="kw">pca_wider</span>,
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">PC1</span>, y = <span class="kw">PC2</span>, label = <span class="kw">terms</span>), 
-            hjust = <span class="fl">0</span>, 
-            vjust = <span class="fl">1</span>,
-            size = <span class="fl">5</span>, 
-            color = <span class="st">'#0A537D'</span>) 
-</pre></div>
+<span class="no">pca_plot</span> +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pca_wider</span>,
+               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">xend</span> <span class="kw">=</span> <span class="no">PC1</span>, <span class="kw">yend</span> <span class="kw">=</span> <span class="no">PC2</span>),
+               <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>,
+               <span class="kw">y</span> <span class="kw">=</span> <span class="fl">0</span>,
+               <span class="kw">arrow</span> <span class="kw">=</span> <span class="no">arrow_style</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pca_wider</span>,
+            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">PC1</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">PC2</span>, <span class="kw">label</span> <span class="kw">=</span> <span class="no">terms</span>),
+            <span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>,
+            <span class="kw">vjust</span> <span class="kw">=</span> <span class="fl">1</span>,
+            <span class="kw">size</span> <span class="kw">=</span> <span class="fl">5</span>,
+            <span class="kw">color</span> <span class="kw">=</span> <span class="st">'#0A537D'</span>)</pre></body></html></div>
 <p><img src="pca_files/figure-html/pc1-2-plot-1.png" width="100%"></p>
 <p>In the above plot, you can see a lot!</p>
 <p>First, if you focus on the x-axis showing us the first principal component, you can see that flipper length and body mass are very important (confirming what we saw in the above bar chart). Along this dimension, Gentoo penguins stand out clearly from the other two species. We can confirm this looking at summary statistics:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">species</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw">flipper_length_mm</span>, <span class="kw">body_mass_g</span>), 
-                   <span class="kw">mean</span>, 
-                   na.rm = <span class="fl">TRUE</span>)) 
-</pre></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">penguins</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">species</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">flipper_length_mm</span>, <span class="no">body_mass_g</span>),
+                   <span class="no">mean</span>,
+                   <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>#&gt; # A tibble: 3 x 3
 #&gt;   species   flipper_length_mm body_mass_g
 #&gt;   &lt;fct&gt;                 &lt;dbl&gt;       &lt;dbl&gt;
@@ -322,38 +302,32 @@
 #&gt; 2 Chinstrap              196.       3733.
 #&gt; 3 Gentoo                 217.       5076.</code></pre>
 <p>We can see this with a simple scatterplot:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">flipper_length_mm</span>, y = <span class="kw">body_mass_g</span>, colour = <span class="kw">species</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) 
-</pre></div>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">flipper_length_mm</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">body_mass_g</span>, <span class="kw">colour</span> <span class="kw">=</span> <span class="no">species</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))</pre></body></html></div>
 <p><img src="pca_files/figure-html/flipper-mass-plot-1.png" width="100%"></p>
 <p>If you now focus more on the y-axis showing us the second principal component, you can see that our two bill size variables, <code>bill_length_mm</code> and <code>bill_depth_mm</code>, are very important (again, confirming what we saw in the above bar chart).</p>
 <p>Let’s do the same thing for principal component 2 and 3.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
-<span class="kw">pca_plot</span> <span class="op">%+%</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">PC2</span>, <span class="kw">PC3</span>) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(data = <span class="kw">pca_wider</span>,
-               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(xend = <span class="kw">PC2</span>, yend = <span class="kw">PC3</span>), 
-               x = <span class="fl">0</span>, 
-               y = <span class="fl">0</span>, 
-               arrow = <span class="kw">arrow_style</span>) <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(data = <span class="kw">pca_wider</span>,
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">PC2</span>, y = <span class="kw">PC3</span>, label = <span class="kw">terms</span>), 
-            hjust = <span class="fl">0</span>, 
-            vjust = <span class="fl">1</span>,
-            size = <span class="fl">5</span>, 
-            color = <span class="st">'#0A537D'</span>) 
-</pre></div>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">pca_plot</span> <span class="kw">%+%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">PC2</span>, <span class="no">PC3</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pca_wider</span>,
+               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">xend</span> <span class="kw">=</span> <span class="no">PC2</span>, <span class="kw">yend</span> <span class="kw">=</span> <span class="no">PC3</span>),
+               <span class="kw">x</span> <span class="kw">=</span> <span class="fl">0</span>,
+               <span class="kw">y</span> <span class="kw">=</span> <span class="fl">0</span>,
+               <span class="kw">arrow</span> <span class="kw">=</span> <span class="no">arrow_style</span>) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pca_wider</span>,
+            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">PC2</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">PC3</span>, <span class="kw">label</span> <span class="kw">=</span> <span class="no">terms</span>),
+            <span class="kw">hjust</span> <span class="kw">=</span> <span class="fl">0</span>,
+            <span class="kw">vjust</span> <span class="kw">=</span> <span class="fl">1</span>,
+            <span class="kw">size</span> <span class="kw">=</span> <span class="fl">5</span>,
+            <span class="kw">color</span> <span class="kw">=</span> <span class="st">'#0A537D'</span>)</pre></body></html></div>
 <p><img src="pca_files/figure-html/unnamed-chunk-8-1.png" width="100%"></p>
 <p>We see again that PC2 seems most associated with our bill size variables, <code>bill_length_mm</code> and <code>bill_depth_mm</code>. But now we can see more clearly that this dimension seems to separate Chinstrap penguins from the other two species. We can confirm this by glancing at summary statistics again by species:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit">
-<span class="kw">penguins</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">species</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw">bill_depth_mm</span>, <span class="kw">bill_length_mm</span>), 
-                   <span class="kw">mean</span>, 
-                   na.rm = <span class="fl">TRUE</span>))
-</pre></div>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="no">penguins</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">species</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">bill_depth_mm</span>, <span class="no">bill_length_mm</span>),
+                   <span class="no">mean</span>,
+                   <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>#&gt; # A tibble: 3 x 3
 #&gt;   species   bill_depth_mm bill_length_mm
 #&gt;   &lt;fct&gt;             &lt;dbl&gt;          &lt;dbl&gt;
@@ -361,11 +335,9 @@
 #&gt; 2 Chinstrap          18.4           48.8
 #&gt; 3 Gentoo             15.0           47.5</code></pre>
 <p>We can see this with a simple scatterplot too:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">bill_length_mm</span>, y = <span class="kw">bill_depth_mm</span>, colour = <span class="kw">species</span>)) <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(values = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) 
-</pre></div>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">bill_length_mm</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">bill_depth_mm</span>, <span class="kw">colour</span> <span class="kw">=</span> <span class="no">species</span>)) +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() +
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="kw">values</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>))</pre></body></html></div>
 <p><img src="pca_files/figure-html/unnamed-chunk-10-1.png" width="100%"></p>
 <p>This is actually a pretty neat scatterplot—it highlights a perfect example of why you’d need the combination of two variables to differentiate between these three species. Comparing distributions for any single variable only differentiates one species from the other two!<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p><img src="pca_files/figure-html/unnamed-chunk-11-1.png" width="49%"><img src="pca_files/figure-html/unnamed-chunk-11-2.png" width="49%"></p>
@@ -409,7 +381,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
