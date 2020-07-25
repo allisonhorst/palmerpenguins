@@ -17,15 +17,15 @@ exploration & visualization, as an alternative to `iris`.
 
 ## Installation
 
-<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of palmerpenguins from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("palmerpenguins")
 ```
--->
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+To install the development version from [GitHub](https://github.com/)
+use:
 
 ``` r
 # install.packages("remotes")
