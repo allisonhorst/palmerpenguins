@@ -43,15 +43,13 @@ These data were collected from 2007 - 2009 by Dr. Kristen Gorman with the [Palme
 
 ## Installation
 
-<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("palmerpenguins")
 ```
--->
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+Or install the development version from [GitHub](https://github.com/) with:
 
 ```{r eval=FALSE}
 # install.packages("remotes")
