@@ -126,14 +126,10 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("palmerpenguins")
-```
--->
-<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("remotes")</span>
+<p>You can install the released version of palmerpenguins from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"palmerpenguins"</span>)</pre></div>
+<p>To install the development version from <a href="https://github.com/">GitHub</a> use:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("remotes")</span>
 <span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"allisonhorst/palmerpenguins"</span>)</pre></div>
 </div>
 <div id="about-the-data" class="section level2">
@@ -141,10 +137,10 @@ install.packages("palmerpenguins")
 <a href="#about-the-data" class="anchor"></a>About the data</h2>
 <p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr. Kristen Gorman</a> and the <a href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/">Long Term Ecological Research Network</a>.</p>
 <p>The palmerpenguins package contains two datasets.</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">palmerpenguins</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="kw">package</span> <span class="kw">=</span> <span class="st">'palmerpenguins'</span>)</pre></div>
 <p>One is called <code>penguins</code>, and is a simplified version of the raw data; see <code><a href="reference/penguins.html">?penguins</a></code> for more info:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins</span>)
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins</span>)
 <span class="co">#&gt; # A tibble: 6 x 8</span>
 <span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span>
 <span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;</span>
@@ -156,7 +152,7 @@ install.packages("palmerpenguins")
 <span class="co">#&gt; 6 Adelie  Torge…           39.3          20.6              190        3650 male </span>
 <span class="co">#&gt; # … with 1 more variable: year &lt;int&gt;</span></pre></div>
 <p>The second dataset is <code>penguins_raw</code>, and contains all the variables and original names as downloaded; see <code><a href="reference/penguins_raw.html">?penguins_raw</a></code> for more info.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_raw</span>)
+<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">penguins_raw</span>)
 <span class="co">#&gt; # A tibble: 6 x 17</span>
 <span class="co">#&gt;   studyName `Sample Number` Species Region Island Stage `Individual ID`</span>
 <span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span>
@@ -171,7 +167,7 @@ install.packages("palmerpenguins")
 <span class="co">#&gt; #   (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></pre></div>
 <p>Both datasets contain data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">penguins</span>)
+<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">penguins</span>)
 <span class="co">#&gt; tibble [344 × 8] (S3: tbl_df/tbl/data.frame)</span>
 <span class="co">#&gt;  $ species          : Factor w/ 3 levels "Adelie","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">#&gt;  $ island           : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...</span>
@@ -188,7 +184,7 @@ install.packages("palmerpenguins")
 <a href="#examples" class="anchor"></a>Examples</h2>
 <p>You can find these and more code examples for exploring palmerpenguins in <code><a href="articles/examples.html">vignette("examples")</a></code>.</p>
 <p>Penguins are fun to summarize! For example:</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
+<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
 <span class="no">penguins</span> <span class="kw">%&gt;%</span>
   <span class="fu">count</span>(<span class="no">species</span>)
 <span class="co">#&gt; # A tibble: 3 x 2</span>
@@ -236,7 +232,7 @@ install.packages("palmerpenguins")
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
 <p>To cite the palmerpenguins package, please use:</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"palmerpenguins"</span>)
+<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"palmerpenguins"</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite palmerpenguins in publications use:</span>
 <span class="co">#&gt; </span>
