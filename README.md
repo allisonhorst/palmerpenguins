@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3960218.svg)](https://doi.org/10.5281/zenodo.3960218)
+[![CRAN](https://www.r-pkg.org/badges/version/palmerpenguins)](https://cran.r-project.org/package=palmerpenguins)
 
 <!-- badges: end -->
 
@@ -100,7 +101,7 @@ str(penguins)
 #>  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
 ```
 
-**Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network\!
+We gratefully acknowledge Palmer Station LTER and the US LTER Network.
 Special thanks to Marty Downs (Director, LTER Network Office) for help
 regarding the data license & use.
 
