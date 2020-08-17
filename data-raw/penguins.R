@@ -1,6 +1,7 @@
 library(tidyverse)
 library(here)
 library(janitor)
+library(openxlsx)
 
 # Download raw data -------------------------------------------------------
 
@@ -46,3 +47,41 @@ penguins_df <- penguins_raw_df %>%
 
 usethis::use_data(penguins_df, penguins_raw_df, internal = TRUE, overwrite = TRUE)
 write_csv(penguins_df, here::here("inst", "extdata", "penguins.csv"))
+
+# Alternative data formats ------------------------------------------------
+
+# csv file with meta data in header
+fileConn <- file(here::here("inst", "extdata", "penguins-meta-data.csv"))
+writeLines(c('Source: Data were collected and made available by Dr. Kristen
+             Gorman and the Palmer Station, Antarctica LTER, a member of the
+             Long Term Ecological Research Network',
+             'Anyone interested in publishing the data should contact Dr.
+             Kristen Gorman about analysis and working together on any final
+             products. From Gorman et al. (2014): “Individuals interested in
+             using these data are expected to follow the US LTER Network’s Data
+             Access Policy, Requirements and Use Agreement:
+             https://lternet.edu/data-access-policy/.”'), fileConn)
+close(fileConn)
+write_csv(penguins_df, here::here("inst", "extdata",
+                                         "penguins-meta-data.csv"),
+                 append = TRUE)
+fileConn <- file(here::here("inst", "extdata", "penguins-meta-data.csv"))
+writeLines(c('R package URL: https://allisonhorst.github.io/palmerpenguins/'),
+           fileConn)
+close(fileConn)
+
+# csv2 format
+write_csv2(penguins_df, here::here("inst", "extdata",
+                                           "penguins2.csv"),
+                   col_names = FALSE)
+
+# mixed white space
+mixed_penguins <- penguins_df %>%
+  unite("species island", species, island, sep = " ") %>%
+  write_tsv(here::here("inst", "extdata", "penguins.tsv"))
+
+# Excel file
+write.xlsx(penguins_raw_df, here::here("inst", "extdata", "penguins.xlsx"),
+           sheetName = "penguins_raw")
+write.xlsx(penguins_df, here::here("inst", "extdata", "penguins.xlsx"),
+           sheetName = "penguins")

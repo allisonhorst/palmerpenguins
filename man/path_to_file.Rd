@@ -15,7 +15,8 @@ path_to_file(path = NULL)
 If \code{NULL}, the example files will be listed.}
 }
 \description{
-palmerpenguins comes bundled with two csv files in its \code{inst/extdata}
+palmerpenguins comes bundled with three csv files, a tsv file, and an xlsx
+for practice reading in data. They are located in the \code{inst/extdata}
 directory. This function make them easy to access.
 }
 \details{
