@@ -68,10 +68,13 @@ close(fileConn)
 write_csv(penguins_df, here::here("inst", "extdata",
                                          "penguins-meta-data.csv"),
                  append = TRUE)
-fileConn <- file(here::here("inst", "extdata", "penguins-meta-data.csv"))
-writeLines(c('R package URL: https://allisonhorst.github.io/palmerpenguins/'),
-           fileConn)
-close(fileConn)
+write('R package URL: https://allisonhorst.github.io/palmerpenguins/',
+      file= here::here("inst", "extdata", "penguins-meta-data.csv"),
+      append=TRUE)
+#fileConn <- file(here::here("inst", "extdata", "penguins-meta-data.csv"))
+#writeLines(c('R package URL: https://allisonhorst.github.io/palmerpenguins/'),
+#           fileConn)
+#close(fileConn)
 
 # csv2 format
 write_csv2(penguins_df, here::here("inst", "extdata",
