@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3960218.svg)](https://doi.org/10.5281/zenodo.3960218)
+[![CRAN](https://www.r-pkg.org/badges/version/palmerpenguins)](https://cran.r-project.org/package=palmerpenguins)
+
 <!-- badges: end -->
 
 The goal of palmerpenguins is to provide a great dataset for data
@@ -14,15 +17,15 @@ exploration & visualization, as an alternative to `iris`.
 
 ## Installation
 
-<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of palmerpenguins from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("palmerpenguins")
 ```
--->
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+To install the development version from [GitHub](https://github.com/)
+use:
 
 ``` r
 # install.packages("remotes")
@@ -49,7 +52,7 @@ see `?penguins` for more info:
 
 ``` r
 head(penguins)
-#> # A tibble: 6 x 7
+#> # A tibble: 6 x 8
 #>   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  
 #>   <fct>   <fct>           <dbl>         <dbl>            <int>       <int> <fct>
 #> 1 Adelie  Torge…           39.1          18.7              181        3750 male 
@@ -57,7 +60,8 @@ head(penguins)
 #> 3 Adelie  Torge…           40.3          18                195        3250 fema…
 #> 4 Adelie  Torge…           NA            NA                 NA          NA <NA> 
 #> 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
-#> 6 Adelie  Torge…           39.3          20.6              190        3650 male
+#> 6 Adelie  Torge…           39.3          20.6              190        3650 male 
+#> # … with 1 more variable: year <int>
 ```
 
 The second dataset is `penguins_raw`, and contains all the variables and
@@ -86,7 +90,7 @@ Palmer Archipelago, Antarctica.
 
 ``` r
 str(penguins)
-#> tibble [344 × 7] (S3: tbl_df/tbl/data.frame)
+#> tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
 #>  $ species          : Factor w/ 3 levels "Adelie","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ island           : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...
 #>  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
@@ -94,9 +98,10 @@ str(penguins)
 #>  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
 #>  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
 #>  $ sex              : Factor w/ 2 levels "female","male": 2 1 1 NA 1 2 1 2 NA NA ...
+#>  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
 ```
 
-**Thank you** to Dr. Gorman, Palmer Station LTER and the LTER Network\!
+We gratefully acknowledge Palmer Station LTER and the US LTER Network.
 Special thanks to Marty Downs (Director, LTER Network Office) for help
 regarding the data license & use.
 
@@ -120,12 +125,12 @@ penguins %>%
 penguins %>% 
   group_by(species) %>% 
   summarize(across(where(is.numeric), mean, na.rm = TRUE))
-#> # A tibble: 3 x 5
-#>   species   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-#>   <fct>              <dbl>         <dbl>             <dbl>       <dbl>
-#> 1 Adelie              38.8          18.3              190.       3701.
-#> 2 Chinstrap           48.8          18.4              196.       3733.
-#> 3 Gentoo              47.5          15.0              217.       5076.
+#> # A tibble: 3 x 6
+#>   species   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+#>   <fct>              <dbl>         <dbl>             <dbl>       <dbl> <dbl>
+#> 1 Adelie              38.8          18.3              190.       3701. 2008.
+#> 2 Chinstrap           48.8          18.4              196.       3733. 2008.
+#> 3 Gentoo              47.5          15.0              217.       5076. 2008.
 ```
 
 Penguins are fun to visualize\! For example:
@@ -144,7 +149,7 @@ in `vignette("art")`. If you use this artwork, please cite with:
 
 <img src="man/figures/lter_penguins.png" width="75%" style="display: block; margin: auto;" />
 
-### What are culmen length & depth?
+### Bill dimensions
 
 The culmen is the upper ridge of a bird’s bill. In the simplified
 `penguins` data, culmen length and depth are renamed as variables
@@ -165,29 +170,27 @@ Policy for Type I data](https://lternet.edu/data-access-policy/).
 
 ## Citation
 
-To cite the data used in this package, please use:
+To cite the palmerpenguins package, please use:
 
 ``` r
 citation("palmerpenguins")
 #> 
 #> To cite palmerpenguins in publications use:
 #> 
-#>   Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism
-#>   and Environmental Variability within a Community of Antarctic
-#>   Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081.
-#>   https://doi.org/10.1371/journal.pone.0090081
+#>   Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
+#>   Archipelago (Antarctica) penguin data. R package version 0.1.0.
+#>   https://allisonhorst.github.io/palmerpenguins/. doi:
+#>   10.5281/zenodo.3960218.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
-#>   @Article{,
-#>     title = {Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)},
-#>     author = {Gorman KB and Williams TD and Fraser WR},
-#>     journal = {PLoS ONE},
-#>     year = {2014},
-#>     volume = {9(3)},
-#>     number = {e90081},
-#>     pages = {-13},
-#>     url = {https://doi.org/10.1371/journal.pone.0090081},
+#>   @Manual{,
+#>     title = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},
+#>     author = {Allison Marie Horst and Alison Presmanes Hill and Kristen B Gorman},
+#>     year = {2020},
+#>     note = {R package version 0.1.0},
+#>     doi = {10.5281/zenodo.3960218},
+#>     url = {https://allisonhorst.github.io/palmerpenguins/},
 #>   }
 ```
 
@@ -195,20 +198,23 @@ citation("palmerpenguins")
 
 Anyone interested in publishing the data should contact [Dr. Kristen
 Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php)
-about analysis and working together on any final products.
+about analysis and working together on any final products. From Gorman
+et al. (2014): “Individuals interested in using these data are expected
+to follow the US LTER Network’s Data Access Policy, Requirements and Use
+Agreement: <https://lternet.edu/data-access-policy/>.”
 
-From Gorman et al. (2014):
+## References
 
-> “Data reported here are publicly available within the PAL-LTER data
-> system (datasets \#219, 220, and 221):
-> <http://oceaninformatics.ucsd.edu/datazoo/data/pallter/datasets>.
-> Individuals interested in using these data are therefore expected to
-> follow the US LTER Network’s Data Access Policy, Requirements and Use
-> Agreement: <https://lternet.edu/data-access-policy/>.”
+**Data originally published in:**
 
-**Please cite data using the following:**
+  - Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual
+    dimorphism and environmental variability within a community of
+    Antarctic penguins (genus *Pygoscelis*). PLoS ONE 9(3):e90081.
+    <https://doi.org/10.1371/journal.pone.0090081>
 
-**Adélie penguins:**
+**Data citations:**
+
+Adélie penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
@@ -218,7 +224,7 @@ From Gorman et al. (2014):
     <https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f>
     (Accessed 2020-06-08).
 
-**Gentoo penguins:**
+Gentoo penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
@@ -228,7 +234,7 @@ From Gorman et al. (2014):
     <https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689>
     (Accessed 2020-06-08).
 
-**Chinstrap penguins:**
+Chinstrap penguins:
 
   - Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size
     measurements and isotopic signatures of foraging among adult male
@@ -237,9 +243,3 @@ From Gorman et al. (2014):
     Environmental Data Initiative.
     <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e>
     (Accessed 2020-06-08).
-
-## Contributor Code of Conduct
-
-Please note that the ‘palmerpenguins’ project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
-this project, you agree to abide by its terms.

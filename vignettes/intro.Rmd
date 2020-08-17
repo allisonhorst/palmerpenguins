@@ -43,15 +43,13 @@ These data were collected from 2007 - 2009 by Dr. Kristen Gorman with the [Palme
 
 ## Installation
 
-<!--You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of palmerpenguins from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("palmerpenguins")
 ```
--->
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+Or install the development version from [GitHub](https://github.com/) with:
 
 ```{r eval=FALSE}
 # install.packages("remotes")
@@ -66,15 +64,7 @@ This package contains two datasets:
 
 1. The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
 
-The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
-
--   `species`: a factor denoting the penguin species (Adelie, Chinstrap, or Gentoo)
--   `island`: a factor denoting the island (in Palmer Archipelago, Antarctica) where observed (Biscoe, Dream, or Torgersen)
--   `bill_length_mm`: a number denoting length of the dorsal ridge of penguin bill (millimeters)
--   `bill_depth_mm`: a number denoting the depth of the penguin bill (millimeters)
--   `flipper_length_mm`: an integer denoting penguin flipper length (millimeters)
--   `body_mass_g`: an integer denoting penguin body mass (grams)
--   `sex`: a factor denoting penguin sex (male, female)
+The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins). You can read more about the variables by typing `?penguins`.
 
 ```{r}
 glimpse(penguins)
@@ -153,7 +143,7 @@ The `penguins` data also has four continuous variables, making six unique scatte
 
 ```{r}
 penguins %>%
-  dplyr::select(where(is.numeric)) %>% 
+  dplyr::select(body_mass_g, ends_with("_mm")) %>% 
   glimpse()
 ```
 
@@ -193,7 +183,7 @@ Also see `vignette("pca")` for an example principal component analysis.
 
 ```{r penguin-pairs, eval=FALSE}
 penguins %>%
-  select(species, where(is.numeric)) %>% 
+  select(species, body_mass_g, ends_with("_mm")) %>% 
   GGally::ggpairs(aes(color = species)) +
   scale_colour_manual(values = c("darkorange","purple","cyan4")) +
   scale_fill_manual(values = c("darkorange","purple","cyan4"))
@@ -236,30 +226,27 @@ See more examples in:
 
 Or contribute your own!
 
-## Citation & data access
+## Package citation 
 
-Data are from:
+Please cite the palmerpenguins R package using: 
 
 ```{r}
 citation("palmerpenguins")
 ```
 
-The original article can be accessed here:
+## References
 
-<https://doi.org/10.1371/journal.pone.0090081>
+**Data originally published in:** 
 
++ Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*). PLoS ONE 9(3):e90081.  https://doi.org/10.1371/journal.pone.0090081
 
-And the data can be accessed directly via the [Environmental Data Initiative](https://environmentaldatainitiative.org/):
+**Individual datasets:**
 
-**Adélie penguins:**
+Individual data can be accessed directly via the [Environmental Data Initiative](https://environmentaldatainitiative.org/):
 
 -   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Adélie penguins (*Pygoscelis adeliae*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative. <https://doi.org/10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f> (Accessed 2020-06-08).
 
-**Gentoo penguins:**
-
 -   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Gentoo penguin (*Pygoscelis papua*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 5. Environmental Data Initiative. <https://doi.org/10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689> (Accessed 2020-06-08).
-
-**Chinstrap penguins:**
 
 -   Palmer Station Antarctica LTER and K. Gorman, 2020. Structural size measurements and isotopic signatures of foraging among adult male and female Chinstrap penguin (*Pygoscelis antarcticus*) nesting along the Palmer Archipelago near Palmer Station, 2007-2009 ver 6. Environmental Data Initiative. <https://doi.org/10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e> (Accessed 2020-06-08).
 

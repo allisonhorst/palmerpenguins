@@ -1,7 +1,7 @@
 Package: palmerpenguins
-Title: Palmer Station LTER Penguins Data 
+Title: Palmer Archipelago (Antarctica) Penguin Data 
 Version: 0.1.0
-Date: 2020-06-09
+Date: 2020-07-11
 Authors@R: c(
     person(given = "Allison",
            family = "Horst",
@@ -19,12 +19,12 @@ Authors@R: c(
            email = "kbgorman@alaska.edu",
            comment = c(ORCID = "0000-0002-0258-9264"))
            )
-Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and Palmer Station LTER (<https://pal.lternet.edu/>). 
+Description: Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station Long Term Ecological Research (LTER) Program. 
 License: CC0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10)
 Suggests: 

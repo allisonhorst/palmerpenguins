@@ -39,7 +39,7 @@ The `palmerpenguins::penguins` data contains several size measurement variables 
 ```{r corrr}
 library(corrr)
 penguins_corr <- penguins %>%
-  dplyr::select(where(is.numeric)) %>%
+  dplyr::select(body_mass_g, ends_with("_mm")) %>%
   correlate() %>%
   rearrange()
 penguins_corr
@@ -63,7 +63,7 @@ We can visualize these correlations with the [GGally package](https://ggobi.gith
 
 ```{r penguin-pairs}
 penguins %>%
-  select(species, where(is.numeric)) %>% 
+  select(species, body_mass_g, ends_with("_mm")) %>% 
   GGally::ggpairs(aes(color = species),
           columns = c("flipper_length_mm", "body_mass_g", 
                       "bill_length_mm", "bill_depth_mm")) +
@@ -95,7 +95,7 @@ If you've never used the recipes package before, try [this article](https://www.
 library(recipes)
 penguin_recipe <-
   recipe(~., data = penguins) %>% 
-  update_role(species, island, sex, new_role = "id") %>% 
+  update_role(species, island, sex, year, new_role = "id") %>% 
   step_naomit(all_predictors()) %>% 
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors(), id = "pca") %>% 
@@ -116,7 +116,7 @@ This output is a tidy version of this using `stats::prcomp()`:
 
 ```{r prcomp, eval=TRUE}
 penguins %>% 
-  dplyr::select(where(is.numeric)) %>% 
+  dplyr::select(body_mass_g, ends_with("_mm")) %>% 
   tidyr::drop_na() %>% 
   scale() %>% 
   prcomp() %>%  

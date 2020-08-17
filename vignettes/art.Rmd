@@ -33,7 +33,7 @@ For this penguin data, the bill/culmen length and depth are measured as shown be
 
 ```{r echo=FALSE}
 bills <- here::here("man", "figures", "culmen_depth.png")
-link <- xfun::embed_file(bills, "culmen_depth.png", "Download 'culmen depth' art")
+link <- xfun::embed_file(bills, "culmen_depth.png", "Download 'penguin bills' art")
 link
 ```
 
