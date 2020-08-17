@@ -1,11 +1,8 @@
 library(tidyverse)
 library(here)
 library(janitor)
-<<<<<<< HEAD
 library(openxlsx)
-=======
 library(lubridate)
->>>>>>> master
 
 # Download raw data -------------------------------------------------------
 
@@ -87,7 +84,13 @@ mixed_penguins <- penguins_df %>%
   write_tsv(here::here("inst", "extdata", "penguins.tsv"))
 
 # Excel file
-write.xlsx(penguins_raw_df, here::here("inst", "extdata", "penguins.xlsx"),
-           sheetName = "penguins_raw")
-write.xlsx(penguins_df, here::here("inst", "extdata", "penguins.xlsx"),
-           sheetName = "penguins")
+penguins_wb <- createWorkbook()
+
+addWorksheet(penguins_wb, "penguins_raw")
+writeData(penguins_wb, sheet = "penguins_raw", x = penguins_raw_df)
+
+addWorksheet(penguins_wb, "penguins")
+writeData(penguins_wb, sheet = "penguins", x = penguins_df)
+
+saveWorkbook(penguins_wb, here::here("inst", "extdata",
+                            "penguins.xlsx"), overwrite = TRUE)
