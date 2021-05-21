@@ -1,6 +1,20 @@
 url: https://allisonhorst.github.io/palmerpenguins
 
 template:
+  bootstrap: 4
+  bslib:
+    font_scale: 1.0
+    base_font:
+      google: "Lexend"
+    code_font:
+      google: "Overpass Mono"
+    bg: "#fcfbf9"         # lighter springwood background
+    navbar-bg: "#fcfbf9"  # match to site bg
+    fg: "#393E46"         # contrast ratio: 10.41 for text
+    primary: "#272b30"    # dark blue active text
+    secondary: "#BED4E2"  # blue active pill background
+    link-color: "#45799C" # brighter link color, contrast 4.54
+    info: "#BED4E2"       # version badge bg
   params:
     ganalytics: UA-169202294-1
   opengraph:
