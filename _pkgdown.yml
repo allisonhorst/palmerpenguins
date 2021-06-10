@@ -5,7 +5,7 @@ template:
   bslib:
     font_scale: 1.0
     base_font:
-      google: "Lexend"
+      google: "Overpass"
     code_font:
       google: "Overpass Mono"
     heading_font:
@@ -18,6 +18,9 @@ template:
     link-color: "#45799C" # brighter link color, contrast 4.54
     info: "#BED4E2"       # version badge bg
     headings-color: "#336688"
+    # doc how to unpill top nav (make active bg match navbar-bg)
+    # doc hover vs active
+    # if unpilled, active bold
   params:
     ganalytics: UA-169202294-1
   opengraph:
