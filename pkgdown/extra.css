@@ -1,0 +1,55 @@
+/* heavily adapted from Desirée De Leon's tidymodels pkgdown CSS */
+/* https://github.com/tidyverse/tidytemplate/blob/master/inst/pkgdown/assets/tidymodels.css */
+
+:root {
+  --bunker: #272b30;
+  --ziggurat: #BED4E2;
+  --wedgewood: #437496;
+}
+
+/* spacing ----------------------------------------------- */
+
+.contents h2, .contents h3, .contents h4 {
+	margin-bottom: 1.5rem;
+	margin-top: 2rem;
+}
+
+.row {
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .contents {
+    padding-right: 4em;
+  }
+}
+
+/* navbar ----------------------------------------------- */
+
+.navbar {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+/* active behavior for navbar */
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .active > .nav-link {
+	background: var(--ziggurat);
+	color: var(--bunker);
+	border-radius: 0rem;
+}
+
+/* hover behavior for navbar */
+.navbar-light .navbar-nav .nav-item > .nav-link:hover {
+	background: none;
+}
+
+
+code a {
+  color: var(--wedgewood);
+}
+
+code a:hover {
+  color: var(--bunker);
+}
+
