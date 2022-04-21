@@ -1,6 +1,38 @@
 url: https://allisonhorst.github.io/palmerpenguins
 
+home:
+  title: palmerpenguins R data package
+  description: Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER. A great intro dataset for data science teaching and learning, and a useful replacement for the iris dataset.
+
+authors:
+  Allison Horst:
+    href: https://www.allisonhorst.com/
+  Alison Hill:
+    href: https://www.apreshill.com
+  Kristen Gorman:
+    href: https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php
+
 template:
+  bootstrap: 5
+  bslib:
+    font_scale: 1.0
+    base_font:
+      google: "Jost"
+    code_font:
+      google: "Overpass Mono"
+    heading_font:
+      google: "Abhaya Libre"
+    bg: "#fcfbf9"         # lighten springwood background
+    fg: "#231F20"         # contrast ratio: 15.76 for text
+    primary: "#272b30"    # dark blue active text
+    secondary: "#BED4E2"  # blue active pill background
+    link-color: "#437597" # brighter link color, contrast 4.52
+    info: "#BED4E2"       # version badge bg
+    headings-color: "#336688"
+    # navbar
+    navbar-bg: "#fcfbf9"  # match to site bg
+    navbar-light-color: "#272b30"
+    navbar-light-hover-color: "#336688"
   params:
     ganalytics: UA-169202294-1
   opengraph:
@@ -11,19 +43,9 @@ template:
       creator: "@allison_horst"
       card: summary
 
-authors:
-  Allison Horst:
-    href: https://www.allisonhorst.com/
-  Alison Hill:
-    href: https://alison.rbind.io
-  Kristen Gorman:
-    href: https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php
-
-home:
-  title: palmerpenguins R data package
-  description: Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER. A great intro dataset for data science teaching and learning, and a useful replacement for the iris dataset.
-
 navbar:
+  type: light
+  bg: "#fcfbf9"  # apparently this plus navbar-bg needs to be set to same color?
   structure:
     left:  [home, intro, reference, articles]
     right: [github]
