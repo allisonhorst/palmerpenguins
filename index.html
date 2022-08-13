@@ -47,7 +47,7 @@
     
     <a class="navbar-brand me-2" href="index.html">palmerpenguins</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +117,7 @@
 <div class="section level2">
 <h2 id="about-the-data">About the data<a class="anchor" aria-label="anchor" href="#about-the-data"></a>
 </h2>
-<p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php" class="external-link">Dr. Kristen Gorman</a> and the <a href="https://pal.lternet.edu/" class="external-link">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/" class="external-link">Long Term Ecological Research Network</a>.</p>
+<p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php" class="external-link">Dr. Kristen Gorman</a> and the <a href="https://pallter.marine.rutgers.edu/" class="external-link">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/" class="external-link">Long Term Ecological Research Network</a>.</p>
 <p>The palmerpenguins package contains two datasets.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
@@ -125,7 +125,7 @@
 <p>One is called <code>penguins</code>, and is a simplified version of the raw data; see <code><a href="reference/penguins.html">?penguins</a></code> for more info:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 8</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 8</span></span>
 <span><span class="co">#&gt;   species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g sex  </span></span>
 <span><span class="co">#&gt;   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;</span></span>
 <span><span class="co">#&gt; 1 Adelie  Torge…           39.1          18.7              181        3750 male </span></span>
@@ -138,19 +138,19 @@
 <p>The second dataset is <code>penguins_raw</code>, and contains all the variables and original names as downloaded; see <code><a href="reference/penguins_raw.html">?penguins_raw</a></code> for more info.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">penguins_raw</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 17</span></span>
-<span><span class="co">#&gt;   studyName `Sample Number` Species       Region Island  Stage   `Individual ID`</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          </span></span>
-<span><span class="co">#&gt; 1 PAL0708                 1 Adelie Pengu… Anvers Torger… Adult,… N1A1           </span></span>
-<span><span class="co">#&gt; 2 PAL0708                 2 Adelie Pengu… Anvers Torger… Adult,… N1A2           </span></span>
-<span><span class="co">#&gt; 3 PAL0708                 3 Adelie Pengu… Anvers Torger… Adult,… N2A1           </span></span>
-<span><span class="co">#&gt; 4 PAL0708                 4 Adelie Pengu… Anvers Torger… Adult,… N2A2           </span></span>
-<span><span class="co">#&gt; 5 PAL0708                 5 Adelie Pengu… Anvers Torger… Adult,… N3A1           </span></span>
-<span><span class="co">#&gt; 6 PAL0708                 6 Adelie Pengu… Anvers Torger… Adult,… N3A2           </span></span>
-<span><span class="co">#&gt; # … with 10 more variables: Clutch Completion &lt;chr&gt;, Date Egg &lt;date&gt;,</span></span>
-<span><span class="co">#&gt; #   Culmen Length (mm) &lt;dbl&gt;, Culmen Depth (mm) &lt;dbl&gt;,</span></span>
-<span><span class="co">#&gt; #   Flipper Length (mm) &lt;dbl&gt;, Body Mass (g) &lt;dbl&gt;, Sex &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Delta 15 N (o/oo) &lt;dbl&gt;, Delta 13 C (o/oo) &lt;dbl&gt;, Comments &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 6 × 17</span></span>
+<span><span class="co">#&gt;   studyName `Sample Number` Species          Region Island Stage `Individual ID`</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          </span></span>
+<span><span class="co">#&gt; 1 PAL0708                 1 Adelie Penguin … Anvers Torge… Adul… N1A1           </span></span>
+<span><span class="co">#&gt; 2 PAL0708                 2 Adelie Penguin … Anvers Torge… Adul… N1A2           </span></span>
+<span><span class="co">#&gt; 3 PAL0708                 3 Adelie Penguin … Anvers Torge… Adul… N2A1           </span></span>
+<span><span class="co">#&gt; 4 PAL0708                 4 Adelie Penguin … Anvers Torge… Adul… N2A2           </span></span>
+<span><span class="co">#&gt; 5 PAL0708                 5 Adelie Penguin … Anvers Torge… Adul… N3A1           </span></span>
+<span><span class="co">#&gt; 6 PAL0708                 6 Adelie Penguin … Anvers Torge… Adul… N3A2           </span></span>
+<span><span class="co">#&gt; # … with 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,</span></span>
+<span><span class="co">#&gt; #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</span></span></code></pre></div>
 <p>Both datasets contain data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
@@ -174,7 +174,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="va">penguins</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">count</span><span class="op">(</span><span class="va">species</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 3 x 2</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
 <span><span class="co">#&gt;   species       n</span></span>
 <span><span class="co">#&gt;   &lt;fct&gt;     &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1 Adelie      152</span></span>
@@ -183,7 +183,7 @@
 <span><span class="va">penguins</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 3 x 6</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   species   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year</span></span>
 <span><span class="co">#&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 Adelie              38.8          18.3              190.       3701. 2008.</span></span>
@@ -213,7 +213,7 @@
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>Data are available by <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" class="external-link">CC-0</a> license in accordance with the <a href="http://pal.lternet.edu/data/policies" class="external-link">Palmer Station LTER Data Policy</a> and the <a href="https://lternet.edu/data-access-policy/" class="external-link">LTER Data Access Policy for Type I data</a>.</p>
+<p>Data are available by <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" class="external-link">CC-0</a> license in accordance with the <a href="https://pallter.marine.rutgers.edu/data/" class="external-link">Palmer Station LTER Data Policy</a> and the <a href="https://lternet.edu/data-access-policy/" class="external-link">LTER Data Access Policy for Type I data</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
@@ -226,7 +226,8 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer</span></span>
 <span><span class="co">#&gt;   Archipelago (Antarctica) penguin data. R package version 0.1.0.</span></span>
-<span><span class="co">#&gt;   https://allisonhorst.github.io/palmerpenguins/</span></span>
+<span><span class="co">#&gt;   https://allisonhorst.github.io/palmerpenguins/. doi:</span></span>
+<span><span class="co">#&gt;   10.5281/zenodo.3960218.</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -235,6 +236,7 @@
 <span><span class="co">#&gt;     author = {Allison Marie Horst and Alison Presmanes Hill and Kristen B Gorman},</span></span>
 <span><span class="co">#&gt;     year = {2020},</span></span>
 <span><span class="co">#&gt;     note = {R package version 0.1.0},</span></span>
+<span><span class="co">#&gt;     doi = {10.5281/zenodo.3960218},</span></span>
 <span><span class="co">#&gt;     url = {https://allisonhorst.github.io/palmerpenguins/},</span></span>
 <span><span class="co">#&gt;   }</span></span></code></pre></div>
 </div>
