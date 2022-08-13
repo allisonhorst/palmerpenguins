@@ -1,7 +1,7 @@
 Package: palmerpenguins
 Title: Palmer Archipelago (Antarctica) Penguin Data 
-Version: 0.1.0
-Date: 2020-07-11
+Version: 0.1.1
+Date: 2022-08-12
 Authors@R: c(
     person(given = "Allison",
            family = "Horst",
