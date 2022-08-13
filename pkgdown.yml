@@ -1,5 +1,5 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   art: art.html
@@ -8,7 +8,7 @@ articles:
   intro: intro.html
   pca: pca.html
   user_contributions: user_contributions.html
-last_built: 2022-04-21T15:17Z
+last_built: 2022-08-13T00:45Z
 urls:
   reference: https://allisonhorst.github.io/palmerpenguins/reference
   article: https://allisonhorst.github.io/palmerpenguins/articles
