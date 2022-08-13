@@ -1,10 +1,12 @@
 ## Test environments
-* local R installation, R 3.6.1 and 4.0.2
-* ubuntu 16.04 (on travis-ci), R 3.6.1
-* win-builder (devel)
+* Local R installation, R 4.1.2 and 4.2.0
+* r-hub: Windows Server 2022, R-oldrel, 32/64 bit
+* win-builder: using R version 4.2.1 (2022-06-23 ucrt) using platform: x86_64-w64-mingw32 (64-bit)
 
 ## R CMD check results
 
+* Includes R CMD check --as-cran
+
 0 errors | 0 warnings | 0 notes
 
-* This is a new release.
+* Updated using new roxygen2 version to update documentation to HTML5
