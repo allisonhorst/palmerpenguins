@@ -1,6 +1,7 @@
 #' Get file path to `penguins.csv` and `penguins_raw.csv` files
 #'
-#' palmerpenguins comes bundled with two csv files in its `inst/extdata`
+#' palmerpenguins comes bundled with three csv files, a tsv file, and an xlsx
+#' for practice reading in data. They are located in the `inst/extdata`
 #' directory. This function make them easy to access.
 #'
 #' The data in each file is the same as \code{\link{penguins}} and \code{\link{penguins_raw}},
