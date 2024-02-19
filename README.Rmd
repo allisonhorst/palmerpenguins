@@ -74,7 +74,7 @@ remotes::install_github("allisonhorst/palmerpenguins")
 
 ## About the data
 
-Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
+Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://lternet.edu/site/palmer-antarctica-lter/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). 
 
 The palmerpenguins package contains two datasets. 
 
