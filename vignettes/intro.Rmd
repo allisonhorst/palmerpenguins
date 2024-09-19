@@ -62,7 +62,7 @@ This package contains two datasets:
 
 1. Here, we'll focus on a curated subset of the raw data in the package named `penguins`, which can serve as an out-of-the-box alternative to `datasets::iris`.
 
-1. The raw data, accessed from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
+1. The raw data, accessed from the [Environmental Data Initiative](https://edirepository.org) (see full data citations below), is also available as `palmerpenguins::penguins_raw`.
 
 The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins). You can read more about the variables by typing `?penguins`.
 
